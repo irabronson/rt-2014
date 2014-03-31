@@ -1,3 +1,6 @@
+#########################
+# WordPress
+#########################
 .htaccess
 wp-content/uploads/
 wp-content/blogs.dir/
@@ -11,3 +14,22 @@ wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
 wp-config.php
+
+
+#########################
+# Mac OS X
+#########################
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
