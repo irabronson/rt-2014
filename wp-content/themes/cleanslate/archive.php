@@ -10,46 +10,40 @@
  * @package CleanSlate
  * @since CleanSlate 0.1
  */
+?>
 
 <?php get_header(); ?>
     
-    <?php if ( have_posts() ) : ?>
+    <?php echo 'archive page'; ?>
     
-        <?php get_sidebar(); ?>
-        
-        <?php
-            
-            $count = 0;
-        ?>
-        
-        <div id="articles">
-        
-        <?php
-            while ( have_posts() ) : the_post();
-                
-                if ( in_category('browse') ) :
-                    get_template_part( 'content', get_post_format() );
-                    
-                    $count++;
-                else :
-                    // don't show
-                endif;
-                
-            endwhile;
-            
-            if ($count === 0) :
-                echo '<p class="not-found">Sorry, no results found.</p>';
-            endif;
-        ?>
-        
-        </div>
-        
     <?php
+        // Define global args for artist_query
+        $args = array(
+            'post_type' => 'artist',
+            'orderby' => 'meta_value',
+            'meta_key' => 'artist_list_display_name',
+            'order' =>  'ASC'
+        );
+        
+        // Set args based on category
+        if( is_tax('artists','razor-tie') ) :
+            $args['artists'] = 'razor-tie';
+            
+        elseif( is_tax('artists','razor-tie-kids') ) :
+            $args['artists'] = 'razor-tie-kids';
+            
+        elseif( is_tax('artists','washington-square') ) :
+            $args['artists'] = 'washington-square';
+            
         else :
-            // Content Not Found Template
-            include('content-not-found.php');
+            // do nothing
             
         endif;
+        
+        // Query Artist Post Type
+        $artist_query = new WP_Query( $args );
+        
+        include('content-artists.php');
     ?>
     
 <?php get_footer(); ?>
