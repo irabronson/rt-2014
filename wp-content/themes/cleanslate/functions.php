@@ -195,10 +195,7 @@ add_action('admin_menu', 'projects_menu');
 add_theme_support( 'post-thumbnails' );
 
 // Adding Custom Thumbnail Size
-add_image_size( 'small-thumbnail', 80, 45, true );
-
-// Adding Custom Thumbnail Size
-add_image_size( 'medium-crop', 320, 240, true );
+add_image_size( 'small-thumbnail', 145, 145, true );
 
 // Prevent from adding link to inserted imgaes
 update_option('image_default_link_type','none');

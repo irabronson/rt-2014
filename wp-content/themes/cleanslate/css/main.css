@@ -109,7 +109,7 @@ footer {
 /* Links
 -------------------------------------------------------------- */
 a, a:link, a:visited {
-    color: #F15C22;
+    color: #ED5FA6;
     text-decoration: none;
 }
 
@@ -121,8 +121,14 @@ a:active, a:hover {
 
 /* Headers
 -------------------------------------------------------------- */
-h1, h2, h3, h4, h5 {
+h3, h4, h5 {
     font-weight: normal;
+}
+
+h2 {
+	font-size:1.8em;
+	text-transform:uppercase;
+	margin-bottom:10px;
 }
 
 header {
@@ -142,4 +148,83 @@ nav li {
 #logo {
 	text-align:center;
 	font-size:2em;
+}
+
+
+/* Main Body
+-------------------------------------------------------------- */
+ul.filters {
+	width:100%;
+	margin-bottom:20px;
+}
+
+ul.filters li {
+	margin-right:20px;
+	display:inline;
+	font-weight:bold;
+}
+
+.artists {
+	width: 100%;
+	margin-bottom:20px;
+}
+
+.artists .artist {
+	position:relative;
+	float:left;
+	overflow:hidden; /*clearfix*/
+}
+
+.artists .artist a:hover {
+	color:#FFF;
+}
+
+.artists .artist p {
+	line-height:1.2;
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	background:rgba(0,0,0,0.5);
+	padding:20px;
+}
+
+/* Artist Detail Page
+-------------------------------------------------------------- */
+.social-icon {
+	background:#CCC;
+	width:20px;
+	height:20px;
+	margin:0 10px 10px 0;
+	float:left;
+}
+
+
+/* Upcoming Releases Page
+-------------------------------------------------------------- */
+.albums {
+	width: 100%;
+	overflow:hidden; /*clearfix*/
+	margin-bottom:20px;
+}
+
+.albums .album {
+	position:relative;
+	float:left;
+}
+
+.albums .album a:hover {
+	color:#FFF;
+}
+
+.albums .album p {
+	line-height:1.2;
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	background:rgba(0,0,0,0.5);
+	padding:20px;
+}
+
+.albums .album p span {
+	display:block;
 }

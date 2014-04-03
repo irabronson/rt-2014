@@ -13,7 +13,15 @@
     if ( have_posts() ) :
         
         while ( have_posts() ) : the_post();
-            get_template_part('content', get_post_format() );
+            
+            if( get_post_type($post->ID) === 'artist' ) :
+                get_template_part('content', 'artist-detail' );
+                
+            else :
+                get_template_part('content', 'single' );
+                
+            endif;
+            
         endwhile;
         
     else :
