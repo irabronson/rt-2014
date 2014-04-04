@@ -49,7 +49,7 @@
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
         
         <script type="text/javascript">
-            var $j = jQuery.noConflict();
+            // var $j = jQuery.noConflict();
             var templateDirectoryUrl = '<?php echo get_template_directory_uri(); ?>';
         </script>
     </head>

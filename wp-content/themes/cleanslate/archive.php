@@ -22,7 +22,8 @@
             'post_type' => 'artist',
             'orderby' => 'meta_value',
             'meta_key' => 'artist_list_display_name',
-            'order' =>  'ASC'
+            'order' =>  'ASC',
+            'posts_per_page' => -1
         );
         
         // Set args based on category

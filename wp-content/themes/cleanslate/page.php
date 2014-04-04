@@ -26,7 +26,8 @@
             'post_type' => 'artist',
             'orderby' => 'meta_value',
             'meta_key' => 'artist_list_display_name',
-            'order' =>  'ASC'
+            'order' =>  'ASC',
+            'posts_per_page' => -1
         );
         
         // Query Artist Post Type
@@ -37,10 +38,10 @@
         get_template_part( 'content', 'upcoming' );
         
     elseif( is_page('about') ) :
-        echo 'about';
+        get_template_part( 'content', 'about' );
         
     elseif( is_page('contact') ) :
-        echo 'contact';
+        get_template_part( 'content', 'page' );
         
     else :
         // get_template_part( 'content', 'page' );

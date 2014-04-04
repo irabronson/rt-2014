@@ -10,8 +10,10 @@ header:before,
 header:after,
 #main:before,
 #main:after,
-#secondary:before,
-#secondary:after,
+.primary:before,
+.primary:after,
+.secondary:before,
+.secondary:after,
 .footer-wrapper:before,
 .footer-wrapper:after {
     content:"";
@@ -153,20 +155,18 @@ nav li {
 
 /* Main Body
 -------------------------------------------------------------- */
-ul.filters {
+ul.filters,
+.artists,
+.news {
 	width:100%;
 	margin-bottom:20px;
+	float:left;
 }
 
 ul.filters li {
 	margin-right:20px;
 	display:inline;
 	font-weight:bold;
-}
-
-.artists {
-	width: 100%;
-	margin-bottom:20px;
 }
 
 .artists .artist {
@@ -186,6 +186,14 @@ ul.filters li {
 	text-align:center;
 	background:rgba(0,0,0,0.5);
 	padding:20px;
+}
+
+.news .news-post {
+	margin-bottom:10px;
+}
+
+.news .news-post .title {
+	font-weight:bold;
 }
 
 /* Artist Detail Page
@@ -223,6 +231,13 @@ ul.filters li {
 	text-align:center;
 	background:rgba(0,0,0,0.5);
 	padding:20px;
+}
+
+.single .albums .album p {
+	text-align:left;
+	position:relative;
+	padding:0;
+	background:none;
 }
 
 .albums .album p span {

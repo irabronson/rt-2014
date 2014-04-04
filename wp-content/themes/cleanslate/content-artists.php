@@ -1,6 +1,5 @@
 <?php
     if ( $artist_query->have_posts() ) :
-        _log($artist_query);
 ?>
     <div class="artists">
     <?php
