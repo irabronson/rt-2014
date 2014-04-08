@@ -11,23 +11,23 @@
 
 <section class="primary">
     
-    <ul class="filters">
+    <ul id="filters">
         <?php
             $razorTieCategory = get_term( 2, 'artists' );
             $razorTieKidsCategory = get_term( 3, 'artists' );
             $washSqCategory = get_term( 4, 'artists' );
         ?>
         <li>
-            <a href="#">All</a>
+            <a href="#" data-filter="all">All</a>
         </li>
         <li>
-            <a href="#"><?php echo $razorTieCategory->name; ?></a>
+            <a href="#" data-filter="<?php echo $razorTieCategory->slug; ?>"><?php echo $razorTieCategory->name; ?></a>
         </li>
         <li>
-            <a href="#"><?php echo $razorTieKidsCategory->name; ?></a>
+            <a href="#" data-filter="<?php echo $razorTieKidsCategory->slug; ?>"><?php echo $razorTieKidsCategory->name; ?></a>
         </li>
         <li>
-            <a href="#"><?php echo $washSqCategory->name; ?></a>
+            <a href="#" data-filter="<?php echo $washSqCategory->slug; ?>"><?php echo $washSqCategory->name; ?></a>
         </li>
     </ul>
     
@@ -55,6 +55,7 @@
     
     // Alter pagination setting
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    
     $args = array(
       'posts_per_page' => 2,
       'paged' => $paged
@@ -90,10 +91,10 @@
 <?php
         endwhile;
 ?>
-    </div>
-    <div id="pagination">
-        <div class="previous"><?php next_posts_link( '>' ); ?></div>
-        <div class="next"><?php previous_posts_link( '<' ); ?></div>
+        <div id="pagination">
+            <div class="previous" data-paged="<?php echo ($paged - 1); ?>"><?php previous_posts_link( '&larr; Previous' ); ?></div>
+            <div class="next" data-paged="<?php echo ($paged + 1); ?>"><?php next_posts_link( 'Next &rarr;' ); ?></div>
+        </div>
     </div>
 <?php
     else :
