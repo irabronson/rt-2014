@@ -11,8 +11,7 @@
 <section class="primary">
     
     <h2><?php the_title(); ?></h2>
-    
-    <div class="text"><?php the_content(); ?></div>
+    <div class="text"><?php echo $post->post_content; ?></div>
     
 </section>
 
@@ -24,17 +23,17 @@
             'facebook' => array(
                 'class' => 'facebook',
                 'title' => 'Facebook',
-                'link' => get_field('artist_facebook')
+                'link' => get_field('about_facebook')
             ),
             'twitter' => array(
                 'class' => 'twitter',
                 'title' => 'Twitter',
-                'link' => get_field('artist_twitter')
+                'link' => get_field('about_twitter')
             ),
             'instagram'=> array(
                 'class' => 'instagram',
                 'title' => 'Instagram',
-                'link' => get_field('artist_instagram')
+                'link' => get_field('about_instagram')
             )
         );
         
@@ -71,40 +70,9 @@
     ?>
     
     <?php
-        // PRESS PHOTOS
-        // Check for press photos
-        $pressPhotos = get_field('artist_press_photos');
-            
-        if( empty($pressPhotos) != 1 ) :
-    ?>
-        <!-- Press Materials -->
-        <h3>Press Photos</h3>
-        <div class="press-photos">
-    <?php
-            $i = 1;
-            
-            foreach( $pressPhotos as $pressPhoto ) :
-                $photo = $pressPhoto['artist_press_photo'];
-    ?>
-                <!-- Press Photo <?php echo $i; ?> -->
-                <div class="press-photo">
-                    <img src="<?php echo $photo['sizes']['small-thumbnail']; ?>" width="<?php echo $photo['sizes']['small-thumbnail-width']; ?>" height="<?php echo $photo['sizes']['small-thumbnail-height']; ?>" alt="<?php echo $photo['title']; ?>" />
-                    <a href="<?php echo $photo['sizes']['large']; ?>" target="_blank">Lo res</a>
-                    <a href="<?php echo $photo['url']; ?>" target="_blank">Hi res</a>
-                </div>
-    <?php
-                $i++;
-            endforeach;
-    ?>
-        </div>
-    <?php
-        endif;
-    ?>
-    
-    <?php
         // PRESS ASSETS
         // Check for press assets
-        $pressAssets = get_field('artist_press_assets');
+        $pressAssets = get_field('about_press_assets');
             
         if( empty($pressAssets) != 1 ) :
     ?>
@@ -116,15 +84,15 @@
             
             foreach( $pressAssets as $pressAsset ) :
                 
-                $assetURL = ( $pressAsset['artist_press_asset_file'] ? $pressAsset['artist_press_asset_file']['url'] : $pressAsset['artist_press_asset_link'] );
+                $assetURL = ( $pressAsset['about_press_asset_file'] ? $pressAsset['about_press_asset_file']['url'] : $pressAsset['about_press_asset_link'] );
     ?>
                 <!-- Link for Press Material <?php echo $i; ?> -->
                 <li>
                     <a href="<?php echo $assetURL; ?>" target="_blank">
                         
                         <?php 
-                            echo $pressAsset['artist_press_asset_title'];
-                            echo '&nbsp;(' . $pressAsset['artist_press_asset_type'] . ')';
+                            echo $pressAsset['about_press_asset_title'];
+                            echo '&nbsp;(' . $pressAsset['about_press_asset_type'] . ')';
                         ?>
                         
                     </a>
@@ -140,27 +108,25 @@
     ?>
     
     <?php
-        // COVER ART
-        // Check for album covers/info
-        $albums = get_field('artist_album');
+        // LOGOS
+        // Check for logos
+        $logos = get_field('about_logos');
             
-        if( empty($albums) != 1 ) :
+        if( empty($logos) != 1 ) :
     ?>
-        <!-- Cover Art -->
-        <h3>Cover Art</h3>
-        <div class="albums">
+        <!-- Logos -->
+        <h3>Logos</h3>
+        <div class="logos">
     <?php
             $i = 1;
-            foreach( $albums as $album ) :
-                $albumImage = $album['artist_album_image'];
+            foreach( $logos as $logo ) :
+                $logoImage = $logo['about_logo'];
     ?>
-                <!-- Album <?php echo $i; ?> -->
-                <div class="album">
-                    <img src="<?php echo $albumImage['sizes']['small-thumbnail']; ?>" width="<?php echo $albumImage['sizes']['small-thumbnail-width']; ?>" height="<?php echo $albumImage['sizes']['small-thumbnail-height']; ?>" alt="<?php echo $albumImage['title']; ?>" />
-                    <p><?php echo $album['artist_album_title']; ?></p>
-                    <p><?php echo date('F j, Y', strtotime($album['artist_album_date'])); ?></p>
-                    <a href="<?php echo $albumImage['sizes']['large']; ?>" target="_blank">Lo res</a>
-                    <a href="<?php echo $albumImage['url']; ?>" target="_blank">Hi res</a>
+                <!-- Logo <?php echo $i; ?> -->
+                <div class="logo">
+                    <img src="<?php echo $logoImage['sizes']['medium']; ?>" width="<?php echo $logoImage['sizes']['medium-width']; ?>" height="<?php echo $logoImage['sizes']['medium-height']; ?>" alt="<?php echo $logoImage['title']; ?>" />
+                    <a href="<?php echo $logoImage['sizes']['large']; ?>" target="_blank">Lo res</a>
+                    <a href="<?php echo $logoImage['url']; ?>" target="_blank">Hi res</a>
                 </div>
     <?php
                 $i++;
@@ -171,77 +137,3 @@
         endif;
     ?>
 </section>
-
-<section class="tertiary">
-    <?php
-        // AUDIO EMBEDS
-        // Check for audio
-        $audio = get_field('artist_audio');
-            
-        if( empty($audio) != 1 ) :
-    ?>
-        <div class="audio">
-            <!-- Videos -->
-            <h3>Audio</h3>
-    <?php
-                $i = 1;
-                
-                foreach( $audio as $track ) :
-    ?>
-                <div class="track">
-                    <!-- Track <?php echo $i; ?> -->
-                    <?php echo $track['artist_audio_embed_code']; ?>
-                </div>
-    <?php
-                    $i++;
-                endforeach;
-    ?>
-        </div>
-    <?php
-        endif;
-    ?>
-    
-    <?php
-        // VIDEO EMBEDS
-        // Check for video
-        $videos = get_field('artist_video');
-            
-        if( empty($videos) != 1 ) :
-    ?>
-        <div class="videos">
-            <!-- Videos -->
-            <h3>Videos</h3>
-    <?php
-                $i = 1;
-                
-                foreach( $videos as $video ) :
-    ?>
-                <div class="video">
-                    <!-- Video <?php echo $i; ?> -->
-                    <?php echo $video['artist_video_embed_code']; ?>
-                </div>
-    <?php
-                    $i++;
-                endforeach;
-    ?>
-        </div>
-    <?php
-        endif;
-    ?>
-    
-    <?php
-        // TOUR
-        // Content filled dynamically
-        //
-        // Tour column is hidden by CSS
-        // Unless there are tweets
-    ?>
-        <!-- Tour Dates Column -->
-        <div class="tour">
-        <!-- Header -->
-        <h3>Tour</h3>
-        
-        <div class="tour-dates"></div>
-        
-        </div>
-</section><!-- tertiary -->

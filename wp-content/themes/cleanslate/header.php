@@ -49,9 +49,24 @@
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
         
         <script type="text/javascript">
-            // var $j = jQuery.noConflict();
             var templateDirectoryUrl = '<?php echo get_template_directory_uri(); ?>';
+            var siteUrl = '<?php echo get_site_url(); ?>';
         </script>
+        
+        <?php
+            if( is_single() ) {
+                
+                $title = get_the_title();
+                $band = rawurlencode(strtolower($title));
+        ?>
+            <script type="text/javascript">
+                // Tour Dates variables
+                var currentBand = '<?php echo $band; ?>';
+                var currentID = '<?php echo $post->ID; ?>';
+            </script>
+        <?php
+            }
+        ?>
     </head>
     
     <body <?php body_class();?>>

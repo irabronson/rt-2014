@@ -181,6 +181,36 @@
     ?>
     
     <?php
+        // LOGOS
+        // Check for logos
+        $logos = get_field('artist_logos');
+            
+        if( empty($logos) != 1 ) :
+    ?>
+        <!-- Logos -->
+        <h3>Logos</h3>
+        <div class="logos">
+    <?php
+            $i = 1;
+            foreach( $logos as $logo ) :
+                $logoImage = $logo['artist_logo'];
+    ?>
+                <!-- Logo <?php echo $i; ?> -->
+                <div class="logo">
+                    <img src="<?php echo $logoImage['sizes']['medium']; ?>" width="<?php echo $logoImage['sizes']['medium-width']; ?>" height="<?php echo $logoImage['sizes']['medium-height']; ?>" alt="<?php echo $logoImage['title']; ?>" />
+                    <a href="<?php echo $logoImage['sizes']['large']; ?>" target="_blank">Lo res</a>
+                    <a href="<?php echo $logoImage['url']; ?>" target="_blank">Hi res</a>
+                </div>
+    <?php
+                $i++;
+            endforeach;
+    ?>
+        </div>
+    <?php
+        endif;
+    ?>
+    
+    <?php
         // PRESS ASSETS
         // Check for press assets
         $pressAssets = get_field('artist_press_assets');
@@ -317,10 +347,10 @@
     ?>
         <!-- Tour Dates Column -->
         <div class="tour">
-        <!-- Header -->
-        <h3>Tour</h3>
-        
-        <div class="tour-dates"></div>
-        
+            
+            <h3>Tour</h3>
+            
+            <div id="tour-dates"></div>
+            
         </div>
 </section><!-- tertiary -->

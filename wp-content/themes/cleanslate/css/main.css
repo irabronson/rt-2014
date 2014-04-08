@@ -155,7 +155,12 @@ nav li {
 
 /* Main Body
 -------------------------------------------------------------- */
-ul.filters,
+body.home .primary {
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+ul#filters,
 .artists,
 .news {
 	width:100%;
@@ -163,10 +168,14 @@ ul.filters,
 	float:left;
 }
 
-ul.filters li {
+ul#filters li {
 	margin-right:20px;
 	display:inline;
 	font-weight:bold;
+}
+
+ul#filters li a.active {
+	color:#000;
 }
 
 .artists .artist {
@@ -206,6 +215,9 @@ ul.filters li {
 	float:left;
 }
 
+body.single-artist .tour { /* keep this hidden until tour dates available */
+	display:none;
+}
 
 /* Upcoming Releases Page
 -------------------------------------------------------------- */

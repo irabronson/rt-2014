@@ -1,23 +1,54 @@
 <?php
     // For the News category
-    
-    // Get post image
-    $image = get_thumbnail_custom($post->ID, 'medium');
-    $imageClass = ( $image != '' ? '' : ' no-image' );
+    // Loaded via AJAX
 ?>
-<div class="single-post">
-    <div class="post-head">
-        <h3><?php the_title(); ?></h3>
-        <?php include('content-social.php'); ?>
+<?php
+    // Alter pagination setting
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    
+    $args = array(
+      'posts_per_page' => 2,
+      'paged' => $paged
+    );
+    
+    query_posts($args); 
+    
+    if ( have_posts() ) :
+?>
+    <div class="news">
+<?php
+        while ( have_posts() ) : the_post();
+?>
+            <div class="news-post">
+<?php
+            if( get_field('news_press_asset') ) :
+                $attachment = get_field('news_press_asset');
+?>
+                <a href="<?php echo $attachment[0]->guid; ?>">
+                    <span class="date"><?php echo get_the_date(); ?></span>
+                    <span class="title"><?php the_title(); ?></span>
+                    <span class="type"><?php the_field('news_press_asset_type'); ?></span>
+                </a>
+<?php
+            else :
+?>
+                <span class="date"><?php echo get_the_date(); ?></span>
+                <span class="title"><?php the_title(); ?></span>
+<?php
+            endif;
+?>
+            </div>
+<?php
+        endwhile;
+?>
+        <div id="pagination">
+            <div class="previous" data-paged="<?php echo ($paged - 1); ?>"><?php previous_posts_link( '&larr; Previous' ); ?></div>
+            <div class="next" data-paged="<?php echo ($paged + 1); ?>"><?php next_posts_link( 'Next &rarr;' ); ?></div>
+        </div>
     </div>
-    <div class="text<?php echo $imageClass; ?>"><?php the_content(); ?></div>
-    <?php
-        if( $image ) {
-    ?>
-    <figure>
-        <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php the_title(); ?>" />
-    </figure>
-    <?php
-        }
-    ?>
-</div>
+<?php
+    else :
+        // Content Not Found Template
+        include('content-not-found.php');
+    endif;
+?>

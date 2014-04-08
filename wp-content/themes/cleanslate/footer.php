@@ -26,7 +26,23 @@
 <?php wp_footer(); ?>
 
 <?php /*Custom JS Files*/ ?>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
+    
+<?php
+    if( is_single() ) {
+?>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/tour-dates.js"></script>
+<?php
+    }
+?>
+
+<?php
+    if( is_home() ) {
+?>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/filter.js"></script>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/get-news.js"></script>
+<?php
+    }
+?>
 </body>
 </html>
