@@ -15,7 +15,7 @@
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     
     $args = array(
-      'posts_per_page' => 2,
+      'posts_per_page' => 5,
       'paged' => $paged
     );
     
@@ -23,7 +23,7 @@
     
     if ( have_posts() ) :
 ?>
-    <div class="news">
+    <section class="news">
 <?php
         while ( have_posts() ) : the_post();
 ?>
@@ -33,14 +33,14 @@
                 $attachment = get_field('news_press_asset');
 ?>
                 <a href="<?php echo $attachment[0]->guid; ?>">
-                    <span class="date"><?php echo get_the_date(); ?></span>
+                    <span class="date"><?php echo date('M d', strtotime(get_the_date())); ?></span>
                     <span class="title"><?php the_title(); ?></span>
                     <span class="type"><?php the_field('news_press_asset_type'); ?></span>
                 </a>
 <?php
             else :
 ?>
-                <span class="date"><?php echo get_the_date(); ?></span>
+                <span class="date"><?php echo date('M d', strtotime(get_the_date())); ?></span>
                 <span class="title"><?php the_title(); ?></span>
 <?php
             endif;
@@ -50,10 +50,21 @@
         endwhile;
 ?>
         <div id="pagination">
-            <div class="previous" data-paged="<?php echo ($paged - 1); ?>"><?php previous_posts_link( '&larr; Previous' ); ?></div>
-            <div class="next" data-paged="<?php echo ($paged + 1); ?>"><?php next_posts_link( 'Next &rarr;' ); ?></div>
+            <?php
+                $big = 999999999; // need an unlikely integer
+                
+                echo paginate_links( array(
+                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                    'format' => '?paged=%#%',
+                    'current' => max( 1, get_query_var('paged') ),
+                    'total' => $wp_query->max_num_pages,
+                    'prev_next'    => True,
+                    'prev_text'    => __('&larr;'),
+                    'next_text'    => __('&rarr;'),
+                ) );
+            ?>
         </div>
-    </div>
+    </section><!-- .news -->
 <?php
     else :
         // Content Not Found Template

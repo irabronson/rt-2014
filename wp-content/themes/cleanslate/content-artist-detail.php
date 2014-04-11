@@ -59,141 +59,144 @@
                 // END: Razor & Tie Kids
             ?>
         </select>
-    </div>
+    </div><!-- .artist-header -->
     
     <div class="artist-featured">
         
-    <!-- Artist Image -->
-    <figure>
-    <?php
-        $thumb = get_thumbnail_custom($post->ID, 'large');
+        <!-- Artist Image -->
+        <figure>
+        <?php
+            $thumb = get_thumbnail_custom($post->ID, 'large');
         
-        if( $thumb ) {
-            echo '<img src="' . $thumb[0] . '" width="' . $thumb[1] . '" height="' . $thumb[2] . '" alt="' . get_the_title() . '"/>';
-        }
-    ?>
-    </figure>
-    
-    
-    <?php
-        // WEBSITE
-        // Check for website URL
-        if( get_field('artist_website') ) :
-    ?>
-        <!-- Artist Website -->
-        <div class="website">
-            <h3>Website</h3>
-            <a href="<?php the_field('artist_website'); ?>"><?php the_field('artist_website'); ?></a>
-        </div>
-    <?php
-        endif;
-    ?>
-    
-    <?php
-        // CONTACTS
-        // Check for contact name and email
-        $contacts = get_field('artist_contacts');
+            if( $thumb ) {
+                echo '<img src="' . $thumb[0] . '" width="' . $thumb[1] . '" height="' . $thumb[2] . '" alt="' . get_the_title() . '"/>';
+            }
+        ?>
+        </figure>
         
-        if( empty($contacts) != 1 ) :
-    ?>
-        <!-- Artist Website -->
-        <div class="contacts">
-            <h3>Contacts</h3>
-            
-            <ul>
-                <?php
-                    foreach( $contacts as $contact ) :
-                ?>
-                    <li>
-                        <p><?php echo $contact['artist_contact_name']; ?></p>
-                        <a href="mailto:<?php echo $contact['artist_contact_email']; ?>"><?php echo $contact['artist_contact_email']; ?></a>
-                    </li>
-                <?php
-                    endforeach;
-                ?>
-            </ul>
-        </div>
-    <?php
-        endif;
-    ?>
-    
-    <?php
-        // SOCIAL MEDIA LINKS
-        // Create array of social media links
-        $socials = array(
-            'facebook' => array(
-                'class' => 'facebook',
-                'title' => 'Facebook',
-                'link' => get_field('artist_facebook')
-            ),
-            'twitter' => array(
-                'class' => 'twitter',
-                'title' => 'Twitter',
-                'link' => get_field('artist_twitter')
-            ),
-            'instagram'=> array(
-                'class' => 'instagram',
-                'title' => 'Instagram',
-                'link' => get_field('artist_instagram')
-            ),
-            'youtube' => array(
-                'class' => 'youtube',
-                'title' => 'YouTube',
-                'link' => get_field('artist_youtube')
-            ),
-            'tumblr' => array(
-                'class' => 'tumblr',
-                'title' => 'Tumblr',
-                'link' => get_field('artist_tumblr')
-            ),
-            'google' => array(
-                'class' => 'google',
-                'title' => 'Google+',
-                'link' => get_field('artist_google')
-            ),
-            'spotify' => array(
-                'class' => 'spotify',
-                'title' => 'Spotify',
-                'link' => get_field('artist_spotify')
-            ),
-            'itunes' => array(
-                'class' => 'itunes',
-                'title' => 'iTunes',
-                'link' => get_field('artist_itunes')
-            )
-        );
+        <div class="artist-info">
+        <?php
+            // SOCIAL MEDIA LINKS
+            // Create array of social media links
+            $socials = array(
+                'facebook' => array(
+                    'class' => 'facebook',
+                    'title' => 'Facebook',
+                    'link' => get_field('artist_facebook')
+                ),
+                'twitter' => array(
+                    'class' => 'twitter',
+                    'title' => 'Twitter',
+                    'link' => get_field('artist_twitter')
+                ),
+                'instagram'=> array(
+                    'class' => 'instagram',
+                    'title' => 'Instagram',
+                    'link' => get_field('artist_instagram')
+                ),
+                'youtube' => array(
+                    'class' => 'youtube',
+                    'title' => 'YouTube',
+                    'link' => get_field('artist_youtube')
+                ),
+                'tumblr' => array(
+                    'class' => 'tumblr',
+                    'title' => 'Tumblr',
+                    'link' => get_field('artist_tumblr')
+                ),
+                'google' => array(
+                    'class' => 'google',
+                    'title' => 'Google+',
+                    'link' => get_field('artist_google')
+                ),
+                'spotify' => array(
+                    'class' => 'spotify',
+                    'title' => 'Spotify',
+                    'link' => get_field('artist_spotify')
+                ),
+                'itunes' => array(
+                    'class' => 'itunes',
+                    'title' => 'iTunes',
+                    'link' => get_field('artist_itunes')
+                )
+            );
         
-        // Check for social media links
-        if( $socials ) :
-    ?>
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <h3>Social Media</h3>
-            <ul class="social-links">
-    <?php
-                $socialCount = 1;
-                foreach( $socials as $social ) :
+            // Check for social media links
+            if( $socials ) :
+        ?>
+            <!-- Social Media Links -->
+            <div class="social-media">
+                <h3>Social Media</h3>
+                <ul class="social-links">
+        <?php
+                    $socialCount = 1;
+                    foreach( $socials as $social ) :
                     
-                    // Display Links
-                    // Only allow up to six social links
-                    if( $social['link'] ) {
-    ?>
-                    <!-- <?php echo $social['class']; ?> Link -->
-                    <li>
-                        <a href="<?php echo $social['link']; ?>" class="social-icon <?php echo $social['class']; ?>" title="<?php echo $social['title']; ?>"></a>
-                    </li>
+                        // Display Links
+                        // Only allow up to six social links
+                        if( $social['link'] ) {
+        ?>
+                        <!-- <?php echo $social['class']; ?> Link -->
+                        <li>
+                            <a href="<?php echo $social['link']; ?>" class="social-icon <?php echo $social['class']; ?>" title="<?php echo $social['title']; ?>"></a>
+                        </li>
                     
-    <?php
-                        $socialCount++;
-                    }
+        <?php
+                            $socialCount++;
+                        }
                 
-                endforeach;
-    ?>
-            </ul>
-        </div>
-    <?php
-        endif;
-    ?>
+                    endforeach;
+        ?>
+                </ul>
+            </div>
+        <?php
+            endif;
+        ?>
+        
+        <?php
+            // CONTACTS
+            // Check for contact name and email
+            $contacts = get_field('artist_contacts');
+            
+            if( empty($contacts) != 1 ) :
+        ?>
+            <!-- Artist Contacts -->
+            <div class="contacts">
+                <h3>Contacts</h3>
+                
+                <ul>
+                    <?php
+                        foreach( $contacts as $contact ) :
+                    ?>
+                        <li>
+                            <p><?php echo $contact['artist_contact_name']; ?></p>
+                            <a href="mailto:<?php echo $contact['artist_contact_email']; ?>"><?php echo $contact['artist_contact_email']; ?></a>
+                        </li>
+                    <?php
+                        endforeach;
+                    ?>
+                </ul>
+            </div>
+        <?php
+            endif;
+        ?>
+        
+        <?php
+            // WEBSITE
+            // Check for website URL
+            if( get_field('artist_website') ) :
+        ?>
+            <!-- Artist Website -->
+            <div class="website">
+                <h3>Website</h3>
+                <a href="<?php the_field('artist_website'); ?>"><?php the_field('artist_website'); ?></a>
+            </div>
+        <?php
+            endif;
+        ?>
+        
+        </div><!-- .artist-info -->
+    </div><!-- .artist-featured -->
     
 </section>
 
@@ -205,9 +208,9 @@
             
         if( empty($pressPhotos) != 1 ) :
     ?>
-        <!-- Press Materials -->
-        <h3>Press Photos</h3>
+        <!-- Press Photos -->
         <div class="press-photos">
+            <h3>Press Photos</h3>
     <?php
             $i = 1;
             
@@ -230,6 +233,53 @@
     ?>
     
     <?php
+        // PRESS ASSETS
+        // Check for press assets
+        $pressAssets = get_field('artist_press_assets');
+            
+        if( empty($pressAssets) != 1 ) :
+    ?>
+        <!-- Press Assets -->
+        <div class="press-assets">
+            <h3>Press Assets</h3>
+            <ul class="press-assets-list">
+    <?php
+            $i = 1;
+            
+            foreach( $pressAssets as $pressAsset ) :
+                
+                $assetURL = ( $pressAsset['artist_press_asset_file'] ? $pressAsset['artist_press_asset_file']['url'] : $pressAsset['artist_press_asset_link'] );
+    ?>
+                <!-- Link for Press Material <?php echo $i; ?> -->
+                <li>
+                    <a href="<?php echo $assetURL; ?>" target="_blank">
+                        
+                        <?php
+                            if( $pressAsset['artist_press_asset_date'] ) {
+                                echo '<span class="date">';
+                                echo date('F j, Y', strtotime($pressAsset['artist_press_asset_date']));
+                                echo '</span>';
+                            }
+                            echo '<span class="title">';
+                            echo $pressAsset['artist_press_asset_title'];
+                            echo '&nbsp;(' . $pressAsset['artist_press_asset_type'] . ')';
+                            echo '</span>';
+                        ?>
+                        
+                    </a>
+                </li>
+                
+    <?php
+                $i++;
+            endforeach;
+    ?>
+            </ul>
+        </div>
+    <?php
+        endif;
+    ?>
+    
+    <?php
         // LOGOS
         // Check for logos
         $logos = get_field('artist_logos');
@@ -237,8 +287,8 @@
         if( empty($logos) != 1 ) :
     ?>
         <!-- Logos -->
-        <h3>Logos</h3>
         <div class="logos">
+            <h3>Logos</h3>
     <?php
             $i = 1;
             foreach( $logos as $logo ) :
@@ -260,44 +310,6 @@
     ?>
     
     <?php
-        // PRESS ASSETS
-        // Check for press assets
-        $pressAssets = get_field('artist_press_assets');
-            
-        if( empty($pressAssets) != 1 ) :
-    ?>
-        <!-- Press Materials -->
-        <h3>Press Assets</h3>
-        <ul class="press-assets">
-    <?php
-            $i = 1;
-            
-            foreach( $pressAssets as $pressAsset ) :
-                
-                $assetURL = ( $pressAsset['artist_press_asset_file'] ? $pressAsset['artist_press_asset_file']['url'] : $pressAsset['artist_press_asset_link'] );
-    ?>
-                <!-- Link for Press Material <?php echo $i; ?> -->
-                <li>
-                    <a href="<?php echo $assetURL; ?>" target="_blank">
-                        
-                        <?php 
-                            echo $pressAsset['artist_press_asset_title'];
-                            echo '&nbsp;(' . $pressAsset['artist_press_asset_type'] . ')';
-                        ?>
-                        
-                    </a>
-                </li>
-                
-    <?php
-                $i++;
-            endforeach;
-    ?>
-        </ul>
-    <?php
-        endif;
-    ?>
-    
-    <?php
         // COVER ART
         // Check for album covers/info
         $albums = get_field('artist_album');
@@ -305,8 +317,8 @@
         if( empty($albums) != 1 ) :
     ?>
         <!-- Cover Art -->
-        <h3>Cover Art</h3>
         <div class="albums">
+            <h3>Cover Art</h3>
     <?php
             $i = 1;
             foreach( $albums as $album ) :
@@ -331,6 +343,7 @@
 </section>
 
 <section class="tertiary">
+    <div class="column">
     <?php
         // AUDIO EMBEDS
         // Check for audio
@@ -338,8 +351,8 @@
             
         if( empty($audio) != 1 ) :
     ?>
+        <!-- Audio -->
         <div class="audio">
-            <!-- Videos -->
             <h3>Audio</h3>
     <?php
                 $i = 1;
@@ -366,8 +379,8 @@
             
         if( empty($videos) != 1 ) :
     ?>
+        <!-- Videos -->
         <div class="videos">
-            <!-- Videos -->
             <h3>Videos</h3>
     <?php
                 $i = 1;
@@ -386,7 +399,9 @@
     <?php
         endif;
     ?>
+    </div><!-- .column -->
     
+    <div class="column">
     <?php
         // TOUR
         // Content filled dynamically
@@ -402,4 +417,5 @@
             <div id="tour-dates"></div>
             
         </div>
-</section><!-- tertiary -->
+    </div><!-- .column -->
+</section><!-- .tertiary -->

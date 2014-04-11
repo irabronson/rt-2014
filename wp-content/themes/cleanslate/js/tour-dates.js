@@ -31,7 +31,7 @@ jQuery(function($) {
           var day = d.getDate();
           var month = d.getMonth();
           var year = d.getFullYear();
-          var dateFormatted = m_names[month].substr(0,3) + ' ' + day;
+          var dateFormatted = m_names[month] + ' ' + day + ', ' + year;
           
           return dateFormatted;
           
@@ -58,10 +58,11 @@ jQuery(function($) {
                     var dateFormatted = formatDate(date);
                     var location = feeds[i].formatted_location;
                     var venue = feeds[i].venue.name;
+                    console.log(feeds[i].venue.name);
                     
                     data += '<li>';
-                    data += '<span class="date">' +  dateFormatted + '</span>&nbsp;';
-                    date += '<span class="venue">' + venue + '</span>&nbsp;';
+                    data += '<span class="date">' +  dateFormatted + '</span>';
+                    data += '<span class="venue">' + venue + '</span>';
                     data += '<span class="location">' + location + '</span>';
                     data += '</li>';
                 }
