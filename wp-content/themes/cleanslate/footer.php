@@ -14,12 +14,22 @@
 </div><!-- #page -->
 
 <footer role="contentinfo">
-    <div class="border"></div>
     <div class="footer-wrapper">
-        <div class="info">
+        <div class="footer-links">
+            <?php
+                // default menu
+                wp_nav_menu( array( 'theme_location' => 'footer' ) );
+            ?>
         </div>
-        
-        <?php include('content-social.php'); ?>
+        <ul class="info">
+            <li class="home">
+                <a href="/">Razor &amp; Tie</a>
+            </li>
+            <li class="copyright">
+                <span>Copyright ©2014 Razor &amp; Tie Direct, L.L.C. All rights reserved.</span>
+                <span>All trademarks and registered trademarks are property of their respective owners.</span>
+            </li>
+        </ul>
     </div>
 </footer><!-- #footer -->
 

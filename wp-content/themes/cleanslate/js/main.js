@@ -23,6 +23,12 @@ jQuery(function($) {
             if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) { $('html').addClass('safari-Win'); }
         }
         
+        // Bind Artist Detail Select to Navigation
+        $('#artist-detail-nav').on('change', function () {
+            if ($(this).val()!='') {
+              window.location.href=$(this).val();
+            }
+        });
         
     }); // End doc.ready
 }); // End jQuery

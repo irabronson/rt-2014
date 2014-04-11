@@ -255,3 +255,18 @@ body.single-artist .tour { /* keep this hidden until tour dates available */
 .albums .album p span {
 	display:block;
 }
+
+/* Footer
+-------------------------------------------------------------- */
+footer {
+	width:100%;
+	text-align: center;
+	background:#000;
+	color:#FFF;
+}
+
+.footer-wrapper {
+    max-width:1200px;
+	margin:0 auto;
+	padding: 20px 0;
+}

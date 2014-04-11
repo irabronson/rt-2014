@@ -1,13 +1,15 @@
 <?php
 /**
- * The general template used for displaying page content in page.php.
+ *  Sub-Template:
+ *  Loaded via page.php
+ *  For displaying content on the About page.
  *
  * @package CleanSlate
  * @since CleanSlate 0.1
  */
 ?>
 
-
+<!-- Content-About Template -->
 <section class="primary">
     
     <h2><?php the_title(); ?></h2>

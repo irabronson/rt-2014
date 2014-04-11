@@ -1,4 +1,16 @@
 <?php
+/**
+ *  Sub-Template:
+ *  Loaded on several pages, including Home and Archive pages.
+ *  For displaying artist posts in list-format.
+ *
+ * @package CleanSlate
+ * @since CleanSlate 0.1
+ */
+?>
+
+<!-- Content-Artists Template -->
+<?php
     if ( $artist_query->have_posts() ) :
 ?>
     <div class="artists">
@@ -20,12 +32,11 @@
             </div>
     <?php
         endwhile;
-        
-    else :
-    // Content Not Found Template
-    include('content-not-found.php');
 ?>
     </div>
 <?php
+    else :
+        // Content Not Found Template
+        include('content-not-found.php');
     endif;
 ?>

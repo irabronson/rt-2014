@@ -1,13 +1,15 @@
 <?php
 /**
- * The general template used for displaying page content in page.php.
+ *  Sub-Template:
+ *  Loaded via page.php
+ *  For displaying generic pages.
  *
  * @package CleanSlate
  * @since CleanSlate 0.1
  */
 ?>
 
-
+<!-- Default Page Template -->
 <section>
     
     <h2><?php wp_title(''); ?></h2>

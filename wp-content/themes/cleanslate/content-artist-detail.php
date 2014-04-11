@@ -1,18 +1,67 @@
 <?php
 /**
- * The template for displaying posts single Artist posts
+ *  Sub-Template:
+ *  Loaded via single.php
+ *  For displaying info on an individual Artist post.
  *
  * @package CleanSlate
- * @since CleanSlate 1.0
+ * @since CleanSlate 0.1
  */
 ?>
 
+<!-- Content-Artist-Detail Template -->
 <section class="primary">
     
-    <!-- Artist Title -->
-    <h2><?php the_title(); ?></h2>
+    <div class="artist-header">
+        <!-- Artist Title -->
+        <h2><?php the_title(); ?></h2>
+        
+        <select id="artist-detail-nav">
+            <option value="all-artists" selected="selected">All Artists</option>
+            <?php
+                // Define global args for artist_query
+                $args = array(
+                    'post_type' => 'artist',
+                    'orderby' => 'meta_value',
+                    'meta_key' => 'artist_list_display_name',
+                    'order' =>  'ASC',
+                    'posts_per_page' => -1
+                );
+                
+                // BEGIN: Razor & Tie Artists Option Group
+                $args['artists'] = 'razor-tie';
+                $title = 'RAZOR &amp; TIE ---------------';
+                
+                // Query Artist Post Type
+                $artist_cat_query = new WP_Query( $args );
+                
+                include('content-optgroup.php');
+                // END: Razor & Tie
+                
+                // BEGIN: Washington Square Artists Option Group
+                $args['artists'] = 'washington-square';
+                $title = 'WASHINGTON SQUARE ---------------';
+                
+                // Query Artist Post Type
+                $artist_cat_query = new WP_Query( $args );
+                
+                include('content-optgroup.php');
+                // END: Washington Square
+                
+                // BEGIN: Razor & Tie Kids Artists Option Group
+                $args['artists'] = 'razor-tie-kids';
+                $title = 'RAZOR &amp; TIE KIDS ---------------';
+                
+                // Query Artist Post Type
+                $artist_cat_query = new WP_Query( $args );
+                
+                include('content-optgroup.php');
+                // END: Razor & Tie Kids
+            ?>
+        </select>
+    </div>
     
-    <div class="featured-box">
+    <div class="artist-featured">
         
     <!-- Artist Image -->
     <figure>

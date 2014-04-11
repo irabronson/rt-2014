@@ -1,7 +1,15 @@
 <?php
-    // For the News category
-    // Loaded via AJAX
+/**
+ *  Sub-Template:
+ *  Loaded via AJAX on the homepage
+ *  For displaying regular posts in the 'News' category.
+ *
+ * @package CleanSlate
+ * @since CleanSlate 0.1
+ */
 ?>
+
+<!-- Content-News Template -->
 <?php
     // Alter pagination setting
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

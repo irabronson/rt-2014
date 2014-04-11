@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ *  Template:
+ *  Determines which page sub-template to display.
+ *  For displaying all pages.
  *
  * @package CleanSlate
  * @since CleanSlate 0.1
@@ -14,12 +11,9 @@
 
 <?php get_header(); ?>
 
+<!-- Page Template -->
 <?php
-    echo 'page';
-    if( is_page('home') || is_home() ) :
-        // get_template_part( 'content', 'home' );
-        
-    elseif( is_page('artists') ) :
+    if( is_page('artists') ) :
         
         // Set arguments
         $args = array(
@@ -44,7 +38,7 @@
         get_template_part( 'content', 'page' );
         
     else :
-        // get_template_part( 'content', 'page' );
+        get_template_part( 'content', 'page' );
     endif;
 ?>
 

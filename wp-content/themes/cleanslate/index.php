@@ -1,6 +1,8 @@
 <?php
 /**
- * The main template file.
+ *  Template:
+ *  Loaded on the homepage.
+ *  For displaying all info on the homepage.
  *
  * @package CleanSlate
  * @since CleanSlate 0.1
@@ -9,6 +11,7 @@
 
 <?php get_header(); ?>
 
+<!-- Home Template -->
 <section class="primary">
     
     <ul id="filters">
