@@ -46,7 +46,6 @@
         <?php wp_head(); ?>
         
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/modernizr.2.7.0.min.js"></script>
-        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
         
         <script type="text/javascript">
             var templateDirectoryUrl = '<?php echo get_template_directory_uri(); ?>';
