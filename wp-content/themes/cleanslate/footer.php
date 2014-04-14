@@ -4,8 +4,8 @@
  *
  * Contains the closing of the id=main div and all content after.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

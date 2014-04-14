@@ -4,8 +4,8 @@
  *  Loaded on several pages, including Home and Archive pages.
  *  For displaying artist posts in list-format.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

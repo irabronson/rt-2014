@@ -2,8 +2,8 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

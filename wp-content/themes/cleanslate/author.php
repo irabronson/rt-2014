@@ -2,8 +2,8 @@
 /**
  * The template for displaying Author Archive pages.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 
 <?php get_header(); ?>

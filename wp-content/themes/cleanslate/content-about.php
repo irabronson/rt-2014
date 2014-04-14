@@ -4,8 +4,8 @@
  *  Loaded via page.php
  *  For displaying content on the About page.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

@@ -2,8 +2,8 @@
 /**
  * Cleanslate functions and definitions
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 
  // DEBUGGING
@@ -19,7 +19,7 @@
      }
  }
 
-  if ( ! function_exists( 'cleanslate_setup' ) ):
+  if ( ! function_exists( 'razorandtie_setup' ) ):
  /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -27,10 +27,10 @@
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  *
- * To override cleanslate_setup() in a child theme, add your own cleanslate_setup to your child theme's
+ * To override razorandtie_setup() in a child theme, add your own razorandtie_setup to your child theme's
  * functions.php file.
  */
- function cleanslate_setup() {
+ function razorandtie_setup() {
   /**
    * Add default posts and comments RSS feed links to head
    */
@@ -40,8 +40,8 @@
    * This theme uses wp_nav_menu() in two locations.
    */
   register_nav_menus( array(
-      'primary' => __( 'Primary Menu', 'cleanslate' ),
-      'footer' => __( 'Footer Menu', 'cleanslate' ),
+      'primary' => __( 'Primary Menu', 'razorandtie' ),
+      'footer' => __( 'Footer Menu', 'razorandtie' ),
   ) );
 
   /**
@@ -49,12 +49,12 @@
    */
   // add_theme_support( 'post-formats', array( 'gallery' ) );
  }
- endif; // cleanslate_setup
+ endif; // razorandtie_setup
 
  /**
- * Tell WordPress to run cleanslate_setup() when the 'after_setup_theme' hook is run.
+ * Tell WordPress to run razorandtie_setup() when the 'after_setup_theme' hook is run.
  */
- add_action( 'after_setup_theme', 'cleanslate_setup' );
+ add_action( 'after_setup_theme', 'razorandtie_setup' );
 
  /**
  * Register widgetized area and update sidebar with default widgets
@@ -68,7 +68,7 @@
 
   register_sidebar();
  }
- // add_action( 'init', 'cleanslate_widgets_init' );
+ // add_action( 'init', 'razorandtie_widgets_init' );
 
  // Add and enqueue jQuery
  function register_jquery() {

@@ -4,8 +4,8 @@
  *  Loaded via single.php
  *  For displaying info on an individual Artist post.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

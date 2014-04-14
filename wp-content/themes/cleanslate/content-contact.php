@@ -2,8 +2,8 @@
 /**
  * The general template used for displaying page content in page.php.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

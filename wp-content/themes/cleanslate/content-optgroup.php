@@ -4,8 +4,8 @@
  *  Loaded via content-artist-detail.php
  *  For displaying option groups in the select element.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

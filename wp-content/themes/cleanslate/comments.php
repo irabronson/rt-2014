@@ -7,8 +7,8 @@
  * handled by a callback to toolbox_comment() which is
  * located in the functions.php file.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 	<div id="comments">

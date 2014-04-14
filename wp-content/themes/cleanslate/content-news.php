@@ -4,8 +4,8 @@
  *  Loaded via AJAX on the homepage
  *  For displaying regular posts in the 'News' category.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 

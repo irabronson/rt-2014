@@ -4,8 +4,8 @@
  *  Determines which page sub-template to display.
  *  For displaying all pages.
  *
- * @package CleanSlate
- * @since CleanSlate 0.1
+ * @package RazorAndTie
+ * @since RazorAndTie 0.1
  */
 ?>
 
