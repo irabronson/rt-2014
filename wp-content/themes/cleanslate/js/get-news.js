@@ -10,9 +10,9 @@ jQuery(function($) {
             $(this).unbind('click', getPage);
             
             var link = $(this).attr('href');
-            $('.secondary').html('Loading...');
+            $('#news').html('Loading...');
             
-            $('.secondary').load(link + ' .news', function( response, status, xhr ) {
+            $('#news').load(link + ' .news-wrapper', function( response, status, xhr ) {
                 bindPagination();
             });
             

@@ -51,9 +51,11 @@
     
 </section>
 
+<section id="news">
 <?php
     // Get news posts
     include('content-news.php');
 ?>
+</section>
 
 <?php get_footer(); ?>

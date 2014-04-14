@@ -23,7 +23,7 @@
     
     if ( have_posts() ) :
 ?>
-    <section class="news">
+    <section class="news-wrapper">
 <?php
         while ( have_posts() ) : the_post();
 ?>
