@@ -14,7 +14,10 @@
 <!-- Page Template -->
 <?php
     if( is_page('artists') ) :
-        
+?>
+    <section class="primary">
+        <h2><?php the_title(); ?></h2>
+<?php
         // Set arguments
         $args = array(
             'post_type' => 'artist',
@@ -27,6 +30,9 @@
         // Query Artist Post Type
         $artist_query = new WP_Query( $args );
         include('content-artists.php');
+?>
+    </section>
+<?php
         
     elseif( is_page('upcoming-new-releases') ) :
         get_template_part( 'content', 'upcoming' );

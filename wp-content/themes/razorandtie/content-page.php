@@ -10,10 +10,8 @@
 ?>
 
 <!-- Default Page Template -->
-<section>
-    
+<section class="primary">
     <h2><?php wp_title(''); ?></h2>
     
     <div class="text"><?php echo $post->post_content; ?></div>
-    
 </section>

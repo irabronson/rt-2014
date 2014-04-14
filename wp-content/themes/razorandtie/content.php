@@ -7,35 +7,9 @@
  */
 ?>
 
-<?php
-    $postTitle = ( in_category('news') ? 'News' : get_the_title() );
-?>
-
-<section id="primary">
+<!-- General Template -->
+<section class="primary">
+    <h2><?php wp_title(''); ?></h2>
     
-    <?php include('content-slideshow.php'); ?>
-    
-    <div class="title">
-        <div class="wrapper">
-            <h2><?php echo $postTitle; ?></h2>
-        </div>
-    </div>
-</section>
-
-<section id="secondary">
-    <?php
-        // PROJECTS POSTS ONLY
-        if( in_category('projects') ) :
-            include('content-projects.php');
-        endif;
-        
-        // NEWS POSTS ONLY
-        if( in_category('news') ) :
-    ?>
-        <div class="single-row">
-            <?php include('content-news.php'); ?>
-        </div>
-    <?php
-        endif;
-    ?>
+    <div class="text"><?php the_content(); ?></div>
 </section>

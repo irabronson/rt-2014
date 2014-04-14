@@ -11,7 +11,6 @@
 
 <!-- Content-About Template -->
 <section class="primary">
-    
     <h2><?php the_title(); ?></h2>
 <?php
         // SUBTITLE

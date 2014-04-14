@@ -12,6 +12,7 @@
 <?php get_header(); ?>
 
 <!-- Archive Template -->
+<section class="primary">
 <?php
     // Define global args for artist_query
     $args = array(
@@ -25,22 +26,28 @@
     // Set args based on category
     if( is_tax('artists','razor-tie') ) :
         $args['artists'] = 'razor-tie';
-        
-    elseif( is_tax('artists','razor-tie-kids') ) :
-        $args['artists'] = 'razor-tie-kids';
+        $title = 'Razor &amp; Tie';
         
     elseif( is_tax('artists','washington-square') ) :
         $args['artists'] = 'washington-square';
+        $title = 'Washington Square';
+        
+    elseif( is_tax('artists','razor-tie-kids') ) :
+        $args['artists'] = 'razor-tie-kids';
+        $title = 'Razor &amp; Tie Kids';
         
     else :
         // do nothing
         
     endif;
-    
+?>
+    <h2>Artists: <?php echo $title; ?></h2>
+<?php
     // Query Artist Post Type
     $artist_query = new WP_Query( $args );
     
     include('content-artists.php');
 ?>
+</section>
 
 <?php get_footer(); ?>
