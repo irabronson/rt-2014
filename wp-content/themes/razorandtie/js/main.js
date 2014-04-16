@@ -30,5 +30,27 @@ jQuery(function($) {
             }
         });
         
+        // Toggle Artist List
+        // Between image and text
+        var toggleDisplay = function (e) {
+            
+            $('#toggle-display a').unbind('click', toggleDisplay);
+            
+            e.preventDefault();
+            
+            var activeClass = $(this).attr('id');
+            
+            if( $(this).hasClass('active') === false ) {
+                $('#toggle-display a.active').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.artists').removeClass('image-display text-display').addClass(activeClass);
+            }
+            
+            $('#toggle-display a').bind('click', toggleDisplay);
+        };
+        
+        $('#toggle-display a').bind('click', toggleDisplay);
+        
     }); // End doc.ready
 }); // End jQuery
