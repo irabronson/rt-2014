@@ -18,7 +18,7 @@ jQuery(function($) {
                 });
             });
         });
-            
+        
         var show = function(filterVal) {
             if(filterVal == 'all') {
                 $('.artists .artist').fadeIn(200);
@@ -34,18 +34,18 @@ jQuery(function($) {
         // Adds/removes 'active' class to selected item
         // Adds the 'active' class to the first anchor $('ul#filters a').first().addClass("active");
         $('ul#filters a').click(function(){
-            $('.active').removeClass('active');
-             $(this).addClass('active');
-          });
-          
+            $('ul#filters .active').removeClass('active');
+            $(this).addClass('active');
+        });
+        
         // Preselecting a filter option
         $('#filters a[data-filter="razor-tie"]').trigger('click');
         
         // Sets timeout and fades in content
         // Best for 'FlashOfUnfilteredContent'
-          setTimeout(function (){
+        setTimeout(function (){
             $('.primary').fadeTo( 150 , 1 );
-          }, 150);
-      
+        }, 150);
+        
     }); // End doc.ready
 }); // End jQuery
