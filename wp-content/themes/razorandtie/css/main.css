@@ -178,6 +178,15 @@ ul#filters li a.active {
 	color:#000;
 }
 
+#toggle-display {
+	margin-bottom:20px;
+}
+
+#toggle-display a.active {
+	color:#666;
+	cursor:default;
+}
+
 .artists .artist {
 	position:relative;
 	float:left;
@@ -195,6 +204,31 @@ ul#filters li a.active {
 	text-align:center;
 	background:rgba(0,0,0,0.5);
 	padding:20px;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+.artists.image-display .artist img {
+	display:block;
+}
+
+.artists.text-display .artist a {
+	color:#000;
+}
+
+.artists.text-display .artist a:hover {
+	color:#ED5FA6;
+}
+
+.artists.text-display .artist p {
+	position:relative;
+	background:none;
+	padding-left:0;
+	text-align:left;
+}
+
+.artists.text-display .artist img {
+	display:none;
 }
 
 .news .news-post {
