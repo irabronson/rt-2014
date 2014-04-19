@@ -74,17 +74,17 @@
     
     <div id="page">
         <header id="branding" role="banner">
+            <div id="logo">
+                <h1 id="site-title">
+                    <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
+                </h1>
+            </div>
             <nav id="main-menu" role="navigation">
                 <?php
                     // default menu
                     wp_nav_menu( array( 'theme_location' => 'primary' ) );
                 ?>
             </nav>
-            <div id="logo">
-                <h1 id="site-title">
-                    <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
-                </h1>
-            </div>
         </header>
         
         <div id="main">

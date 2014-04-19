@@ -44,7 +44,7 @@ html, body {
 }
 
 body {
-    font-family: "Helvetica Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    background: #f3f3f3;
     font-family: "Helvetica-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 62.5%;
     line-height: 1;
@@ -55,13 +55,29 @@ body {
 #page {
     width: 100%;
     max-width:1200px;
-	margin:0 auto;
+    margin:0 auto;
     min-height: 100%;
     height: auto !important;
     height: 100%;
     position: relative;
     margin-bottom: -158px; /* the bottom margin is the negative value of the footer's height */;
 	font-size:1.5em;
+}
+
+
+/* Setting up content mastheads with floats for h2, dropdown and toggle
+   and clears for subsequent content */
+
+h2, ul#filters {
+  float: left;
+}
+
+#artist-detail-nav, #toggle-display {
+  float: right;
+}
+
+.artist-featured, #news, h3, .text {
+  clear: left;
 }
 
 /*
@@ -130,17 +146,17 @@ h4, h5 {
 h2 {
 	font-size:1.8em;
 	text-transform:uppercase;
-	margin-bottom:10px;
+	margin-bottom:55px;
 }
 
 header {
-	margin:10px 0 30px;
+	margin:55px 0 40px;
 }
 
 nav {
+  float: right;
 	line-height:1.2;
 	margin-bottom:20px;
-	text-align:center;
 }
 nav li {
 	margin-right:20px;
@@ -148,8 +164,17 @@ nav li {
 }
 
 #logo {
-	text-align:center;
+  float: left;
 	font-size:2em;
+}
+
+#logo a {
+  background: url('../images/images-icons-sprite.svg') no-repeat left top;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 50px;
+  width: 172px;
 }
 
 
@@ -160,12 +185,15 @@ body.home .primary {
 	opacity: 0;
 }
 
-ul#filters,
 .artists,
 .news {
 	width:100%;
 	margin-bottom:20px;
 	float:left;
+}
+
+ul#filters {
+	margin-bottom:50px;
 }
 
 ul#filters li {
