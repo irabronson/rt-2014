@@ -2,7 +2,8 @@ jQuery(function($) {
     
     $(document).ready(function () {
         
-        // The filtering functionality
+        // Homepage Artist Category
+        // Filtering functionality
         $('ul#filters a').click(function(e) {
             
             e.preventDefault();
@@ -46,6 +47,30 @@ jQuery(function($) {
         setTimeout(function (){
             $('.primary').fadeTo( 150 , 1 );
         }, 150);
+        
+        
+        // AJAX page loading
+        // for News Posts
+        var getNewsPage = function(e) {
+            
+            e.preventDefault();
+            
+            $(this).unbind('click', getNewsPage);
+            
+            var link = $(this).attr('href');
+            $('#news').html('Loading...');
+            
+            $('#news').load(link + ' .news-wrapper', function( response, status, xhr ) {
+                bindNewsPagination();
+            });
+            
+        };
+        
+        var bindNewsPagination = function () {
+            $('#pagination a').bind('click', getNewsPage);
+        };
+        
+        bindNewsPagination();
         
     }); // End doc.ready
 }); // End jQuery
