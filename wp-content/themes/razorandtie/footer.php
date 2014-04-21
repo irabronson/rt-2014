@@ -41,7 +41,7 @@
 <?php
     if( is_single() ) {
 ?>
-        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/tour-dates.js"></script>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
 <?php
     }
 ?>
@@ -49,8 +49,7 @@
 <?php
     if( is_home() ) {
 ?>
-        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/filter.js"></script>
-        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/get-news.js"></script>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/home.js"></script>
 <?php
     }
 ?>
