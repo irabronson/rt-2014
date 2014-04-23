@@ -17,69 +17,69 @@ jQuery(function($) {
         
     };
     
-    $(document).ready(function() {
+    // Create month names array
+    var m_names = new Array("January", "February", "March", 
+        "April", "May", "June", "July", "August", "September", 
+        "October", "November", "December");
         
-        // Create month names array
-        var m_names = new Array("January", "February", "March", 
-            "April", "May", "June", "July", "August", "September", 
-            "October", "November", "December");
+    // Format dates from json data
+    var formatDate = function(date) {
+    
+      var d = new Date(date);
+      var day = d.getDate();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      var dateFormatted = m_names[month] + ' ' + day + ', ' + year;
+      
+      return dateFormatted;
+      
+    };
+    
+    var showTourDatesFeed = function(feeds, currentBand) {
+        
+        // Only show Tour Column if "On Tour"
+        // Check manually if error or no results
+        if( feeds.errors ){
+            // do nothing
             
-        // Format dates from json data
-        var formatDate = function(date) {
-        
-          var d = new Date(date);
-          var day = d.getDate();
-          var month = d.getMonth();
-          var year = d.getFullYear();
-          var dateFormatted = m_names[month] + ' ' + day + ', ' + year;
-          
-          return dateFormatted;
-          
-        };
-        
-        
-        var showTourDatesFeed = function(feeds, currentBand) {
+        } else if( feeds.length > 1 ){
             
-            // Only show Tour Column if "On Tour"
-            // Check manually if error or no results
-            if( feeds.errors ){
-                // do nothing
+            // Un-hide tour column
+            $('body.single-artist .tour').show();
+            
+            var data = '<ul>';
+            
+            for (var i=0; i<feeds.length; i++) {
                 
-            } else if( feeds.length > 1 ){
+                var date = feeds[i].datetime;
+                var dateFormatted = formatDate(date);
+                var location = feeds[i].formatted_location;
+                var venue = feeds[i].venue.name;
                 
-                // Un-hide tour column
-                $('body.single-artist .tour').show();
-                
-                var data = '<ul>';
-                
-                for (var i=0; i<feeds.length; i++) {
-                    
-                    var date = feeds[i].datetime;
-                    var dateFormatted = formatDate(date);
-                    var location = feeds[i].formatted_location;
-                    var venue = feeds[i].venue.name;
-                    console.log(feeds[i].venue.name);
-                    
-                    data += '<li>';
-                    data += '<span class="date">' +  dateFormatted + '</span>';
-                    data += '<span class="venue">' + venue + '</span>';
-                    data += '<span class="location">' + location + '</span>';
-                    data += '</li>';
-                }
-                
-                data += '</ul>';
-                
-                // Append tour dates list to Tour Column
-                $('body.single-artist #tour-dates').html(data);
-                
-            } else {
-                // do nothing
+                data += '<li>';
+                data += '<span class="date">' +  dateFormatted + '</span>';
+                data += '<span class="venue">' + venue + '</span>';
+                data += '<span class="location">' + location + '</span>';
+                data += '</li>';
             }
             
-        };
+            data += '</ul>';
+            
+            // Append tour dates list to Tour Column
+            $('body.single-artist #tour-dates').html(data);
+            
+        } else {
+            // do nothing
+        }
+        
+    };
+    
+    $(document).ready(function() {
         
         // Call tour dates functions
-        tourDatesFeed(showTourDatesFeed, currentBand);
+        if( $('#tour-dates').length > 0 ) {
+            tourDatesFeed(showTourDatesFeed, currentBand);
+        }
         
     });
 });
