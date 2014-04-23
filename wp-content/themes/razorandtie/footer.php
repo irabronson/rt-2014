@@ -37,21 +37,6 @@
 
 <?php /*Custom JS Files*/ ?>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
-    
-<?php
-    if( is_single() ) {
-?>
-        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
-<?php
-    }
-?>
-
-<?php
-    if( is_home() ) {
-?>
-        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/home.js"></script>
-<?php
-    }
-?>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
 </body>
 </html>
