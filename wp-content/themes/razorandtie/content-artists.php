@@ -13,10 +13,6 @@
 <?php
     if ( $artist_query->have_posts() ) :
 ?>
-    <div id="toggle-display">
-        <a href="#" id="image-display" class="active">Image</a>
-        <a href="#" id="text-display">Text</a>
-    </div>
     <div class="artists image-display">
     <?php
         while ( $artist_query->have_posts() ) : $artist_query->the_post();
@@ -30,8 +26,8 @@
 ?>
             <div class="artist" data-filter="<?php echo $slug; ?>">
                 <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail('thumbnail'); ?>
-                    <p><?php the_field('artist_list_display_name'); ?></p>
+                <?php the_post_thumbnail('thumbnail'); ?>
+              	<p><?php the_field('artist_list_display_name'); ?></p>
                 </a>
             </div>
 <?php
