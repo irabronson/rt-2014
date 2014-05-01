@@ -11,6 +11,7 @@
 
 <!-- Content-About Template -->
 <section class="primary">
+  <section class="section-inner">
     <h2><?php the_title(); ?></h2>
 <?php
         // SUBTITLE
@@ -21,10 +22,11 @@
         }
 ?>
     <div class="text"><?php echo $post->post_content; ?></div>
-    
+  </section><!-- .section-inner -->    
 </section>
 
 <section class="secondary">
+  <section class="section-inner">
     <?php
         // LOGOS
         // Check for logos
@@ -33,8 +35,8 @@
         if( empty($logos) != 1 ) :
     ?>
         <!-- Logos -->
-        <div class="logos">
-            <h3>Logos</h3>
+        <div class="logos col-3">
+            <h3>Corporate Logos</h3>
     <?php
             $i = 1;
             foreach( $logos as $logo ) :
@@ -63,7 +65,7 @@
         if( empty($pressAssets) != 1 ) :
     ?>
         <!-- Press Assets -->
-        <div class="press-assets">
+        <div class="press-assets col-3">
             <h3>Press Assets</h3>
             <ul class="press-assets-list">
     <?php
@@ -107,7 +109,7 @@
         // Check for contact name and email
     ?>
         <!-- About Contact -->
-        <div class="contacts">
+        <div class="contacts col-3">
             <h3>Contact</h3>
             
     <?php
@@ -158,7 +160,7 @@
         if( $socials ) :
     ?>
         <!-- Social Media Links -->
-        <div class="social-media">
+        <div class="social-media col-3">
             <h3>Social Media</h3>
             <ul class="social-links">
     <?php
@@ -186,4 +188,5 @@
         endif;
     ?>
     
+  </section><!-- .section-inner -->    
 </section>
