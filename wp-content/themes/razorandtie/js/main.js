@@ -146,6 +146,14 @@ jQuery(function($) {
             }, 150);
         }
         
+        // Toggle Nav height for Artists Submenu
+        // *************************************
+        $('li.menu-item-has-children').hover(function() {
+          $('nav').toggleClass('nav-expanded');
+        });
+
+        
+        
         // AJAX page loading
         // *****************
         // Bind news pagination
