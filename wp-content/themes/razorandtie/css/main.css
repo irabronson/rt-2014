@@ -52,6 +52,10 @@ body {
     position: relative;
 }
 
+p {
+  margin-bottom: 30px;
+}
+
 ::-moz-selection {
   background: rgba(224, 65, 145, 0.99);
   color: #fff;
@@ -132,7 +136,7 @@ a:active, a:hover {
 }
 
 
-/* Headers
+/* Headings
 -------------------------------------------------------------- */
 h2,h3,h4,h5 {
   color: #3a3a3a;
@@ -160,7 +164,8 @@ h4 {
   margin-bottom:20px;
 }
 
-
+/* Header, logo and Nav
+-------------------------------------------------------------- */
 header {
   border-bottom:1px solid #dadada;
 	margin:60px 0 55px;
@@ -190,7 +195,7 @@ header .section-inner {
 }
 
 /* Nav
--------------------------------------------------------------- */
+------- */
 nav {
   float: right;
   font: 900 14px/1 'Maven Pro', 'sans-serif';
@@ -431,6 +436,7 @@ ul#filters li a:hover {
 	bottom:0;
 	font:900 0.95em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	letter-spacing: -1px;
+	margin-bottom: 0;
 	padding:15px;
 	position:absolute;
 	text-align:center;
@@ -602,6 +608,10 @@ body.single-artist h2 {
   float: right;
 }
 
+.artist-featured .contacts li p {
+  margin: 15px 0 0;
+}
+
 .social-icon {
   background: #2e2e2e url('../images/images-icons-sprite.svg')  center center;
 	border-radius: 29px;
@@ -645,6 +655,10 @@ body.single-artist h2 {
 
 .social-icon.itunes {
   background-position: center -1271px;
+}
+
+.album p {
+  margin-bottom: -2px;
 }
 
 .audio {
