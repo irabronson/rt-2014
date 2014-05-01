@@ -1,5 +1,6 @@
 
 <section class="primary">
+  <section class="section-inner">
     <?php
         // get all rows from the postmeta table where the sub_field (type) equals 'type_3'
         // - http://codex.wordpress.org/Class_Reference/wpdb#SELECT_Generic_Results
@@ -18,7 +19,7 @@
     ?>
         <div class="upcoming-releases">
             <h2>Upcoming Releases</h2>
-            <div class="albums">
+            <div class="releases">
     <?php
             foreach( $upcomingRows as $upcomingRow ) :
                 
@@ -56,10 +57,12 @@
     <?php
         endif;
     ?>
+  </section><!-- .section-inner -->
 </section>
 
 
 <section class="secondary">
+  <section class="section-inner">
     <?php
         // get all rows from the postmeta table where the sub_field (type) equals 'type_3'
         // - http://codex.wordpress.org/Class_Reference/wpdb#SELECT_Generic_Results
@@ -79,7 +82,7 @@
     ?>
         <div class="new-releases">
             <h2>New Releases</h2>
-            <div class="albums">
+            <div class="releases">
     <?php
             foreach( $recentRows as $recentRow ) :
                 
@@ -117,4 +120,5 @@
     <?php
         endif;
     ?>
+  </section><!-- .section-inner -->
 </section>
