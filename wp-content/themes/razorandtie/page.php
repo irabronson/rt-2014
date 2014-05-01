@@ -16,7 +16,15 @@
     if( is_page('artists') ) :
 ?>
     <section class="primary">
+      <div class="section-inner artists">
         <h2><?php the_title(); ?></h2>
+        <!-- Display toggle -->
+        <div id="toggle-display">
+          <a href="#" id="image-display" class="active">Image</a>
+          <a href="#" id="text-display">Text</a>
+        </div>
+      </div><!-- .section-inner -->
+      
 <?php
         // Set arguments
         $args = array(
