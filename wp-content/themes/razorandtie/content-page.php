@@ -13,6 +13,6 @@
 <section class="primary">
   <section class="section-inner">
     <h2><?php wp_title(''); ?></h2>
-    <div class="text"><?php echo $post->post_content; ?></div>
+    <div class="text"><?php echo apply_filters('the_content', $post->post_content); ?></div>
   </section><!-- .section-inner -->    
 </section>
