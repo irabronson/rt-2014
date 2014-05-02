@@ -9,7 +9,7 @@
             SELECT * 
             FROM wp_postmeta
             WHERE meta_key LIKE %s
-                AND meta_value > %s ORDER BY meta_value DESC
+                AND meta_value > %s ORDER BY meta_value ASC
             ",
             'artist_album_%_artist_album_date', // meta_name: $ParentName_$RowNumber_$ChildName
              date('Y-m-d',strtotime("today")) // meta_value: 'type_3' for example
