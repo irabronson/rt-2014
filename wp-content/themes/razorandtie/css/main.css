@@ -16,8 +16,8 @@ header:after,
 .secondary:after,
 .footer-wrapper:before,
 .footer-wrapper:after {
-    content:"";
-    display:table;
+  content:"";
+  display:table;
 }
 body:after,
 #page:after,
@@ -25,7 +25,7 @@ header:after,
 #main:after,
 #secondary:after,
 .footer-wrapper:after {
-    clear:both;
+  clear:both;
 }
 body,
 #page,
@@ -33,23 +33,23 @@ header,
 #main,
 #secondary,
 .footer-wrapper {
-    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
 
 * {
-    margin: 0;
+  margin: 0;
 }
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background: #f3f3f3;
-    font-family: 'Cabin', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    font-size: 62.5%;
-    line-height: 1.7;
-    color: #555;
-    position: relative;
+  background: #f3f3f3;
+  font-family: 'Cabin', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-size: 62.5%;
+  line-height: 1.7;
+  color: #555;
+  position: relative;
 }
 
 p {
@@ -69,14 +69,14 @@ p {
 }
 
 #page {
-    width: 100%;
-    margin:0 auto;
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    position: relative;
-    margin-bottom: -405px; /* the bottom margin is the negative value of the footer's height */;
-    font-size:1.6em;
+  width: 100%;
+  margin:0 auto;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+  margin-bottom: -405px; /* the bottom margin is the negative value of the footer's height */;
+  font-size:1.6em;
 }
 
 /*
@@ -85,54 +85,53 @@ http://ryanfait.com/
 */
 
 footer, .push {
-    height: 405px; /* .push must be the same height as .footer */
-    position: relative;
+  height: 405px; /* .push must be the same height as .footer */
+  position: relative;
 }
 
 .push {
-    width: 100%;
-    overflow: hidden; /*clearfix*/
-    z-index: -1;
+  width: 100%;
+  overflow: hidden; /*clearfix*/
+  z-index: -1;
 }
 
 footer {
-    z-index: 5;
+  z-index: 5;
 }
 
 /* Text meant only for screen readers */
 .screen-reader-text,
 .assistive-text {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* Alignment */
 .alignleft {
-    display: inline;
-    float: left;
+  display: inline;
+  float: left;
 }
 .alignright {
-    display: inline;
-    float: right;
+  display: inline;
+  float: right;
 }
 .aligncenter {
-    clear: both;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Links
 -------------------------------------------------------------- */
 a, a:link, a:visited {
-    color: #ED5FA6;
-    text-decoration: none;
+  color: #ed5fa6;
+  text-decoration: none;
 }
 
 a:active, a:hover {
-    color: #333;
-    text-decoration: none;
+  background: rgba(153, 153, 153, 0.2);	
 }
 
 
@@ -148,10 +147,10 @@ h2,h3,h4,h5 {
 
 h3 {
 	font:900 1.25em/1 'Maven Pro', Helvetica, Arial, sans-serif;
-	margin-bottom:40px;
+	margin-bottom:35px;
 }
 
-.artist-info h3 {
+.artist-info h3, #news h3 {
   color: #ddd;
 }
 
@@ -233,6 +232,10 @@ nav li.current-menu-parent > a,
 body.artists nav li.menu-item-has-children > a,
 body.single-artist nav li.menu-item-has-children > a {
   color: #333;
+}
+
+nav li a:hover {
+  background: none;
 }
 
 nav li.menu-item-has-children > a {
@@ -361,12 +364,13 @@ ul#filters li a {
 	padding-bottom: 15px;
 }
 
-ul#filters li a.active {
+ul#filters li a.active, ul#filters li a.active:hover {
   background: url('../images/images-icons-sprite.svg') no-repeat center -372px;
 	color:#333;
 }
 
 ul#filters li a:hover {
+  background: transparent;
 	color:#333;
 }
 
@@ -518,17 +522,47 @@ ul#filters li a:hover {
 #news {
   background: rgba(46, 46, 46, 0.97);
   color: #fff;
+	font:900 1.15em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	letter-spacing:-1px;
+	min-height: 301px;
   padding: 50px 0;	
   text-align: center;
   text-transform: uppercase;
 }
 
-#news .news-post {
-	margin-bottom:20px;
+.news-post {
+  color: #ddd;
+	margin-bottom:25px;
 }
 
-.news .news-post .title {
-	font-weight:bold;
+.news-post a {
+  color: #ddd;
+}
+
+.news-post a .date {
+  color: #ed5fa6;
+  margin-right: 20px;
+}
+
+.news-post a .type {
+  color: #999;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+#pagination {
+  margin-top: 35px;
+}
+
+#pagination a {
+  margin: 0 10px;
+}
+
+
+/* Artist Landing Pages
+-------------------------------------------------------------- */
+body.artists .primary, body.tax-artists .primary {
+  margin-bottom: 0;
 }
 
 /* Artist Detail Page
@@ -594,18 +628,15 @@ body.single-artist h2 {
   width: 42%;
 }
 
-.artist-info a:hover {
-  color: #fff;
-}
-
 .artist-info .social-media {
   float: left;
   margin-bottom: 35px;
-  width: 65%;
+  width: 56%;
 }
 
 .artist-featured .contacts {
   float: right;
+  margin-bottom: 35px;
 }
 
 .artist-featured .contacts li p {
@@ -657,12 +688,48 @@ body.single-artist h2 {
   background-position: center -1271px;
 }
 
+.press-photo {
+  float: left;
+  margin-right: 8px;
+  width: 31.5%;
+}
+
+.press-photo img {
+  display: block;
+  height: auto;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.press-assets-list {
+  margin-top: -3px;
+}
+
+.press-assets-list li {
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.press-assets-list .date {
+  color: #555;
+  margin-right: 15px;
+}
+
 .album p {
   margin-bottom: -2px;
 }
 
 .audio {
   margin-bottom: 55px;
+}
+
+.track, .video {
+  margin-bottom: 30px;
+}
+
+.track iframe {
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 body.single-artist .tour { /* keep this hidden until tour dates available */
