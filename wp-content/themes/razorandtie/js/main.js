@@ -152,7 +152,12 @@ jQuery(function($) {
           $('nav').toggleClass('nav-expanded');
         });
 
-        
+
+        // Toggle Nav height for Artists Submenu
+        // *************************************
+        $(".video").fitVids();
+
+
         
         // AJAX page loading
         // *****************
