@@ -263,7 +263,7 @@
                             }
                             echo '<span class="title">';
                             echo $pressAsset['artist_press_asset_title'];
-                            echo '&nbsp;(' . $pressAsset['artist_press_asset_type'] . ')';
+                            echo ' (' . $pressAsset['artist_press_asset_type'] . ')';
                             echo '</span>';
                         ?>
                         
