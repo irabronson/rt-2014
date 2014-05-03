@@ -41,7 +41,7 @@
         
     endif;
 ?>
-    <div class="section-inner artists">
+    <div class="section-inner artists-inner">
       <h2>Artists: <?php echo $title; ?></h2>
       <!-- Display toggle -->
       <div id="toggle-display">
