@@ -152,8 +152,14 @@ jQuery(function($) {
           $('nav').toggleClass('nav-expanded');
         });
 
+        // Toggle Latest News expanding drawer
+        // ***********************************
+        $('.news-trigger-bg,.news-trigger').click(function() {
+          $('#news,.news-trigger,.news-post').toggleClass('news-expanded');
+        });
+        
         // Fire FitVids
-        // *************************************
+        // ************
         $(".video").fitVids();
 
         // AJAX page loading
