@@ -13,7 +13,7 @@
 <?php
     if ( $artist_query->have_posts() ) :
 ?>
-    <div class="artists image-display">
+    <div class="artist-list image-display">
     <?php
         while ( $artist_query->have_posts() ) : $artist_query->the_post();
             
