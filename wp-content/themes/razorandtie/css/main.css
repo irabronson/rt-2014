@@ -45,10 +45,12 @@ html, body {
 
 body {
   background: #f3f3f3;
-  font-family: 'Cabin', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-size: 62.5%;
-  line-height: 1.7;
-  color: #555;
+  font-weight: 600;
+  letter-spacing: -.3px;
+  line-height: 1.8;
+  color: #444;
   position: relative;
 }
 
@@ -76,7 +78,7 @@ p {
   height: 100%;
   position: relative;
   margin-bottom: -405px; /* the bottom margin is the negative value of the footer's height */;
-  font-size:1.6em;
+  font-size:1.5em;
 }
 
 /*
@@ -126,27 +128,27 @@ footer {
 /* Links
 -------------------------------------------------------------- */
 a, a:link, a:visited {
-  color: #ed5fa6;
+  color: #de408f;
   text-decoration: none;
 }
 
 a:active, a:hover {
-  background: rgba(153, 153, 153, 0.2);	
+  background: rgba(153, 153, 153, 0.25);	
 }
 
 
 /* Headings
 -------------------------------------------------------------- */
 h2,h3,h4,h5 {
-  color: #3a3a3a;
-	font:900 1.55em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+  color: #404040;
+	font:900 1.65em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	letter-spacing:-1px;
 	margin-bottom:55px;
 	text-transform:uppercase;
 }
 
 h3 {
-	font:900 1.25em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	font:900 1.35em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	margin-bottom:35px;
 }
 
@@ -291,10 +293,12 @@ body.single-artist nav li.menu-item-has-children > a {
   width: 720px;
 }
 
-body.single-artist .secondary .section-inner div:last-child,
-.tertiary .section-inner div:last-child {
+.section-inner .col-2:last-child,
+.section-inner .col-3:last-child,
+.section-inner .col-4:last-child,
+.section-inner .col-6:last-child {
+/* Removing margin on the last column */
   margin-right: 0;
-  /* Removing margin on the last column */
 }
 
 .primary {
@@ -304,12 +308,16 @@ body.single-artist .secondary .section-inner div:last-child,
 
 .secondary {
   background: #e6e6e6;
-  padding: 65px 0 35px;
+  padding: 65px 0 0;
+}
+
+body.upcoming-new-releases .secondary {
+  padding-bottom: 35px;
 }
 
 .tertiary {
   margin-bottom: 50px;
-  padding: 65px 0 20px;
+  padding: 65px 0 0;
 }
 
 .section-inner {
@@ -330,7 +338,7 @@ h2, ul#filters {
   clear: left;
 }
 
-.section-inner.artists {
+.section-inner.artists-inner {
   margin-bottom: 0;
 }
 
@@ -353,7 +361,7 @@ ul#filters {
 
 ul#filters li {
 	display:inline;
-	font:900 1.2em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	font:900 1.3em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	letter-spacing:-1px;
 	margin-right:20px;
 	text-transform:uppercase;
@@ -406,7 +414,7 @@ ul#filters li a:hover {
 
 /* Grid of artists
 -------------------- */
-.artists .artist {
+.artist-list .artist {
   background: #181818;
   display: inline-block;
 	position:relative;
@@ -416,7 +424,7 @@ ul#filters li a:hover {
 	width: 14.285%;
 }
 
-.artists.image-display .artist img {
+.artist-list.image-display .artist img {
   bottom: 0;
   height: auto;
   position: absolute;
@@ -432,42 +440,44 @@ ul#filters li a:hover {
   -moz-transform: translateZ(0) scale(1.0, 1.0);
 }
 
-.artists .artist p {
-  background: rgba(38, 38, 38, 0.8);	
+.artist-list .artist p, .releases .release p {
+  background: rgba(38, 38, 38, 0.85);	
   rgbbackground:transparent;
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc262626,endColorstr=#cc262626);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#d8262626,endColorstr=#d8262626);
   zoom: 1;
 	bottom:0;
-	font:900 0.95em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	font:900 1.05em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	letter-spacing: -1px;
 	margin-bottom: 0;
-	padding:15px;
+	padding:13px 15px;
 	position:absolute;
 	text-align:center;
 	text-transform:uppercase;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  width: 70%;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out; 
   transition: all 0.1s ease-in-out;
 }
 
-.artists .artist a {
+.artist-list .artist a, .releases .release a {
+	color:#ddd;
+}
+
+.artist-list .artist a:hover, .releases .release a:hover {
 	color:#fff;
 }
 
-.artists .artist a:hover img {
-  filter: alpha(opacity=40);
-  opacity: .4;
+.artist-list .artist a:hover img {
+  filter: alpha(opacity=75);
+  opacity: .75;
   -webkit-transition: opacity 0.1s ease-in-out;
   -moz-transition: opacity 0.1s ease-in-out;
   -o-transition: opacity 0.1s ease-in-out; 
   transition: opacity 0.1s ease-in-out;
 }
 
-.artists .artist a:hover p {
+.artist-list .artist a:hover p, .releases .release a:hover p {
+  background: #262626;
   padding-bottom: 30px;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
@@ -475,32 +485,31 @@ ul#filters li a:hover {
   transition: all 0.1s ease-in-out;
 }
 
-.artists .artist a:hover {
-	color:#fff;
-}
-
-.artists.text-display {
-  margin-bottom: 100px;
+.artist-list.text-display {
+  margin: 0 auto 50px;
   overflow: hidden;
+  width: 95%;
 }
 
-.artists.text-display .artist {
+.artist-list.text-display .artist {
   background: transparent;
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  width: 20%;
 }
 
-.artists.text-display .artist a {
-	color:#3a3a3a;
+.artist-list.text-display .artist a {
+	color:#404040;
 }
 
-.artists.text-display .artist a:hover {
-	color:#ed5Fa6;
+.artist-list.text-display .artist a:hover {
+	color:#de408f;
 }
 
-.artists.text-display .artist p {
-	position:relative;
+.artist-list.text-display .artist p {
 	background:none;
+	font-size: 1.05em;
+	position:relative;
 	padding:0;
   transition: none;
   -webkit-transition: none;
@@ -509,11 +518,12 @@ ul#filters li a:hover {
   transition: none;
 }
 
-.artists.text-display .artist a:hover  p {
+.artist-list.text-display .artist a:hover  p {
+	background:none;
 	padding:0;
 }
 
-.artists.text-display .artist img {
+.artist-list.text-display .artist img {
 	display:none;
 }
 
@@ -522,7 +532,7 @@ ul#filters li a:hover {
 #news {
   background: rgba(46, 46, 46, 0.97);
   color: #fff;
-	font:900 1.15em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	font:900 1.2em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	letter-spacing:-1px;
 	min-height: 301px;
   padding: 50px 0;	
@@ -555,6 +565,7 @@ ul#filters li a:hover {
 }
 
 #pagination a {
+  color: #ed5fa6;
   margin: 0 10px;
 }
 
@@ -591,9 +602,9 @@ body.single-artist h2 {
   background-image: none;
   border: none;
   box-shadow: none;
-  color: #333;
+  color: #404040;
   cursor: pointer;
-	font:900 0.95em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	font:900 1em/1 'Maven Pro', Helvetica, Arial, sans-serif;
   outline: none;
   padding: 10px 15px;
   text-transform: uppercase;
@@ -626,6 +637,10 @@ body.single-artist h2 {
   float: left;
   padding: 45px;
   width: 42%;
+}
+
+.artist-info a {
+  color: #ed5fa6;
 }
 
 .artist-info .social-media {
@@ -688,25 +703,50 @@ body.single-artist h2 {
   background-position: center -1271px;
 }
 
-.press-photo {
+.press-photo,
+.album {
   float: left;
-  margin-right: 8px;
-  width: 31.5%;
+  margin: 0 8px 20px 0;
+  width: 31%;
 }
 
-.press-photo img {
+.logo {
+  margin-bottom: 20px;
+}
+
+.album {
+  width: 43.5%;
+}
+
+.albums .album:nth-of-type(odd) {
+  clear: left;
+}
+
+.press-photo a,
+.logo a,
+.album a {
+  margin-right: 10px;
+}
+
+.press-photo img,
+.logo img,
+.album img {
   display: block;
   height: auto;
   margin-bottom: 8px;
   width: 100%;
 }
 
+.logo img {
+  width: auto;
+}
+
 .press-assets-list {
-  margin-top: -3px;
+  margin-top: -6px;
 }
 
 .press-assets-list li {
-  line-height: 1.3;
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
@@ -736,51 +776,121 @@ body.single-artist .tour { /* keep this hidden until tour dates available */
 	display:none;
 }
 
+#tour-dates li {
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 1.4;
+  margin-bottom: 17px;
+  padding-bottom: 17px;
+}
+
+#tour-dates li:last-child {
+  border: none;
+}
+
+#tour-dates .date,
+#tour-dates .venue,
+#tour-dates .location {
+  display: inline-block;
+  width: 24%;
+}
+
+#tour-dates .venue {
+  margin: 0 20px;
+  width: 40%;
+}
+
+#tour-dates .location {
+  width: 30%;
+}
+
+
 /* Upcoming Releases Page
 -------------------------------------------------------------- */
+body.upcoming-new-releases .primary .section-inner {
+  margin-bottom: 35px;
+}
+
 .releases {
-	width: 100%;
+  clear: left;
 	overflow:hidden; /*clearfix*/
 }
 
-.releases .album {
-	position:relative;
+.releases .release {
+  background: #181818;
+  display: inline-block;
 	float:left;
-}
-
-.releases .album a:hover {
-	color:#FFF;
-}
-
-.releases .album p {
-	line-height:1.2;
-	position:absolute;
-	bottom:0;
-	text-align:center;
-	background:rgba(0,0,0,0.5);
-	padding:20px;
-}
-
-.single .releases .album p {
-	text-align:left;
+	padding-bottom: 25%;
 	position:relative;
-	padding:0;
-	background:none;
+	width: 25%;
 }
 
-.releases .album p span {
+.releases .release img {
+  bottom: 0;
+  height: auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out; 
+  transition: opacity 0.1s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  -moz-backface-visibility: hidden;
+  -moz-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.releases .release a:hover img {
+  filter: alpha(opacity=75);
+  opacity: .75;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out; 
+  transition: opacity 0.1s ease-in-out;
+}
+
+.releases .release p span {
 	display:block;
 }
 
-
-/* About page
--------------------------------------------------------------- */
-body.about .primary {
-  margin-bottom: 20px;
+.releases .release p {
+	padding: 22px;
 }
 
-body.about .secondary .section-inner div:last-child {
-  margin-right: 0;
+.releases .release .album-date, .releases .release .artist-name {
+  font-family: 'Open Sans', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 600;
+  letter-spacing: normal;
+  margin: 10px 0 15px;
+  text-transform: none;
+}
+
+.releases .release .artist-name {
+  color: #ed5fa6;
+  margin: 0;
+}
+
+
+/* About Page
+-------------------------------------------------------------- */
+body.about .primary {
+  margin-bottom: -10px;
+}
+
+body.about h2 {
+  margin-bottom: 50px;
+}
+
+body.about h3 {
+  line-height: 1.5;
+}
+
+body.about .text {
+  font-size: 1.1em;
+}
+
+p.address {
+  margin-top: -6px;
 }
 
 body.about .social-icon {
@@ -807,6 +917,14 @@ body.about .social-icon.twitter {
 body.about .social-icon.instagram {
   background-position: center -1735px;
 }
+
+
+/* Contact Page
+-------------------------------------------------------------- */
+body.contact h2 {
+  margin-bottom: 50px;
+}
+
 
 
 /* Footer
