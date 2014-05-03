@@ -60,10 +60,14 @@
 </section> <!-- /.primary -->
 
 <section id="news">
-<?php
-    // Get news posts
-    include('content-news.php');
-?>
+  <div class="news-trigger-container">
+    <div class="news-trigger"></div>
+    <div class="news-trigger-bg"></div>
+  </div>
+  <?php
+      // Get news posts
+      include('content-news.php');
+  ?>
 </section>
 
 <?php get_footer(); ?>
