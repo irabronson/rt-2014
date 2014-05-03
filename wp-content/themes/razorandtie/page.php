@@ -16,7 +16,7 @@
     if( is_page('artists') ) :
 ?>
     <section class="primary">
-      <div class="section-inner artists">
+      <div class="section-inner artists-inner">
         <h2><?php the_title(); ?></h2>
         <!-- Display toggle -->
         <div id="toggle-display">
