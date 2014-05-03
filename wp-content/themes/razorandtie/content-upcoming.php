@@ -39,7 +39,7 @@
                 // - http://www.advancedcustomfields.com/resources/field-types/image/
                 $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
     ?>
-                <div class="album">
+                <div class="release">
                     <a href="<?php echo get_permalink( $upcomingRow->post_id ); ?>">
                         <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
                         <p class="caption">
@@ -102,7 +102,7 @@
                 // - http://www.advancedcustomfields.com/resources/field-types/image/
                 $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
     ?>
-                <div class="album">
+                <div class="release">
                     <a href="<?php echo get_permalink( $recentRow->post_id ); ?>">
                         <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
                         <p class="caption">
