@@ -33,7 +33,7 @@
             ?>
         </title>
         <meta name="description" content="<?php echo $site_description; ?>" />
-        <link href='http://fonts.googleapis.com/css?family=Cabin:600|Maven+Pro:900,700' rel='stylesheet' type='text/css'>        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,800|Maven+Pro:900,700' rel='stylesheet' type='text/css'>        
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style.css" />
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         
