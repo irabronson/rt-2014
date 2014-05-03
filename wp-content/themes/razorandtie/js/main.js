@@ -15,7 +15,7 @@ jQuery(function($) {
             $('#toggle-display a.active').removeClass('active');
             $(this).addClass('active');
             
-            $('.artists').removeClass('image-display text-display').addClass(activeClass);
+            $('.artist-list').removeClass('image-display text-display').addClass(activeClass);
         }
         
         $('#toggle-display a').bind('click', toggleDisplay);
@@ -30,9 +30,9 @@ jQuery(function($) {
         $('ul#filters a').off( 'click', filterArtists );
         
         var filterVal = $(this).attr('data-filter');
-        var itemsLength = $('.artists .artist:visible').length;
+        var itemsLength = $('.artist-list .artist:visible').length;
         
-        $('.artists .artist:visible').each(function(i) {
+        $('.artist-list .artist:visible').each(function(i) {
             $(this).fadeOut(30, function(){
                 if(itemsLength == ++i) {
                     showArtists(filterVal);
@@ -53,9 +53,9 @@ jQuery(function($) {
     // Artists Category Filter
     var showArtists = function(filterVal) {
         if(filterVal == 'all') {
-            $('.artists .artist').fadeIn(200);
+            $('.artist-list .artist').fadeIn(200);
         } else {
-            $('.artists .artist').each(function() {
+            $('.artist-list .artist').each(function() {
                 if($(this).attr('data-filter') === filterVal ) {
                     $(this).fadeIn(200);
                 }
@@ -152,13 +152,10 @@ jQuery(function($) {
           $('nav').toggleClass('nav-expanded');
         });
 
-
-        // Toggle Nav height for Artists Submenu
+        // Fire FitVids
         // *************************************
         $(".video").fitVids();
 
-
-        
         // AJAX page loading
         // *****************
         // Bind news pagination
