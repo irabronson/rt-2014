@@ -204,9 +204,6 @@ update_option('image_default_link_type','none');
 // Custom Thumbnail Retreival
 include('php/get-thumbnail-custom.php');
 
-// Custom Recent Posts Query
-include('php/get-recent-posts.php');
-
 // Added to extend allowed files types in Media upload
 // See more at: http://itswordpress.com/featured/add-additional-file-types-to-wordpress-media-library/#sthash.yZtx2ZLg.dpuf
 add_filter('upload_mimes', 'custom_upload_mimes');
