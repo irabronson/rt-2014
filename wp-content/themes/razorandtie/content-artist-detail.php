@@ -11,58 +11,57 @@
 
 <!-- Content-Artist-Detail Template -->
 <section class="primary">
-    
-    <div class="artist-header">
+    <div class="section-inner">
         <!-- Artist Title -->
         <h2><?php the_title(); ?></h2>
         
-        <select id="artist-detail-nav">
-            <option value="all-artists" selected="selected">All Artists</option>
-            <?php
-                // Define global args for artist_query
-                $args = array(
-                    'post_type' => 'artist',
-                    'orderby' => 'meta_value',
-                    'meta_key' => 'artist_list_display_name',
-                    'order' =>  'ASC',
-                    'posts_per_page' => -1
-                );
-                
-                // BEGIN: Razor & Tie Artists Option Group
-                $args['artists'] = 'razor-tie';
-                $title = 'RAZOR &amp; TIE ---------------';
-                
-                // Query Artist Post Type
-                $artist_cat_query = new WP_Query( $args );
-                
-                include('content-optgroup.php');
-                // END: Razor & Tie
-                
-                // BEGIN: Washington Square Artists Option Group
-                $args['artists'] = 'washington-square';
-                $title = 'WASHINGTON SQUARE ---------------';
-                
-                // Query Artist Post Type
-                $artist_cat_query = new WP_Query( $args );
-                
-                include('content-optgroup.php');
-                // END: Washington Square
-                
-                // BEGIN: Razor & Tie Kids Artists Option Group
-                $args['artists'] = 'razor-tie-kids';
-                $title = 'RAZOR &amp; TIE KIDS ---------------';
-                
-                // Query Artist Post Type
-                $artist_cat_query = new WP_Query( $args );
-                
-                include('content-optgroup.php');
-                // END: Razor & Tie Kids
-            ?>
-        </select>
-    </div><!-- .artist-header -->
+        <div class="dropdown">
+          <select id="artist-detail-nav">
+              <option value="all-artists" selected="selected">All Artists</option>
+              <?php
+                  // Define global args for artist_query
+                  $args = array(
+                      'post_type' => 'artist',
+                      'orderby' => 'meta_value',
+                      'meta_key' => 'artist_list_display_name',
+                      'order' =>  'ASC',
+                      'posts_per_page' => -1
+                  );
+                  
+                  // BEGIN: Razor & Tie Artists Option Group
+                  $args['artists'] = 'razor-tie';
+                  $title = 'RAZOR &amp; TIE -----';
+                  
+                  // Query Artist Post Type
+                  $artist_cat_query = new WP_Query( $args );
+                  
+                  include('content-optgroup.php');
+                  // END: Razor & Tie
+                  
+                  // BEGIN: Washington Square Artists Option Group
+                  $args['artists'] = 'washington-square';
+                  $title = 'WASHINGTON SQUARE -----';
+                  
+                  // Query Artist Post Type
+                  $artist_cat_query = new WP_Query( $args );
+                  
+                  include('content-optgroup.php');
+                  // END: Washington Square
+                  
+                  // BEGIN: Razor & Tie Kids Artists Option Group
+                  $args['artists'] = 'razor-tie-kids';
+                  $title = 'RAZOR &amp; TIE KIDS -----';
+                  
+                  // Query Artist Post Type
+                  $artist_cat_query = new WP_Query( $args );
+                  
+                  include('content-optgroup.php');
+                  // END: Razor & Tie Kids
+              ?>
+          </select>
+        </div>
     
     <div class="artist-featured">
-        
         <!-- Artist Image -->
         <figure>
         <?php
@@ -138,7 +137,7 @@
         ?>
                         <!-- <?php echo $social['class']; ?> Link -->
                         <li>
-                            <a href="<?php echo $social['link']; ?>" class="social-icon <?php echo $social['class']; ?>" title="<?php echo $social['title']; ?>"></a>
+                            <a href="<?php echo $social['link']; ?>" target="_blank" class="social-icon <?php echo $social['class']; ?>" title="<?php echo $social['title']; ?>"></a>
                         </li>
                     
         <?php
@@ -189,18 +188,20 @@
             <!-- Artist Website -->
             <div class="website">
                 <h3>Website</h3>
-                <a href="<?php the_field('artist_website'); ?>"><?php the_field('artist_website'); ?></a>
+                <a href="http://<?php the_field('artist_website'); ?>" target="_blank"><?php the_field('artist_website'); ?></a>
             </div>
         <?php
             endif;
         ?>
         
         </div><!-- .artist-info -->
+      </div><!-- .section-inner -->
     </div><!-- .artist-featured -->
     
 </section>
 
 <section class="secondary">
+  <div class="section-inner">        
     <?php        
         // PRESS PHOTOS
         // Check for press photos
@@ -209,7 +210,7 @@
         if( empty($pressPhotos) != 1 ) :
     ?>
         <!-- Press Photos -->
-        <div class="press-photos">
+        <div class="press-photos col-4">
             <h3>Press Photos</h3>
     <?php
             $i = 1;
@@ -240,7 +241,7 @@
         if( empty($pressAssets) != 1 ) :
     ?>
         <!-- Press Assets -->
-        <div class="press-assets">
+        <div class="press-assets col-3">
             <h3>Press Assets</h3>
             <ul class="press-assets-list">
     <?php
@@ -262,7 +263,7 @@
                             }
                             echo '<span class="title">';
                             echo $pressAsset['artist_press_asset_title'];
-                            echo '&nbsp;(' . $pressAsset['artist_press_asset_type'] . ')';
+                            echo ' (' . $pressAsset['artist_press_asset_type'] . ')';
                             echo '</span>';
                         ?>
                         
@@ -287,7 +288,7 @@
         if( empty($logos) != 1 ) :
     ?>
         <!-- Logos -->
-        <div class="logos">
+        <div class="logos col-2">
             <h3>Logos</h3>
     <?php
             $i = 1;
@@ -317,7 +318,7 @@
         if( empty($albums) != 1 ) :
     ?>
         <!-- Cover Art -->
-        <div class="albums">
+        <div class="albums col-3">
             <h3>Cover Art</h3>
     <?php
             $i = 1;
@@ -340,10 +341,12 @@
     <?php
         endif;
     ?>
+  </div><!-- .section-inner -->
 </section>
 
 <section class="tertiary">
-    <div class="column">
+  <div class="section-inner">        
+    <div class="column col-6">
     <?php
         // AUDIO EMBEDS
         // Check for audio
@@ -401,7 +404,7 @@
     ?>
     </div><!-- .column -->
     
-    <div class="column">
+    <div class="column col-6">
     <?php
         // TOUR
         // Content filled dynamically
@@ -418,4 +421,5 @@
             
         </div>
     </div><!-- .column -->
+  </div><!-- .section-inner -->
 </section><!-- .tertiary -->

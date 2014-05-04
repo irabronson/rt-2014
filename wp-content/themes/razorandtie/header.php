@@ -33,7 +33,7 @@
             ?>
         </title>
         <meta name="description" content="<?php echo $site_description; ?>" />
-        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,800|Maven+Pro:900,700' rel='stylesheet' type='text/css'>        
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style.css" />
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         
@@ -70,6 +70,7 @@
     
     <div id="page">
         <header id="branding" role="banner">
+          <div class="section-inner">
             <div id="logo">
                 <h1 id="site-title">
                     <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
@@ -81,6 +82,7 @@
                     wp_nav_menu( array( 'theme_location' => 'primary' ) );
                 ?>
             </nav>
+          </div>
         </header>
         
         <div id="main">

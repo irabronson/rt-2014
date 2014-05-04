@@ -24,6 +24,7 @@
     if ( have_posts() ) :
 ?>
     <section class="news-wrapper">
+      <h3>Latest News</h3>
 <?php
         while ( have_posts() ) : the_post();
 ?>
@@ -32,7 +33,7 @@
             if( get_field('news_press_asset') ) :
                 $attachment = get_field('news_press_asset');
 ?>
-                <a href="<?php echo $attachment[0]->guid; ?>">
+                <a href="<?php echo $attachment[0]->guid; ?>" target="_blank">
                     <span class="date"><?php echo date('M d', strtotime(get_the_date())); ?></span>
                     <span class="title"><?php the_title(); ?></span>
                     <span class="type"><?php the_field('news_press_asset_type'); ?></span>

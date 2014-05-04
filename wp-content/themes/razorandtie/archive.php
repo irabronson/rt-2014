@@ -41,7 +41,14 @@
         
     endif;
 ?>
-    <h2>Artists: <?php echo $title; ?></h2>
+    <div class="section-inner artists-inner">
+      <h2>Artists: <?php echo $title; ?></h2>
+      <!-- Display toggle -->
+      <div id="toggle-display">
+        <a href="#" id="image-display" class="active">Image</a>
+        <a href="#" id="text-display">Text</a>
+      </div>
+    </div><!-- .section-inner -->
 <?php
     // Query Artist Post Type
     $artist_query = new WP_Query( $args );

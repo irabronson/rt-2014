@@ -1,5 +1,6 @@
 
 <section class="primary">
+  <section class="section-inner">
     <?php
         // get all rows from the postmeta table where the sub_field (type) equals 'type_3'
         // - http://codex.wordpress.org/Class_Reference/wpdb#SELECT_Generic_Results
@@ -8,7 +9,7 @@
             SELECT * 
             FROM wp_postmeta
             WHERE meta_key LIKE %s
-                AND meta_value > %s ORDER BY meta_value DESC
+                AND meta_value > %s ORDER BY meta_value ASC
             ",
             'artist_album_%_artist_album_date', // meta_name: $ParentName_$RowNumber_$ChildName
              date('Y-m-d',strtotime("today")) // meta_value: 'type_3' for example
@@ -18,7 +19,7 @@
     ?>
         <div class="upcoming-releases">
             <h2>Upcoming Releases</h2>
-            <div class="albums">
+            <div class="releases">
     <?php
             foreach( $upcomingRows as $upcomingRow ) :
                 
@@ -38,7 +39,7 @@
                 // - http://www.advancedcustomfields.com/resources/field-types/image/
                 $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
     ?>
-                <div class="album">
+                <div class="release">
                     <a href="<?php echo get_permalink( $upcomingRow->post_id ); ?>">
                         <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
                         <p class="caption">
@@ -56,10 +57,12 @@
     <?php
         endif;
     ?>
+  </section><!-- .section-inner -->
 </section>
 
 
 <section class="secondary">
+  <section class="section-inner">
     <?php
         // get all rows from the postmeta table where the sub_field (type) equals 'type_3'
         // - http://codex.wordpress.org/Class_Reference/wpdb#SELECT_Generic_Results
@@ -79,7 +82,7 @@
     ?>
         <div class="new-releases">
             <h2>New Releases</h2>
-            <div class="albums">
+            <div class="releases">
     <?php
             foreach( $recentRows as $recentRow ) :
                 
@@ -99,7 +102,7 @@
                 // - http://www.advancedcustomfields.com/resources/field-types/image/
                 $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
     ?>
-                <div class="album">
+                <div class="release">
                     <a href="<?php echo get_permalink( $recentRow->post_id ); ?>">
                         <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
                         <p class="caption">
@@ -117,4 +120,5 @@
     <?php
         endif;
     ?>
+  </section><!-- .section-inner -->
 </section>

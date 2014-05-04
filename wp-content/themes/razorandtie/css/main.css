@@ -1,3 +1,8 @@
+/*--------------------------------------------------------------
+   Black Day Creative / NYC / Ira Bronson
+   www.blackdaycreative.com
+   May 3, 2014
+-------------------------------------------------------------- */
 
 /* Structure
 -------------------------------------------------------------- */
@@ -16,8 +21,8 @@ header:after,
 .secondary:after,
 .footer-wrapper:before,
 .footer-wrapper:after {
-    content:"";
-    display:table;
+  content:"";
+  display:table;
 }
 body:after,
 #page:after,
@@ -25,7 +30,7 @@ header:after,
 #main:after,
 #secondary:after,
 .footer-wrapper:after {
-    clear:both;
+  clear:both;
 }
 body,
 #page,
@@ -33,51 +38,56 @@ header,
 #main,
 #secondary,
 .footer-wrapper {
-    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
 
 * {
-    margin: 0;
+  margin: 0;
 }
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background: #f3f3f3;
-    font-family: "Helvetica-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-size: 62.5%;
-    line-height: 1;
-    color: #000;
-    position: relative;
+  background: #f3f3f3;
+  font-family: 'Open Sans', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-size: 62.5%;
+  font-weight: 600;
+  letter-spacing: -.3px;
+  line-height: 1.8;
+  color: #444;
+  position: relative;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+::-moz-selection {
+  background: rgba(224, 65, 145, 0.99);
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: rgba(224, 65, 145, 0.99);
+  color: #fff;
+  text-shadow: none;
 }
 
 #page {
-    width: 100%;
-    max-width:1200px;
-    margin:0 auto;
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    position: relative;
-    margin-bottom: -158px; /* the bottom margin is the negative value of the footer's height */;
-	font-size:1.5em;
+  width: 100%;
+  margin:0 auto;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+  margin-bottom: -405px; /* the bottom margin is the negative value of the footer's height */;
+  font-size:1.5em;
 }
 
-
-/* Setting up content mastheads with floats for h2, dropdown and toggle
-   and clears for subsequent content */
-
-h2, ul#filters {
-  float: left;
-}
-
-#artist-detail-nav, #toggle-display {
-  float: right;
-}
-
-.artist-featured, #news, h3, .text {
-  clear: left;
+body.home #page {
+  margin-bottom: -585px; /* the bottom margin is the negative value of the footer's height */;
 }
 
 /*
@@ -86,81 +96,98 @@ http://ryanfait.com/
 */
 
 footer, .push {
-    height: 158px; /* .push must be the same height as .footer */
-    position: relative;
+  height: 405px; /* .push must be the same height as footer */
+  position: relative;
+}
+
+body.home footer, body.home .push {
+  height: 585px; /* .push must be the same height as footer */
 }
 
 .push {
-    width: 100%;
-    overflow: hidden; /*clearfix*/
-    z-index: -1;
+  width: 100%;
+  overflow: hidden; /*clearfix*/
+  z-index: -1;
 }
 
 footer {
-    z-index: 5;
+  z-index: 5;
 }
 
 /* Text meant only for screen readers */
 .screen-reader-text,
 .assistive-text {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* Alignment */
 .alignleft {
-    display: inline;
-    float: left;
+  display: inline;
+  float: left;
 }
 .alignright {
-    display: inline;
-    float: right;
+  display: inline;
+  float: right;
 }
 .aligncenter {
-    clear: both;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Links
 -------------------------------------------------------------- */
 a, a:link, a:visited {
-    color: #ED5FA6;
-    text-decoration: none;
+  color: #de408f;
+  text-decoration: none;
 }
 
 a:active, a:hover {
-    color: #000;
-    text-decoration: none;
+  background: rgba(153, 153, 153, 0.25);	
 }
 
 
-/* Headers
+/* Headings
 -------------------------------------------------------------- */
-h4, h5 {
-    font-weight: normal;
-}
-
-h2 {
-	font-size:1.8em;
-	text-transform:uppercase;
+h2,h3,h4,h5 {
+  color: #404040;
+	font:900 1.65em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	letter-spacing:-1px;
 	margin-bottom:55px;
+	text-transform:uppercase;
 }
 
+h3 {
+	font:900 1.35em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	margin-bottom:35px;
+}
+
+.artist-info h3, #news h3 {
+  color: #ddd;
+}
+
+h4 {
+	font:900 1em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	margin-bottom:30px;
+}
+
+.artist-featured h3 {
+  margin-bottom:20px;
+}
+
+/* Header, logo and Nav
+-------------------------------------------------------------- */
 header {
-	margin:55px 0 40px;
+  border-bottom:1px solid #dadada;
+	margin:60px 0 55px;
 }
 
-nav {
-  float: right;
-	line-height:1.2;
-	margin-bottom:20px;
-}
-nav li {
-	margin-right:20px;
-	display: inline;
+header .section-inner {
+  height: 80px;
+  margin-bottom: 18px;
 }
 
 #logo {
@@ -177,158 +204,958 @@ nav li {
   width: 172px;
 }
 
+.no-svg #logo a {
+  background: url('../images/images-icons-sprite.png') no-repeat left top;
+}
 
-/* Main Body
+/* Nav
+------- */
+nav {
+  float: right;
+  font: 900 14px/1 'Maven Pro', 'sans-serif';
+  height: 17px;
+  letter-spacing: -1px;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  -webkit-transition: height 0.1s linear;
+  -moz-transition: height 0.1s linear;
+  -o-transition: height 0.1s linear; 
+  transition: height 0.1s linear;
+}
+
+nav.nav-expanded {
+  height: 80px;
+}
+
+nav li {
+	margin-left:35px;
+	display: inline;
+}
+
+nav li:first-child {
+	margin-left:0;
+}
+
+nav li a:link, nav li a:visited, nav li a:active {
+  color: #b4b4b4;
+}
+
+nav li a:hover,
+nav li.current-menu-item > a,
+nav li.current-menu-parent > a,
+body.artists nav li.menu-item-has-children > a,
+body.single-artist nav li.menu-item-has-children > a {
+  color: #333;
+}
+
+nav li a:hover {
+  background: none;
+}
+
+nav li.menu-item-has-children > a {
+  background: url('../images/images-icons-sprite.svg') no-repeat right -243px;
+  padding-right: 15px;
+}
+
+nav li.menu-item-has-children > a:hover,
+nav li.current-menu-ancestor > a,
+body.artists nav li.menu-item-has-children > a,
+body.single-artist nav li.menu-item-has-children > a {
+  background-position: right -303px;
+}
+
+.sub-menu {
+  left: 77px;
+  padding: 10px 0;
+  position: absolute;
+  top: 10px;
+}
+
+.sub-menu li {
+  display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-left: 0;
+}
+
+
+/* Structure
 -------------------------------------------------------------- */
-body.home .primary {
-	filter: alpha(opacity=0);
-	opacity: 0;
+.col-2 {
+  float: left;
+  margin-right: 60px;
+  width: 200px;
 }
 
-.artists,
-.news {
-	width:100%;
-	margin-bottom:20px;
-	float:left;
+.col-3 {
+  float: left;
+  margin-right: 60px;
+  width: 330px;
 }
 
+.col-4 {
+  float: left;
+  margin-right: 60px;
+  width: 460px;
+}
+
+.col-6 {
+  float: left;
+  margin-right: 60px;
+  width: 720px;
+}
+
+.section-inner .col-2:last-child,
+.section-inner .col-3:last-child,
+.section-inner .col-4:last-child,
+.section-inner .col-6:last-child {
+/* Removing margin on the last column */
+  margin-right: 0;
+}
+
+.primary {
+  margin-bottom: 35px;
+  overflow: hidden;
+}
+
+.secondary {
+  background: #e6e6e6;
+  padding: 65px 0 0;
+}
+
+body.upcoming-new-releases .secondary {
+  padding-bottom: 35px;
+}
+
+.tertiary {
+  margin-bottom: 50px;
+  padding: 65px 0 0;
+}
+
+.section-inner {
+  margin: 0 auto 45px;
+  overflow: hidden;
+  width: 1500px;
+}
+
+h2, ul#filters {
+  float: left;
+}
+
+.dropdown, #toggle-display {
+  float: right;
+}
+
+.artist-featured, #news, h3, .text {
+  clear: left;
+}
+
+.section-inner.artists-inner {
+  margin-bottom: 0;
+}
+
+
+/* Home
+-------------------------------------------------------------- */
+
+/* Filtering artists
+-------------------- */
 ul#filters {
-	margin-bottom:50px;
+	padding-bottom: 8px;
 }
 
 ul#filters li {
-	margin-right:20px;
 	display:inline;
-	font-weight:bold;
+	font:900 1.3em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	letter-spacing:-1px;
+	margin-right:20px;
+	text-transform:uppercase;
 }
 
-ul#filters li a.active {
-	color:#000;
+ul#filters li a {
+	color:#bbb;
+	padding-bottom: 15px;
 }
 
-#toggle-display {
-	margin-bottom:20px;
+ul#filters li a.active, ul#filters li a.active:hover {
+  background: url('../images/images-icons-sprite.svg') no-repeat center -372px;
+	color:#333;
+}
+
+ul#filters li a:hover {
+  background: transparent;
+	color:#333;
+}
+
+/* Toggling artists display
+-------------------- */
+#toggle-display a {
+  background: url('../images/images-icons-sprite.svg') no-repeat center -676px;
+  display: block;
+  float: left;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+  padding-top: 14px;
+  height: 0;
+  margin-left: 6px;
+  overflow: hidden;
+	width: 14px;
+}
+
+#toggle-display a:hover {
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+}
+
+#toggle-display #text-display {
+  background-position: center -636px;
 }
 
 #toggle-display a.active {
-	color:#666;
 	cursor:default;
+	filter: alpha(opacity=100);
+	opacity: 1;
 }
 
-.artists .artist {
+/* Grid of artists
+-------------------- */
+body.home .primary {
+	filter: alpha(opacity=0);
+	opacity: 0;
+	/* Need opacity for fading in the grid of artists before preselection */
+	margin-bottom: 0;
+}
+
+.artist-list.image-display, .artist-list.text-display {
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out; 
+  transition: all 0.1s ease-in-out;
+}
+
+.artist-list .artist {
+  background: #181818;
+  display: inline-block;
 	position:relative;
 	float:left;
 	overflow:hidden; /*clearfix*/
+	padding-bottom: 14.285%;
+	width: 14.285%;
 }
 
-.artists .artist a:hover {
-	color:#FFF;
+.artist-list.image-display .artist img {
+  bottom: 0;
+  height: auto;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out; 
+  transition: opacity 0.1s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  -moz-backface-visibility: hidden;
+  -moz-transform: translateZ(0) scale(1.0, 1.0);
 }
 
-.artists .artist p {
-	line-height:1.2;
-	position:absolute;
+.artist-list .artist p, .releases .release p {
+  background: rgba(38, 38, 38, 0.85);	
+  rgbbackground:transparent;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#d8262626,endColorstr=#d8262626);
+  zoom: 1;
 	bottom:0;
+	font:900 1.05em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+	margin-bottom: 0;
+	padding:13px 15px;
+	position:absolute;
 	text-align:center;
-	background:rgba(0,0,0,0.5);
-	padding:20px;
 	text-transform:uppercase;
-	font-weight:bold;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out; 
+  transition: all 0.1s ease-in-out;
 }
 
-.artists.image-display .artist img {
-	display:block;
+.artist-list .artist a, .releases .release a {
+	color:#ddd;
 }
 
-.artists.text-display .artist a {
-	color:#000;
+.artist-list .artist a:hover, .releases .release a:hover {
+	color:#fff;
 }
 
-.artists.text-display .artist a:hover {
-	color:#ED5FA6;
+.artist-list .artist a:hover img {
+  filter: alpha(opacity=75);
+  opacity: .75;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out; 
+  transition: opacity 0.1s ease-in-out;
 }
 
-.artists.text-display .artist p {
-	position:relative;
+.artist-list .artist a:hover p, .releases .release a:hover p {
+  background: #262626;
+  padding-bottom: 30px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out; 
+  transition: all 0.1s ease-in-out;
+}
+
+.artist-list.text-display {
+  margin: 0 auto 50px;
+  overflow: hidden;
+  width: 95%;
+}
+
+.artist-list.text-display .artist {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 35px;
+  width: 20%;
+}
+
+.artist-list.text-display .artist a {
+	color:#404040;
+}
+
+.artist-list.text-display .artist a:hover {
+	color:#de408f;
+}
+
+.artist-list.text-display .artist p {
 	background:none;
-	padding-left:0;
-	text-align:left;
+	font-size: 1.05em;
+	position:relative;
+	padding:0;
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none; 
+  transition: none;
 }
 
-.artists.text-display .artist img {
-	display:none;
+.artist-list.text-display .artist a:hover  p {
+	background:none;
+	padding:0;
 }
 
-.news .news-post {
-	margin-bottom:10px;
+.artist-list.text-display .artist img {
+  display: none;
 }
 
-.news .news-post .title {
-	font-weight:bold;
+
+/* News
+-------------------- */
+#news {
+  bottom: 0;
+  color: #fff;
+	font:900 1.2em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	left: 0;
+	letter-spacing:-1px;
+	height: 200px;
+	position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  z-index: 99;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+#news.news-expanded {
+  height: 405px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.news-trigger-container {
+  height: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 62px;
+}
+
+.news-trigger {
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 9px solid #fff;
+  cursor: pointer;
+	height: 0; 
+  left: 50%;
+  margin-left: -9px;
+  position: absolute;
+  top: 18px;
+	width: 0; 
+}
+
+.news-trigger.news-expanded {
+  border-bottom: none;
+	border-top: 9px solid #fff;
+}
+
+.news-trigger-bg {
+  background: rgba(46, 46, 46, 0.98);
+  border-radius: 31px 31px 0 0;
+  cursor: pointer;
+  height: 40px;
+  width: 62px;
+}
+
+.news-wrapper {
+  background: rgba(46, 46, 46, 0.98);
+  padding: 45px 0 50px;	
+}
+
+.news-post {
+  color: #ddd;
+	margin-bottom:100px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.news-post.news-expanded {
+	margin-bottom:25px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.news-post a {
+  color: #ddd;
+}
+
+.news-post a .date {
+  color: #ed5fa6;
+  margin-right: 20px;
+}
+
+.news-post a .type {
+  color: #999;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+#pagination {
+  margin-top: 35px;
+}
+
+#pagination a {
+  color: #ed5fa6;
+  margin: 0 10px;
+}
+
+
+/* Artist Landing Pages
+-------------------------------------------------------------- */
+body.artists .primary, body.tax-artists .primary {
+  margin-bottom: 0;
 }
 
 /* Artist Detail Page
 -------------------------------------------------------------- */
+body.single-artist .primary {
+  margin-top: -5px;
+}
+
+body.single-artist h2 {
+  margin-top: 5px;
+}
+
+.dropdown {
+  background: #e5e5e5 url('../images/images-icons-sprite.svg') no-repeat 125% -463px;
+  margin: 0 auto 35px;
+  overflow: hidden;
+  width: 265px;
+}
+
+.dropdown:hover {
+  background: #eaeaea url('../images/images-icons-sprite.svg') no-repeat 125% -463px;
+}
+
+.dropdown select {
+  background: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: #404040;
+  cursor: pointer;
+	font:900 1em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  width: 130%;
+  -webkit-appearance: none;
+}
+
+.dropdown select:focus {
+  outline: none;
+}
+
+.artist-featured {
+  background: #333;
+  overflow: hidden;
+}
+
+.artist-featured figure {
+  float: left;
+  max-height: 500px;
+  width: 48%;
+}
+
+.artist-featured figure img {
+  height: auto;
+  width: 100%;
+}
+
+.artist-info {
+  color: #ccc;
+  float: left;
+  padding: 45px;
+  width: 42%;
+}
+
+.artist-info a {
+  color: #ed5fa6;
+}
+
+.artist-info .social-media {
+  float: left;
+  margin-bottom: 35px;
+  width: 56%;
+}
+
+.artist-featured .contacts {
+  float: right;
+  margin-bottom: 35px;
+}
+
+.artist-featured .contacts li p {
+  margin: 15px 0 0;
+}
+
 .social-icon {
-	background:#CCC;
-	width:20px;
-	height:20px;
-	margin:0 10px 10px 0;
+  background: #2e2e2e url('../images/images-icons-sprite.svg')  center center;
+	border-radius: 29px;
+	width:58px;
+	height:58px;
+	margin:0 5px 5px 0;
 	float:left;
+}
+
+.social-icon:hover {
+  background: #252525 url('../images/images-icons-sprite.svg')  center center;
+}
+
+.social-icon.facebook {
+  background-position: center -967px;
+}
+
+.social-icon.twitter {
+  background-position: center -1037px;
+}
+
+.social-icon.instagram {
+  background-position: center -1192px;
+}
+
+.social-icon.youtube {
+  background-position: center -1111px;
+}
+
+.social-icon.tumblr {
+  background-position: center -1495px;
+}
+
+.social-icon.google {
+  background-position: center -1341px;
+}
+
+.social-icon.spotify {
+  background-position: center -1416px;
+}
+
+.social-icon.itunes {
+  background-position: center -1271px;
+}
+
+.press-photo,
+.album {
+  float: left;
+  margin: 0 8px 20px 0;
+  width: 31%;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.album {
+  width: 43.5%;
+}
+
+.albums .album:nth-of-type(odd) {
+  clear: left;
+}
+
+.press-photo a,
+.logo a,
+.album a {
+  margin-right: 10px;
+}
+
+.press-photo img,
+.logo img,
+.album img {
+  display: block;
+  height: auto;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.logo img {
+  width: auto;
+}
+
+.press-assets-list {
+  margin-top: -6px;
+}
+
+.press-assets-list li {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.press-assets-list .date {
+  color: #555;
+  margin-right: 15px;
+}
+
+.album p {
+  margin-bottom: -2px;
+}
+
+.audio {
+  margin-bottom: 55px;
+}
+
+.track, .video {
+  margin-bottom: 30px;
+}
+
+.track iframe {
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 body.single-artist .tour { /* keep this hidden until tour dates available */
 	display:none;
 }
 
-/* Upcoming Releases Page
--------------------------------------------------------------- */
-.albums {
-	width: 100%;
-	overflow:hidden; /*clearfix*/
-	margin-bottom:20px;
+#tour-dates li {
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 1.4;
+  margin-bottom: 17px;
+  padding-bottom: 17px;
 }
 
-.albums .album {
+#tour-dates li:last-child {
+  border: none;
+}
+
+#tour-dates .date,
+#tour-dates .venue,
+#tour-dates .location {
+  display: inline-block;
+  width: 24%;
+}
+
+#tour-dates .venue {
+  margin: 0 20px;
+  width: 39%;
+}
+
+#tour-dates .location {
+  width: 29%;
+}
+
+
+/* Upcoming Releases Page
+-------------------------------------------------------------- */
+body.upcoming-new-releases .primary .section-inner {
+  margin-bottom: 35px;
+}
+
+.releases {
+  clear: left;
+	overflow:hidden; /*clearfix*/
+}
+
+.releases .release {
+  background: #181818;
+  display: inline-block;
+	float:left;
+	padding-bottom: 25%;
 	position:relative;
+	width: 25%;
+}
+
+.releases .release img {
+  bottom: 0;
+  height: auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out; 
+  transition: opacity 0.1s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  -moz-backface-visibility: hidden;
+  -moz-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.releases .release a:hover img {
+  filter: alpha(opacity=75);
+  opacity: .75;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out; 
+  transition: opacity 0.1s ease-in-out;
+}
+
+.releases .release p span {
+	display:block;
+}
+
+.releases .release p {
+	padding: 22px;
+}
+
+.releases .release .album-date, .releases .release .artist-name {
+  font-family: 'Open Sans', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 600;
+  letter-spacing: normal;
+  margin: 10px 0 15px;
+  text-transform: none;
+}
+
+.releases .release .artist-name {
+  color: #ed5fa6;
+  margin: 0;
+}
+
+
+/* About Page
+-------------------------------------------------------------- */
+body.about .primary {
+  margin-bottom: -10px;
+}
+
+body.about h2 {
+  margin-bottom: 50px;
+}
+
+body.about h3 {
+  line-height: 1.5;
+}
+
+body.about .text {
+  font-size: 1.1em;
+}
+
+p.address {
+  margin-top: -6px;
+}
+
+body.about .social-icon {
+  background: #d9d9d9 url('../images/images-icons-sprite.svg')  center center;
+	border-radius: 29px;
+	width:58px;
+	height:58px;
+	margin:0 5px 5px 0;
 	float:left;
 }
 
-.albums .album a:hover {
-	color:#FFF;
+body.about .social-icon:hover {
+  background: #d0d0d0 url('../images/images-icons-sprite.svg')  center center;
 }
 
-.albums .album p {
-	line-height:1.2;
-	position:absolute;
-	bottom:0;
-	text-align:center;
-	background:rgba(0,0,0,0.5);
-	padding:20px;
+body.about .social-icon.facebook {
+  background-position: center -1596px;
 }
 
-.single .albums .album p {
-	text-align:left;
-	position:relative;
-	padding:0;
-	background:none;
+body.about .social-icon.twitter {
+  background-position: center -1667px;
 }
 
-.albums .album p span {
-	display:block;
+body.about .social-icon.instagram {
+  background-position: center -1735px;
 }
+
+
+/* Contact Page
+-------------------------------------------------------------- */
+body.contact h2 {
+  margin-bottom: 50px;
+}
+
+
 
 /* Footer
 -------------------------------------------------------------- */
 footer {
-	width:100%;
+	background:#141414;
+	color:#ddd;
 	text-align: center;
-	background:#000;
-	color:#FFF;
+	width:100%;
 }
 
-.footer-wrapper {
-    max-width:1200px;
-	margin:0 auto;
-	padding: 20px 0;
+footer .section-inner {
+	padding-top: 75px;
 }
+
+.footer-links {
+  margin-bottom: 50px;
+}
+
+.footer-links li, .credits {
+  color: #666;
+	font:700 1.2em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-links li a, .credits a {
+  color: #666;
+}
+
+.footer-links li a:hover, .credits a:hover {
+  color: #888;
+}
+
+.copyright {
+  background: url('../images/images-icons-sprite.svg') no-repeat center -98px;
+	font:900 1.4em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+	margin-bottom: 50px;
+  padding-top: 42px;
+  text-transform: uppercase;
+}
+
+.copyright p {
+  margin-bottom: 6px;
+}
+
+
+/* ==============================================================
+   Media Queries
+   ============================================================== */
+
+/* Viewports less than 1520px wide
+   Target/actual width: 1270
+--------------------------------------------- */
+
+@media screen and (max-width: 1520px) {
+
+/* Structure
+-------------------- */
+.col-2 {
+  margin-right: 50px;
+  width: 170px;
+}
+
+.col-3 {
+  margin-right: 50px;
+  width: 280px;
+}
+
+.col-4 {
+  margin-right: 50px;
+  width: 390px;
+}
+
+.col-6 {
+  margin-right: 50px;
+  width: 610px;
+}
+
+.section-inner {
+  width: 1270px;
+}
+
+/* Grid of artists
+-------------------- */
+.artist-list .artist {
+	padding-bottom: 16.666%;
+	width: 16.666%;
+}
+
+
+
+} /* closing media queries section */
+
+
+
+/* Viewports less than 1155px wide
+   Target width: 1024, Actual: 980
+--------------------------------------------- */
+
+@media screen and (max-width: 1155px) {
+
+
+
+} /* closing media queries section */
+
+
+
+/* Viewports and tablets less than 1000px wide
+   Target width: 768
+--------------------------------------------- */
+
+@media screen and (max-width: 995px) {
+
+
+
+} /* closing media queries section */
+
+
+
+/* Mobile devices less than 768px wide
+   Target width: 480
+--------------------------------------------- */
+
+@media screen and (max-width: 765px) {
+
+
+
+} /* closing media queries section */
+
+
+
+/* Mobile devices less than 480px wide
+   Target width: 320
+--------------------------------------------- */
+
+@media screen and (max-width:480px) {
+
+
+
+} /* closing media queries section */

@@ -14,23 +14,19 @@
 </div><!-- #page -->
 
 <footer role="contentinfo">
-    <div class="footer-wrapper">
+    <div class="section-inner">
         <div class="footer-links">
-            <?php
-                // default menu
-                wp_nav_menu( array( 'theme_location' => 'footer' ) );
-            ?>
+          <?php
+              // default menu
+              wp_nav_menu( array( 'theme_location' => 'footer' ) );
+          ?>
         </div>
-        <ul class="info">
-            <li class="home">
-                <a href="/">Razor &amp; Tie</a>
-            </li>
-            <li class="copyright">
-                <span>Copyright ©2014 Razor &amp; Tie Direct, L.L.C. All rights reserved.</span>
-                <span>All trademarks and registered trademarks are property of their respective owners.</span>
-            </li>
-        </ul>
-    </div>
+        <div class="copyright">
+          <p>&copy;<?php echo date('Y'); ?> Razor &amp; Tie Direct, L.L.C. All rights reserved.</p>
+          <p>All trademarks and registered trademarks are property of their respective owners.</p>
+        </div>
+        <p class="credits">Site by <a href="http://blackdaycreative.com" target="_blank" title="Black Day Creative">Black Day Creative</a></p>
+    </div><!-- .section-inner -->
 </footer><!-- #footer -->
 
 <?php wp_footer(); ?>
