@@ -204,9 +204,18 @@ update_option('image_default_link_type','none');
 // Custom Thumbnail Retreival
 include('php/get-thumbnail-custom.php');
 
-// Custom Recent Posts Query
-include('php/get-recent-posts.php');
-
+// Added to extend allowed files types in Media upload
+// See more at: http://itswordpress.com/featured/add-additional-file-types-to-wordpress-media-library/#sthash.yZtx2ZLg.dpuf
+add_filter('upload_mimes', 'custom_upload_mimes');
+function custom_upload_mimes ( $existing_mimes=array() ) {
+    // Add *.EPS files to Media upload
+    $existing_mimes['eps'] = 'application/postscript';
+    
+    // Add *.AI files to Media upload
+    $existing_mimes['ai'] = 'application/postscript';
+    
+    return $existing_mimes;
+}
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a Toolbox.
  */

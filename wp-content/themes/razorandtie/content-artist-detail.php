@@ -283,23 +283,44 @@
     <?php
         // LOGOS
         // Check for logos
-        $logos = get_field('artist_logos');
-            
-        if( empty($logos) != 1 ) :
+        $logosOrFiles = get_field('artist_logos_image_or_file');
+        
+        if( empty($logosOrFiles) != 1 ) :
     ?>
         <!-- Logos -->
         <div class="logos col-2">
             <h3>Logos</h3>
     <?php
             $i = 1;
-            foreach( $logos as $logo ) :
-                $logoImage = $logo['artist_logo'];
+            foreach( $logosOrFiles as $logoOrFile ) :
+                
+                $type = ( $logoOrFile['acf_fc_layout'] === 'artist_logos_image_or_file_layout_images' ? 'image' : 'file' );
+                
+                if( $type === 'image' ) :
+                    $image = $logoOrFile['artist_logos_image_or_file_layout_images_image'];
+                    
+                elseif( $type === 'file' ) :
+                    $file = $logoOrFile['artist_logos_image_or_file_layout_files_file'];
+                    $image = $logoOrFile['artist_logos_image_or_file_layout_files_image'];
+                    
+                endif;
     ?>
                 <!-- Logo <?php echo $i; ?> -->
                 <div class="logo">
-                    <img src="<?php echo $logoImage['sizes']['medium']; ?>" width="<?php echo $logoImage['sizes']['medium-width']; ?>" height="<?php echo $logoImage['sizes']['medium-height']; ?>" alt="<?php echo $logoImage['title']; ?>" />
-                    <a href="<?php echo $logoImage['sizes']['large']; ?>" target="_blank">Lo res</a>
-                    <a href="<?php echo $logoImage['url']; ?>" target="_blank">Hi res</a>
+                    <img src="<?php echo $image['sizes']['medium']; ?>" width="<?php echo $image['sizes']['medium-width']; ?>" height="<?php echo $image['sizes']['medium-height']; ?>" alt="<?php echo $image['title']; ?>" />
+                    
+    <?php
+                    if( $type === 'image' ) :
+    ?>
+                    <a href="<?php echo $image['sizes']['large']; ?>" target="_blank">Lo res</a>
+                    <a href="<?php echo $image['url']; ?>" target="_blank">Hi res</a>
+    <?php
+                    elseif( $type === 'file' ) :
+    ?>
+                    <a href="<?php echo $file['url']; ?>" target="_blank">Download File</a>
+    <?php
+                    endif;
+    ?>
                 </div>
     <?php
                 $i++;
