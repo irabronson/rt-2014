@@ -149,7 +149,7 @@ jQuery(function($) {
         // Toggle Nav height for Artists Submenu
         // *************************************
         $('li.menu-item-has-children').hover(function() {
-          $('nav').toggleClass('nav-expanded');
+          $('nav,header.scrolled .section-inner').toggleClass('nav-expanded');
         });
 
         // Toggle Latest News expanding drawer
@@ -162,6 +162,14 @@ jQuery(function($) {
         // ************
         $(".video").fitVids();
 
+        // Waypoints
+        // Scroll position of viewport
+        // ***************************
+        $("body").waypoint(function() {
+           $("header").toggleClass('scrolled');
+        }, { offset: -60 });
+        
+        
         // AJAX page loading
         // *****************
         // Bind news pagination
