@@ -674,6 +674,10 @@ body.home .primary {
   padding: 45px 0 50px;	
 }
 
+.news-expanded .news-wrapper {
+  height: 100%;
+}
+
 .news-post {
   color: #ddd;
 	margin-bottom:100px;
@@ -684,7 +688,7 @@ body.home .primary {
   transition: all 300ms cubic-bezier(.4,.04,.93,.1);
 }
 
-.news-post.news-expanded {
+.news-expanded .news-post {
 	margin-bottom:25px;
   -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
