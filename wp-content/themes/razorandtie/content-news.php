@@ -25,6 +25,8 @@
 ?>
     <section class="news-wrapper">
       <h3>Latest News</h3>
+      <div class="news-content-wrapper">
+        <div class="news-content">
 <?php
         while ( have_posts() ) : the_post();
 ?>
@@ -65,6 +67,8 @@
                 ) );
             ?>
         </div>
+        </div>
+      </div>
     </section><!-- .news -->
 <?php
     else :

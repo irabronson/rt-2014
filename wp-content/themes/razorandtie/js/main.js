@@ -63,29 +63,27 @@ jQuery(function($) {
         }
     };
     
+
+
     // AJAX page loading
     // *****************
     // For News Posts on homepage
     var getNewsPage = function(e) {
-        
+
         e.preventDefault();
-        
-        $(this).off('click', getNewsPage);
-        
+
         var link = $(this).attr('href');
-        $('#news').html('Loading...');
+
+        $('#news .news-content-wrapper').html('Loading...');
         
-        $('#news').load(link + ' .news-wrapper', function( response, status, xhr ) {
-            bindNewsPagination();
-        });
-        
+        $('#news .news-content-wrapper').load(link + ' .news-content', function( response, status, xhr ) { });
+
     };
     
     // News pagination binding function
-    var bindNewsPagination = function () {
-        $('#pagination a').on('click', getNewsPage);
-    };
-    
+
+        $('#news').on('click', '#pagination a', getNewsPage);
+
     // Select Option Navigation
     // ************************
     // Appears on Artist Detail page as supplementary nav
@@ -169,14 +167,6 @@ jQuery(function($) {
            $("header").toggleClass('scrolled');
         }, { offset: -60 });
         
-        
-        // AJAX page loading
-        // *****************
-        // Bind news pagination
-        // Where #news exists
-        if( $('#news').length > 0 ) {
-            bindNewsPagination();
-        }
         
         // Select Option Navigation
         // ************************
