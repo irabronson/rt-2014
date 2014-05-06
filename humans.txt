@@ -1,0 +1,27 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ira Bronson
+      Designer/Developer
+      ira@blackdaycreative.com
+      NYC
+    Saki Sato
+      Developer
+    Lauren Hu
+      Developer
+
+
+# THANKS
+
+    Say Goodnight to the World
+
+# TECHNOLOGY COLOPHON
+
+    PHP
+    WordPress
+    HTML5,
+    CSS3,
+    jQuery,
+    Modernizr
