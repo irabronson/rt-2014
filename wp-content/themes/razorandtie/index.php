@@ -62,7 +62,7 @@
 <section id="news">
   <div class="news-trigger-container">
     <div class="news-trigger"></div>
-    <div class="news-trigger-bg"></div>
+    <div class="news-trigger-bg"><span></span></div>
   </div>
   <?php
       // Get news posts
