@@ -62,27 +62,6 @@ jQuery(function($) {
             });
         }
     };
-    
-
-
-    // AJAX page loading
-    // *****************
-    // For News Posts on homepage
-    var getNewsPage = function(e) {
-
-        e.preventDefault();
-
-        var link = $(this).attr('href');
-
-        $('#news .news-content-wrapper').html('Loading...');
-        
-        $('#news .news-content-wrapper').load(link + ' .news-content', function( response, status, xhr ) { });
-
-    };
-    
-    // News pagination binding function
-
-        $('#news').on('click', '#pagination a', getNewsPage);
 
     // Select Option Navigation
     // ************************
@@ -150,11 +129,64 @@ jQuery(function($) {
           $('nav,header.scrolled .section-inner').toggleClass('nav-expanded');
         });
 
+        // Expand/Collapse drawer to fit content
+        // *************************************
+
+        var newsHeight = function() {
+            // Get maximum height of drawer (all news items visible, pagination visible)
+            var maxht = $(".news-wrapper h3").outerHeight(true) + $("#pagination").height() + 45 + 50;
+            for (var i = 1; i <= $(".news-post").length; i++) {
+                maxht += $(".news-post:nth-child("+i+")").height() + 25;
+            }
+            
+            // Get mim height of drawer (only first news item visible)
+            var minht = $(".news-post:nth-child(1)").height() + $(".news-wrapper h3").outerHeight(true) + 45 + 50;
+
+            // Check which height applies 
+            if ($('#news').hasClass("news-expanded")) {
+                $('#news').css({"height" : maxht + "px"});
+            }
+            else {
+                $('#news').css({"height" : minht + "px"});
+            }
+        }
+        
+        // Expand news drawer on page load
+        newsHeight();
+
+        // Adjust news drawer on page resize
+        $(window).resize(function() {
+            newsHeight();
+        });
+        
         // Toggle Latest News expanding drawer
         // ***********************************
         $('.news-trigger-bg,.news-trigger').click(function() {
-          $('#news,.news-trigger,.news-post').toggleClass('news-expanded');
+            $('#news,.news-trigger,.news-post').toggleClass('news-expanded');
+            newsHeight();
         });
+        
+        // AJAX page loading
+        // *****************
+        // For News Posts on homepage
+        var getNewsPage = function(e) {
+
+            e.preventDefault();
+
+            var link = $(this).attr('href');
+
+            $('#news .news-content-wrapper').html('Loading...');
+
+            $('#news .news-content-wrapper').load(link + ' .news-content', function() { 
+                newsHeight();
+            });
+
+        };
+
+        // News pagination binding function
+
+        $('#news').on('click', '#pagination a', getNewsPage);
+        
         
         // Fire FitVids
         // ************
