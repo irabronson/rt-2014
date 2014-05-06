@@ -63,25 +63,6 @@ jQuery(function($) {
         }
     };
 
-    // AJAX page loading
-    // *****************
-    // For News Posts on homepage
-    var getNewsPage = function(e) {
-
-        e.preventDefault();
-
-        var link = $(this).attr('href');
-
-        $('#news .news-content-wrapper').html('<img src="/wp-content/themes/razorandtie/images/loading.gif">');
-        
-        $('#news .news-content-wrapper').load(link + ' .news-content', function( response, status, xhr ) { });
-
-    };
-    
-    // News pagination binding function
-
-        $('#news').on('click', '#pagination a', getNewsPage);
-
     // Select Option Navigation
     // ************************
     // Appears on Artist Detail page as supplementary nav
@@ -155,7 +136,7 @@ jQuery(function($) {
             // Get maximum height of drawer (all news items visible, pagination visible)
             var maxht = $(".news-wrapper h3").outerHeight(true) + $("#pagination").height() + 45 + 50;
             for (var i = 1; i <= $(".news-post").length; i++) {
-                maxht += $(".news-post:nth-child("+i+")").height() + 25;
+                maxht += $(".news-post:nth-child("+i+")").height() + 30;
             }
             
             // Get mim height of drawer (only first news item visible)
@@ -200,7 +181,7 @@ jQuery(function($) {
 
             var link = $(this).attr('href');
 
-            $('#news .news-content-wrapper').html('Loading...');
+            $('#news .news-content-wrapper').html('<img src="/wp-content/themes/razorandtie/images/loading.gif">');
 
             $('#news .news-content-wrapper').load(link + ' .news-content', function() { 
                 newsHeight();
