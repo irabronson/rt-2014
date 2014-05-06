@@ -4,8 +4,6 @@
    May 3, 2014
 -------------------------------------------------------------- */
 
-/* Structure
--------------------------------------------------------------- */
 /*Clearfixing main elements*/
 body:before,
 body:after,
@@ -203,7 +201,7 @@ header .section-inner {
   transition: all 0.2s ease-in-out;
 }
 
-header.scrolled {
+.no-touch header.scrolled {
   padding-top: 20px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -211,7 +209,7 @@ header.scrolled {
   transition: all 0.2s ease-in-out;
 }
 
-header.scrolled .section-inner {
+.no-touch header.scrolled .section-inner {
   height: 43px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -219,7 +217,7 @@ header.scrolled .section-inner {
   transition: all 0.2s ease-in-out;
 }
 
-header.scrolled .section-inner.nav-expanded {
+.no-touch header.scrolled .section-inner.nav-expanded {
   height: 75px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -262,6 +260,10 @@ header.scrolled #logo a {
 
 /* Nav
 ------- */
+#nav-trigger {
+  display: none;
+}
+
 nav {
   float: right;
   font: 900 14px/1 'Maven Pro', 'sans-serif';
@@ -276,7 +278,7 @@ nav {
   transition: height 0.1s linear;
 }
 
-nav.nav-expanded {
+.no-touch nav.nav-expanded {
   height: 80px;
 }
 
@@ -1280,9 +1282,9 @@ body.about .secondary .section-inner .col-3:last-child {
 
 .col-3 {
   float: none;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   margin-right: 0;
-  width: 100%;
+  width: 100% !important;
 }
 
 .col-4 {
@@ -1297,15 +1299,216 @@ body.about .secondary .section-inner .col-3:last-child {
   width: 99%;
 }
 
+.section-inner .col-6:first-child {
+  margin-bottom: 40px;
+}
+
 .section-inner {
-  width: 90%;
+  width: 92%;
+}
+
+#main {
+  margin-top: 45px;
+}
+
+/* Header
+-------------------- */
+header {
+  padding-top: 30px;
+  position: relative;
+}
+
+header .section-inner {
+  height: 55px;
+}
+
+/* Nav
+-------------------- */
+#nav-trigger {
+  cursor: pointer;
+  display: block;
+  float: right;
+  width: 25px;
+}
+
+#nav-trigger span {
+  background: #3a3a3a;
+  display: block;
+  height: 4px;
+  margin-bottom: 4px;
+}
+
+#nav-close {
+  background: url('../images/images-icons-sprite.svg') no-repeat center -1892px;
+  color: #ccc;
+  cursor: pointer;
+  display: block;
+	font:900 1.4em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+  height: 18px;
+  position: absolute;
+  right: 34px;
+  top: -80px;
+  width: 18px;
+  z-index: 99;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+#nav-close.menu-expanded {
+  top: 39px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.no-touch #nav-close.menu-expanded.scrolled {
+  top: 22px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+nav {
+  /*background: rgba(215, 62, 139, 0.97);*/
+  background: rgba(243, 243, 243, 0.97);
+  border-top: 2px solid #cf3783;
+  font-size: 16px;
+  position: absolute;
+  width: 100%;
+  height: 188px;
+  top: -210px;
+  left: 0;
+  text-align: right;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  /*-moz-box-shadow:    0 -6px 20px 0 #000;
+  -webkit-box-shadow: 0 -6px 20px 0 #000;
+  box-shadow:         0 -6px 20px 0 #000;*/
+}
+
+.no-touch nav.nav-expanded {
+  height: 188px;
+}
+
+nav.scrolled {
+  height: 123px;
+}
+
+nav.menu-expanded {
+  top: 0;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+nav li {
+  margin-left: 22px;
+}
+
+.menu-primary-container {
+  padding-top: 34px;
+  position: relative;
+  margin: 0 auto;
+  width: 538px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.no-touch .menu-primary-container.scrolled {
+  padding-top: 20px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.sub-menu {
+  left: 72px;
+  padding: 0;
+  text-align: left;
+  top: 60px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.no-touch .sub-menu.scrolled {
+  top: 43px;
+  -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+  -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.sub-menu li {
+  margin-bottom: 3px;
+}
+
+
+/* FOR GRAY */
+nav li a:link, nav li a:visited, nav li a:active {
+  color: #aaa;
+}
+
+nav li a:hover, nav li.current-menu-item > a, nav li.current-menu-parent > a, body.artists nav li.menu-item-has-children > a, body.single-artist nav li.menu-item-has-children > a {
+  color: #333;
+}
+
+
+/* FOR PINK
+nav li a:link, nav li a:visited, nav li a:active {
+  color: #222;
+}
+
+nav li a:hover, nav li.current-menu-item > a, nav li.current-menu-parent > a, body.artists nav li.menu-item-has-children > a, body.single-artist nav li.menu-item-has-children > a {
+  color: #fff;
+} */
+
+
+
+nav li.menu-item-has-children > a {
+  background: none;
+  padding: 0;
 }
 
 /* Grid of artists
 -------------------- */
+#toggle-display {
+  margin-top: 6px;
+}
+
+ul#filters li {
+  font-size: 1.1em;
+  margin-right: 15px;
+}
+
 .artist-list .artist {
-	padding-bottom: 25%;
-	width: 25%;
+	padding-bottom: 33.333%;
+	width: 33.333%;
+}
+
+.artist-list.text-display .artist {
+  margin-bottom: 25px;
+  width: 33.333%;
 }
 
 /* Artist detail page
@@ -1318,7 +1521,7 @@ body.about .secondary .section-inner .col-3:last-child {
 
 .artist-info .social-media {
   margin-right: 0;
-  width: 100%;
+  width: 90%;
 }
 
 .artist-featured .contacts {
@@ -1327,6 +1530,7 @@ body.about .secondary .section-inner .col-3:last-child {
 
 .artist-featured .website {
   float: left;
+  margin-bottom: 35px;
   width: 45%;
 }
 
@@ -1344,6 +1548,19 @@ body.about .secondary .section-inner .col-3:last-child {
   clear: none;
 }
 
+/* Upcoming/New Releases page
+--------------------------- */
+.releases .release {
+	padding-bottom: 50%;
+	width: 50%;
+}
+
+/* About page
+--------------------------- */
+body.about .logos {
+  overflow: hidden;
+}
+
 } /* closing media queries section */
 
 
@@ -1354,7 +1571,225 @@ body.about .secondary .section-inner .col-3:last-child {
 
 @media screen and (max-width: 765px) {
 
+#page {
+  font-size: 1.4em;  
+}
 
+.section-inner {
+  margin-bottom: 15px;
+}
+
+.primary {
+  margin-bottom: 20px;
+}
+
+.secondary {
+  padding-top: 40px;
+}
+
+.tertiary {
+  margin-bottom: 20px;
+  padding-top: 40px
+}
+
+h2, h3, h4, h5 {
+  margin-bottom: 25px;
+}
+
+/* Logo, Nav
+--------------------------- */
+header .section-inner {
+  height: 40px;  
+}
+
+#site-title {
+  overflow: hidden;
+  width: 130px;
+}
+
+#logo a {
+  padding-top: 36px;
+  width: 220px;
+}
+
+#nav-trigger span {
+  height: 3px;
+}
+
+nav {
+  border-top: 3px solid #cf3783;
+}
+
+/* Home, Artist Landing(s)
+--------------------------- */
+ul#filters {
+  float: none;
+  margin: 0 auto 12px;
+  text-align: center;
+  width: 200px;
+}
+
+ul#filters li {
+  display: block;
+  font-size: 1em;
+  margin: 0 0 5px;
+}
+
+ul#filters li a.active, ul#filters li a.active:hover {
+  background-image: none;
+}
+
+ul#filters li a:hover {
+  color: #333;
+}
+
+#toggle-display {
+  float: none;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  width: 42px;
+}
+
+.artist-featured figure {
+  max-height: 400px;  
+}
+
+.artist-info {
+  width: 86%;
+}
+
+.artist-info .social-media {
+  width: 100%;
+}
+
+.artist-list .artist {
+  padding-bottom: 50%;
+  width: 50%;  
+}
+
+.artist-list.text-display .artist {
+  margin-bottom: 20px;
+  width: 100%;  
+}
+
+/* Nav
+--------------------------- */
+.menu-primary-container {
+  padding-top: 65px;
+  width: 100%;
+}
+
+nav {
+  height: 360px;
+  text-align: center;
+  top: -375px;
+}
+
+.no-touch nav.nav-expanded {
+  height: 360px;
+}
+
+nav li {
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+.sub-menu {
+  margin-top: 10px;
+  position: static;
+  text-align: center;
+}
+
+#nav-close {
+  right: 28px;
+}
+
+/* Floats/Centering/Artist Detail
+--------------------------- */
+h2, .dropdown {
+  float: none;
+}
+
+h2, h3, .artist-info {
+  text-align: center;
+}
+
+/* Artist Detail, About
+--------------------------- */
+.artist-info {
+  padding: 20px 20px 0;
+}
+
+.artist-featured .contacts, .artist-featured .website {
+  float: none;
+  width: 100%;
+}
+
+.press-photo, .album {
+  float: none;
+  margin: 0 auto 20px;
+  width: 50%;
+}
+
+.logo {
+  float: none;
+  margin: 0 auto 20px;
+}
+
+.logo img {
+  margin: 0 auto 8px;  
+}
+
+.section-inner .col-6:first-child {
+  margin-bottom: 20px;
+}
+
+.audio {
+  margin-bottom: 35px;
+}
+
+body.single-artist .secondary, body.about .secondary, body.contact .primary {
+  text-align: center;
+}
+
+/* Upcoming/New Releases page
+--------------------------- */
+.releases .release {
+	padding-bottom: 100%;
+	width: 100%;
+}
+
+/* About page
+--------------------------- */
+.social-links {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 192px;
+}
+
+/* Footer
+--------------------------- */
+footer, .push {
+  height: 372px;
+}
+
+#page {
+  margin-bottom: -372px;
+}
+
+footer .section-inner {
+  padding-top: 45px;
+}
+
+.footer-links {
+  margin-bottom: 35px;
+}
+
+.copyright {
+  font-size: 1.2em;
+  line-height: 1.2;  
+  margin-bottom: 35px;
+}
 
 } /* closing media queries section */
 
@@ -1364,8 +1799,23 @@ body.about .secondary .section-inner .col-3:last-child {
    Target width: 320
 --------------------------------------------- */
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:505px) {
 
+#nav-close {
+  right: 17px;
+}
 
+.artist-list .artist {
+  padding-bottom: 100%;
+  width: 100%;  
+}
+
+.artist-featured figure {
+  max-height: 250px;  
+}
+
+#tour-dates .venue, #tour-dates .location {
+  width: 30%;
+}
 
 } /* closing media queries section */
