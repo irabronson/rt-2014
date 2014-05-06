@@ -395,6 +395,10 @@ body.upcoming-new-releases .secondary {
   margin: 0 auto 45px;
   overflow: hidden;
   width: 1500px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 }
 
 h2, ul#filters {
@@ -613,7 +617,7 @@ body.home .primary {
 #news {
   bottom: 0;
   color: #fff;
-	font:900 1.2em/1 'Maven Pro', Helvetica, Arial, sans-serif;
+	font:900 1.2em/1.2 'Maven Pro', Helvetica, Arial, sans-serif;
 	left: 0;
 	letter-spacing:-1px;
 	height: 0px;
@@ -676,6 +680,11 @@ body.home .primary {
   padding: 45px 0 50px;	
 }
 
+.news-content-wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
 .news-expanded .news-wrapper {
   height: 100%;
 }
@@ -691,7 +700,7 @@ body.home .primary {
 }
 
 .news-expanded .news-post {
-	margin-bottom:25px;
+	margin-bottom:30px;
 }
 
 .news-post a {
@@ -715,9 +724,11 @@ body.home .primary {
 
 #pagination a {
   color: #ed5fa6;
-  margin: 0 10px;
 }
 
+.page-numbers {
+  margin: 0 5px;
+}
 
 /* Artist Landing Pages
 -------------------------------------------------------------- */
@@ -1122,9 +1133,9 @@ footer .section-inner {
 }
 
 
-/* ==============================================================
+/* =====================================================
    Media Queries
-   ============================================================== */
+   ===================================================== */
 
 /* Viewports less than 1520px wide
    Target/actual width: 1246
@@ -1156,6 +1167,10 @@ footer .section-inner {
 
 .section-inner {
   width: 1246px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 }
 
 /* Grid of artists
@@ -1167,11 +1182,10 @@ footer .section-inner {
 
 } /* closing media queries section */
 
-
-
-/* Viewports less than 1260px wide
+/* =====================================================
+   Viewports less than 1260px wide
    Target width: 1024, Actual: 980
---------------------------------------------- */
+   ===================================================== */
 
 @media screen and (max-width: 1260px) {
 
@@ -1260,9 +1274,10 @@ body.about .secondary .section-inner .col-3:last-child {
 
 
 
-/* Viewports and tablets less than 980px wide
+/* =====================================================
+   Viewports and tablets less than 980px wide
    Target width: 768
---------------------------------------------- */
+   ===================================================== */
 
 @media screen and (max-width: 995px) {
 
@@ -1560,9 +1575,10 @@ body.about .logos {
 
 
 
-/* Mobile devices less than 768px wide
+/* =====================================================
+   Mobile devices less than 768px wide
    Target width: 480
---------------------------------------------- */
+   ===================================================== */
 
 @media screen and (max-width: 765px) {
 
@@ -1645,6 +1661,10 @@ ul#filters li a:hover {
   width: 42px;
 }
 
+#news {
+  font-size: 1.1em;
+}
+
 .artist-featured figure {
   max-height: 400px;  
 }
@@ -1707,6 +1727,10 @@ h2, .dropdown {
 
 h2, h3, .artist-info {
   text-align: center;
+}
+
+body.about .primary h3 {
+  text-align: left;
 }
 
 /* Artist Detail, About
@@ -1789,10 +1813,10 @@ footer .section-inner {
 } /* closing media queries section */
 
 
-
-/* Mobile devices less than 480px wide
+/* =====================================================
+   Mobile devices less than 480px wide
    Target width: 320
---------------------------------------------- */
+   ===================================================== */
 
 @media screen and (max-width:505px) {
 
