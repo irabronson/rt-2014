@@ -74,7 +74,7 @@ jQuery(function($) {
 
         var link = $(this).attr('href');
 
-        $('#news .news-content-wrapper').html('Loading...');
+        $('#news .news-content-wrapper').html('<img src="/wp-content/themes/razorandtie/images/loading.gif">');
         
         $('#news .news-content-wrapper').load(link + ' .news-content', function( response, status, xhr ) { });
 
@@ -155,6 +155,12 @@ jQuery(function($) {
         $('.news-trigger-bg,.news-trigger').click(function() {
           $('#news,.news-trigger,.news-post').toggleClass('news-expanded');
         });
+
+        // Toggle Nav/menu for iPad/mobile
+        // ***********************************
+        $('#nav-trigger,#nav-close').click(function() {
+          $('nav,#nav-close').toggleClass('menu-expanded');
+        });
         
         // Fire FitVids
         // ************
@@ -164,7 +170,7 @@ jQuery(function($) {
         // Scroll position of viewport
         // ***************************
         $("body").waypoint(function() {
-           $("header").toggleClass('scrolled');
+           $("header,nav,.menu-primary-container,#nav-close,.sub-menu").toggleClass('scrolled');
         }, { offset: -60 });
         
         
