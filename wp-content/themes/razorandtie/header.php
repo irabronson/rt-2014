@@ -76,6 +76,13 @@
                     <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
                 </h1>
             </div>
+            <!-- Nav Toggle -->
+            <div id="nav-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span id="nav-close"></span>
             <nav id="main-menu" role="navigation">
                 <?php
                     // default menu
