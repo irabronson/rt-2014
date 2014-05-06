@@ -27,7 +27,7 @@
             <div class="artist" data-filter="<?php echo $slug; ?>">
                 <a href="<?php the_permalink(); ?>">
                 <?php the_post_thumbnail('thumbnail'); ?>
-              	<p><?php the_field('artist_list_display_name'); ?></p>
+                <p><?php the_field('artist_list_display_name'); ?></p>
                 </a>
             </div>
 <?php
