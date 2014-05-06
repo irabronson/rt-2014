@@ -82,8 +82,8 @@
     <?php
         // PRESS ASSETS
         // Check for press assets
-        $pressAssets = get_field('about_press_assets');
-            
+        $pressAssets = get_field('about_press_assets_by_type');
+        _log($pressAssets);
         if( empty($pressAssets) != 1 ) :
     ?>
         <!-- Press Assets -->
@@ -92,30 +92,42 @@
             <ul class="press-assets-list">
     <?php
             $i = 1;
-            
             foreach( $pressAssets as $pressAsset ) :
                 
-                $assetURL = ( $pressAsset['about_press_asset_file'] ? $pressAsset['about_press_asset_file']['url'] : $pressAsset['about_press_asset_link'] );
+                $assetType = ( $pressAsset['acf_fc_layout'] === 'about_press_assets_by_type_file' ? 'file' : 'link' );
+                
+                if( $assetType === 'file' ) :
+                    $displayType = $pressAsset['about_press_assets_by_type_file_type'];
+                    $assetTitle = $pressAsset['about_press_assets_by_type_file_title'];
+                    $assetDate = $pressAsset['about_press_assets_by_type_file_date'];
+                    $assetURL = $pressAsset['about_press_assets_by_type_file_file']['url'];
+                    
+                elseif( $assetType === 'link' ) :
+                    $displayType = 'link';
+                    $assetTitle = $pressAsset['about_press_assets_by_type_link_title'];
+                    $assetDate = $pressAsset['about_press_assets_by_type_link_date'];
+                    $assetURL = $pressAsset['about_press_assets_by_type_link_link'];
+                    
+                endif;
     ?>
                 <!-- Link for Press Material <?php echo $i; ?> -->
                 <li>
                     <a href="<?php echo $assetURL; ?>" target="_blank">
-                        
+                    
                         <?php
-                            if( $pressAsset['about_press_asset_date'] ) {
+                            if( $assetDate != '' ) {
                                 echo '<span class="date">';
-                                echo date('F j, Y', strtotime($pressAsset['about_press_asset_date']));
+                                echo date('F j, Y', strtotime($assetDate));
                                 echo '</span>';
                             }
                             echo '<span class="title">';
-                            echo $pressAsset['about_press_asset_title'];
-                            echo '&nbsp;(' . $pressAsset['about_press_asset_type'] . ')';
+                            echo $assetTitle;
+                            echo ' (' . $displayType . ')';
                             echo '</span>';
                         ?>
-                        
+                    
                     </a>
                 </li>
-                
     <?php
                 $i++;
             endforeach;
