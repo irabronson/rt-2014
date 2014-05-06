@@ -1318,7 +1318,7 @@ body.about .secondary .section-inner .col-3:last-child {
 }
 
 #main {
-  margin-top: 45px;
+  margin-top: 40px;
 }
 
 /* Header
@@ -1605,6 +1605,10 @@ body.about .logos {
 
 h2, h3, h4, h5 {
   margin-bottom: 25px;
+}
+
+#main {
+  margin-top: 25px;
 }
 
 /* Logo, Nav
