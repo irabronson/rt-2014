@@ -1,4 +1,3 @@
-
 <section class="primary">
   <section class="section-inner">
     <?php
@@ -23,33 +22,40 @@
     <?php
             foreach( $upcomingRows as $upcomingRow ) :
                 
-                // for each result, find the 'repeater row number' and use it to load the image sub field!
-                preg_match('_([0-9]+)_', $upcomingRow->meta_key, $matches); // $matches[0] contains the row number!
-                $albumTitleKey = 'artist_album_' . $matches[0] . '_artist_album_title';
-                $albumDateKey = 'artist_album_' . $matches[0] . '_artist_album_date';
-                $albumImageKey = 'artist_album_' . $matches[0] . '_artist_album_image';
-                
-                //  use get_post_meta to load the image sub field
-                // - http://codex.wordpress.org/Function_Reference/get_post_meta
-                $albumTitle = get_post_meta( $upcomingRow->post_id, $albumTitleKey );
-                $albumDate = get_post_meta( $upcomingRow->post_id, $albumDateKey );
-                $imageID = get_post_meta( $upcomingRow->post_id, $albumImageKey, true );
-                
-                // load image src
-                // - http://www.advancedcustomfields.com/resources/field-types/image/
-                $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
+                $post = get_post($upcomingRow->post_id);
+                _log(is_user_logged_in());
+                // Exclude password-protected posts
+                if ( empty($post->post_password) || is_user_logged_in() === true ) :
+                    
+                    // for each result, find the 'repeater row number' and use it to load the image sub field!
+                    preg_match('_([0-9]+)_', $upcomingRow->meta_key, $matches); // $matches[0] contains the row number!
+                    $albumTitleKey = 'artist_album_' . $matches[0] . '_artist_album_title';
+                    $albumDateKey = 'artist_album_' . $matches[0] . '_artist_album_date';
+                    $albumImageKey = 'artist_album_' . $matches[0] . '_artist_album_image';
+                    
+                    //  use get_post_meta to load the image sub field
+                    // - http://codex.wordpress.org/Function_Reference/get_post_meta
+                    $albumTitle = get_post_meta( $upcomingRow->post_id, $albumTitleKey );
+                    $albumDate = get_post_meta( $upcomingRow->post_id, $albumDateKey );
+                    $imageID = get_post_meta( $upcomingRow->post_id, $albumImageKey, true );
+                    
+                    // load image src
+                    // - http://www.advancedcustomfields.com/resources/field-types/image/
+                    $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
     ?>
-                <div class="release">
-                    <a href="<?php echo get_permalink( $upcomingRow->post_id ); ?>">
-                        <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
-                        <p class="caption">
-                            <span class="album-title"><?php echo $albumTitle[0]; ?></span>
-                            <span class="album-date"><?php echo date('F j, Y', strtotime($albumDate[0])); ?></span>
-                            <span class="artist-name"><?php echo get_the_title( $upcomingRow->post_id ); ?></span>
-                        </p>
-                    </a>
-                </div>
+                    <div class="release">
+                        <a href="<?php echo get_permalink( $upcomingRow->post_id ); ?>">
+                            <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
+                            <p class="caption">
+                                <span class="album-title"><?php echo $albumTitle[0]; ?></span>
+                                <span class="album-date"><?php echo date('F j, Y', strtotime($albumDate[0])); ?></span>
+                                <span class="artist-name"><?php echo get_the_title( $upcomingRow->post_id ); ?></span>
+                            </p>
+                        </a>
+                    </div>
     <?php
+                endif;
+                
             endforeach;
     ?>
             </div>
@@ -86,33 +92,39 @@
     <?php
             foreach( $recentRows as $recentRow ) :
                 
-                // for each result, find the 'repeater row number' and use it to load the image sub field!
-                preg_match('_([0-9]+)_', $recentRow->meta_key, $matches); // $matches[0] contains the row number!
-                $albumTitleKey = 'artist_album_' . $matches[0] . '_artist_album_title';
-                $albumDateKey = 'artist_album_' . $matches[0] . '_artist_album_date';
-                $albumImageKey = 'artist_album_' . $matches[0] . '_artist_album_image';
+                $post = get_post($recentRow->post_id);
                 
-                //  use get_post_meta to load the image sub field
-                // - http://codex.wordpress.org/Function_Reference/get_post_meta
-                $albumTitle = get_post_meta( $recentRow->post_id, $albumTitleKey );
-                $albumDate = get_post_meta( $recentRow->post_id, $albumDateKey );
-                $imageID = get_post_meta( $recentRow->post_id, $albumImageKey, true );
-                
-                // load image src
-                // - http://www.advancedcustomfields.com/resources/field-types/image/
-                $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
+                // Exclude password-protected posts
+                if ( empty($post->post_password) || is_user_logged_in() === true ) :
+                    
+                    // for each result, find the 'repeater row number' and use it to load the image sub field!
+                    preg_match('_([0-9]+)_', $recentRow->meta_key, $matches); // $matches[0] contains the row number!
+                    $albumTitleKey = 'artist_album_' . $matches[0] . '_artist_album_title';
+                    $albumDateKey = 'artist_album_' . $matches[0] . '_artist_album_date';
+                    $albumImageKey = 'artist_album_' . $matches[0] . '_artist_album_image';
+                    
+                    //  use get_post_meta to load the image sub field
+                    // - http://codex.wordpress.org/Function_Reference/get_post_meta
+                    $albumTitle = get_post_meta( $recentRow->post_id, $albumTitleKey );
+                    $albumDate = get_post_meta( $recentRow->post_id, $albumDateKey );
+                    $imageID = get_post_meta( $recentRow->post_id, $albumImageKey, true );
+                    
+                    // load image src
+                    // - http://www.advancedcustomfields.com/resources/field-types/image/
+                    $image = wp_get_attachment_image_src( $imageID, 'thumbnail' );
     ?>
-                <div class="release">
-                    <a href="<?php echo get_permalink( $recentRow->post_id ); ?>">
-                        <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
-                        <p class="caption">
-                            <span class="album-title"><?php echo $albumTitle[0]; ?></span>
-                            <span class="album-date"><?php echo date('F j, Y', strtotime($albumDate[0])); ?></span>
-                            <span class="artist-name"><?php echo get_the_title( $recentRow->post_id ); ?></span>
-                        </p>
-                    </a>
-                </div>
+                    <div class="release">
+                        <a href="<?php echo get_permalink( $recentRow->post_id ); ?>">
+                            <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" alt="<?php echo $albumTitle[0]; ?>" />
+                            <p class="caption">
+                                <span class="album-title"><?php echo $albumTitle[0]; ?></span>
+                                <span class="album-date"><?php echo date('F j, Y', strtotime($albumDate[0])); ?></span>
+                                <span class="artist-name"><?php echo get_the_title( $recentRow->post_id ); ?></span>
+                            </p>
+                        </a>
+                    </div>
     <?php
+                endif;
             endforeach;
     ?>
             </div>

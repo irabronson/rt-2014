@@ -32,9 +32,13 @@
             'orderby' => 'meta_value',
             'meta_key' => 'artist_list_display_name',
             'order' =>  'ASC',
-            'has_password' => false,
             'posts_per_page' => -1
         );
+        
+        // Check user status for permission to view protected posts
+        if( is_user_logged_in() === false ) :
+            $args['has_password'] = false;
+        endif;
         
         // Query Artist Post Type
         $artist_query = new WP_Query( $args );

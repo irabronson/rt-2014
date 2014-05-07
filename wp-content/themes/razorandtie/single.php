@@ -14,8 +14,8 @@
         
         while ( have_posts() ) : the_post();
             
-            // Non-protected posts
-            if ( ! post_password_required($post) ) :
+            // Show non-protected posts
+            if ( ! post_password_required($post) || is_user_logged_in() === true ) :
                 // Code to fetch and print CFs, such as:
                 
                 if( get_post_type($post->ID) === 'artist' ) :

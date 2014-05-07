@@ -7,4 +7,9 @@
  */
 ?>
 
-<p class="not-found">Sorry, there are no results for " <?php the_search_query() ?> ".</p>
+<!-- Content-No-Results Template -->
+<section class="primary">
+    <div class="section-inner">
+        <p class="not-found">Sorry, there are no results for " <?php the_search_query() ?> ".</p>
+    </div>
+</section>

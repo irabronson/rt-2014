@@ -152,17 +152,11 @@ function get_category_tags($args) {
 	return $tags;
 }
 
-function custom_query_var( $query ) {
-    if ( is_admin() || ! $query->is_main_query() )
-        return;
-    
-    if ( is_category('projects') ) {
-        // Display only 1 post for the original blog archive
-        $query->set( 'posts_per_page', -1 );
-        return;
-    }
+// Removed 'Protected' from password posts
+add_filter( 'protected_title_format', 'remove_protected_text' );
+function remove_protected_text() {
+    return __('%s');
 }
-add_action( 'pre_get_posts', 'custom_query_var', 1 );
 
 // Adding Thumbnails
 add_theme_support( 'post-thumbnails' );

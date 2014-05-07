@@ -7,4 +7,9 @@
  */
 ?>
 
-<p class="not-found">Sorry, we can't find what you're looking for.</p>
+<!-- Content-Not-Found Template -->
+<section class="primary">
+    <div class="section-inner">
+        <p class="not-found">Sorry, we can't find what you're looking for.</p>
+    </div>
+</section>
