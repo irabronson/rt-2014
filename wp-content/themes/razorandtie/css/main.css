@@ -80,12 +80,12 @@ p {
   height: auto !important;
   height: 100%;
   position: relative;
-  margin-bottom: -405px; /* the bottom margin is the negative value of the footer's height */;
+  margin-bottom: -436px; /* the bottom margin is the negative value of the footer's height */;
   font-size:1.5em;
 }
 
 body.home #page {
-  margin-bottom: -585px; /* the bottom margin is the negative value of the footer's height */;
+  margin-bottom: -616px; /* the bottom margin is the negative value of the footer's height */;
 }
 
 /*
@@ -94,12 +94,12 @@ http://ryanfait.com/
 */
 
 footer, .push {
-  height: 405px; /* .push must be the same height as footer */
+  height: 436px; /* .push must be the same height as footer */
   position: relative;
 }
 
 body.home footer, body.home .push {
-  height: 585px; /* .push must be the same height as footer */
+  height: 616px; /* .push must be the same height as footer */
 }
 
 .push {
@@ -707,15 +707,15 @@ body.home .primary {
   color: #ddd;
 }
 
-.news-post a .date {
+.news-post .date {
   color: #ed5fa6;
   margin-right: 20px;
 }
 
-.news-post a .type {
+.news-post .type {
   color: #999;
   margin-left: 20px;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 #pagination {
@@ -1589,6 +1589,7 @@ body.about .logos {
 
 .section-inner {
   margin-bottom: 15px;
+  width: 90%;
 }
 
 .primary {
@@ -1638,6 +1639,10 @@ nav {
 
 /* Home, Artist Landing(s)
 --------------------------- */
+body.home #toggle-display {
+  margin-bottom: 10px;
+}
+
 ul#filters {
   float: none;
   margin: 0 auto 12px;
@@ -1648,7 +1653,7 @@ ul#filters {
 ul#filters li {
   display: block;
   font-size: 1em;
-  margin: 0 0 5px;
+  margin: 0 0 7px;
 }
 
 ul#filters li a.active, ul#filters li a.active:hover {
@@ -1661,13 +1666,24 @@ ul#filters li a:hover {
 
 #toggle-display {
   float: none;
-  margin: 0 auto 30px;
+  margin: 0 auto 25px;
   overflow: hidden;
   width: 42px;
 }
 
 #news {
   font-size: 1.1em;
+  height: auto !important;
+  min-height: 350px;
+  position: relative;
+}
+
+.news-trigger-container {
+  display: none;
+}
+
+.news-post {
+  margin-bottom: 25px;
 }
 
 .artist-featured figure {
@@ -1829,9 +1845,54 @@ footer .section-inner {
   right: 17px;
 }
 
-.artist-list .artist {
-  padding-bottom: 100%;
-  width: 100%;  
+ul#filters {
+  margin-bottom: 0;
+}
+
+#toggle-display {
+  display: none;
+}
+
+.artist-list.image-display {
+  margin: 0 auto 20px;
+  overflow: hidden;
+  width: 95%;
+}
+
+.artist-list.image-display .artist {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.artist-list.image-display .artist a {
+	color:#404040;
+}
+
+.artist-list.image-display .artist a:hover {
+	color:#de408f;
+}
+
+.artist-list.image-display .artist p {
+	background:none;
+	font-size: 1.05em;
+	position:relative;
+	padding:0;
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none; 
+  transition: none;
+}
+
+.artist-list.image-display .artist a:hover  p {
+	background:none;
+	padding:0;
+}
+
+.artist-list.image-display .artist img {
+  display: none;
 }
 
 .artist-featured figure {
@@ -1841,5 +1902,15 @@ footer .section-inner {
 #tour-dates .venue, #tour-dates .location {
   width: 30%;
 }
+
+/* Footer/page height */
+body.home #page {
+  margin-bottom: -372px; /* the bottom margin is the negative value of the footer's height */;
+}
+
+body.home footer, body.home .push {
+  height: 372px; /* .push must be the same height as footer */
+}
+
 
 } /* closing media queries section */
