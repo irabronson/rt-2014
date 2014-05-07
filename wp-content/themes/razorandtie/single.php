@@ -14,16 +14,21 @@
         
         while ( have_posts() ) : the_post();
             
-            if( get_post_type($post->ID) === 'artist' ) :
-                get_template_part('content', 'artist-detail' );
+            // Non-protected posts
+            if ( ! post_password_required($post) ) :
+                // Code to fetch and print CFs, such as:
                 
+                if( get_post_type($post->ID) === 'artist' ) :
+                    get_template_part('content', 'artist-detail' );
+                    
+                else :
+                    get_template_part('content', 'single' );
+                    
+                endif;
             else :
-                get_template_part('content', 'single' );
-                
+                get_template_part('content', 'password-form');
             endif;
-            
         endwhile;
-        
     else :
         // Content Not Found Template
         include('content-not-found.php');
