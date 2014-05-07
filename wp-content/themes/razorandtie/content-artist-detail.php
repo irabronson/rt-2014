@@ -328,7 +328,7 @@
     <?php
                     elseif( $type === 'file' ) :
     ?>
-                    <a href="<?php echo $file['url']; ?>" target="_blank">Download File</a>
+                    <a href="<?php echo $file['url']; ?>" target="_blank">Download file</a>
     <?php
                     endif;
     ?>
