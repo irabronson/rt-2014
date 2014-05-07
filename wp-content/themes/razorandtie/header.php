@@ -33,6 +33,7 @@
             ?>
         </title>
         <meta name="description" content="<?php echo $site_description; ?>" />
+        <link type="text/plain" rel="author" href="/humans.txt" />
         <!-- ========== Favicons for all platforms -->
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
