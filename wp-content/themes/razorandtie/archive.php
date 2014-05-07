@@ -20,6 +20,7 @@
         'orderby' => 'meta_value',
         'meta_key' => 'artist_list_display_name',
         'order' =>  'ASC',
+        'has_password' => false,
         'posts_per_page' => -1
     );
     
