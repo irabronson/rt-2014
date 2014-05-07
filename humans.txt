@@ -3,6 +3,7 @@
 
 # TEAM
 
+    Black Day Creative
     Ira Bronson
       Designer/Developer
       ira@blackdaycreative.com
@@ -15,12 +16,13 @@
 
 # THANKS
 
+    Mike Greene
     Say Goodnight to the World
 
 # TECHNOLOGY COLOPHON
 
-    PHP
-    WordPress
+    WordPress,
+    PHP,
     HTML5,
     CSS3,
     jQuery,
