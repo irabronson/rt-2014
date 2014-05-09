@@ -1,6 +1,11 @@
 <section class="primary">
   <section class="section-inner">
     <?php
+        // Get current date for New York
+        // Previously used _log(date('Y-m-d',strtotime("today")));
+        $getToday = new DateTime('now', new DateTimeZone('America/New_York'));
+        $today = $getToday->format('Y-m-d');
+        
         // get all rows from the postmeta table where the sub_field (type) equals 'type_3'
         // - http://codex.wordpress.org/Class_Reference/wpdb#SELECT_Generic_Results
         $upcomingRows = $wpdb->get_results($wpdb->prepare( 
@@ -11,7 +16,7 @@
                 AND meta_value > %s ORDER BY meta_value ASC
             ",
             'artist_album_%_artist_album_date', // meta_name: $ParentName_$RowNumber_$ChildName
-             date('Y-m-d',strtotime("today")) // meta_value: 'type_3' for example
+             $today // meta_value: 'type_3' for example
         ));
         
         if( $upcomingRows ) :
@@ -23,7 +28,7 @@
             foreach( $upcomingRows as $upcomingRow ) :
                 
                 $post = get_post($upcomingRow->post_id);
-                _log(is_user_logged_in());
+                
                 // Exclude password-protected posts
                 if ( empty($post->post_password) || is_user_logged_in() === true ) :
                     
@@ -81,7 +86,7 @@
             ",
             'artist_album_%_artist_album_date', // meta_name: $ParentName_$RowNumber_$ChildName
              date('Y-m-d',strtotime("-6 months")),
-             date('Y-m-d',strtotime("today"))
+             $today
         ));
         
         if( $recentRows ) :
