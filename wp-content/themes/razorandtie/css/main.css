@@ -1683,8 +1683,13 @@ body.contact h2 {
 
 /* Logo, Nav
 --------------------------- */
+header {
+  padding-top: 20px;
+}
+
 header .section-inner {
-  height: 40px;  
+  height: 40px;
+  margin-bottom: 12px;
 }
 
 #site-title {
@@ -1761,6 +1766,15 @@ ul#filters li a:hover {
   margin-bottom: 25px;
 }
 
+#news h3 {
+  margin-bottom: 20px;
+}
+
+.news-post .date, .news-post .type {
+  display: block;
+  margin: 0 0 2px;
+}
+
 .artist-featured figure {
   max-height: 400px;  
 }
@@ -1783,6 +1797,10 @@ ul#filters li a:hover {
   width: 100%;  
 }
 
+.artist-list.text-display {
+  margin-bottom: 15px;
+}
+
 /* Nav
 --------------------------- */
 .menu-primary-container {
@@ -1797,7 +1815,7 @@ nav {
 }
 
 .no-touch nav.nav-expanded {
-  height: 360px;
+  height: 1000px;
 }
 
 nav li {
@@ -1924,12 +1942,17 @@ footer .section-inner {
   right: 17px;
 }
 
+body.home .primary .section-inner {
+  margin-bottom: 0;
+}
+
 ul#filters {
-  border: 1px solid #d4d4d4;
+  /*border: 1px solid #d4d4d4;
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 9px 0 4px;
-  width: 70%;
+  width: 70%;*/
+  display: none;
 }
 
 ul#filters::after {
@@ -1952,8 +1975,18 @@ ul#filters li a, ul#filters li a.active, ul#filters li a.active:hover {
   background: none;
 }
 
+ul#filters li a.active, ul#filters li a.active:hover {
+  background: none;
+  color: #cf3783;
+}
+
 #toggle-display {
   display: none;
+}
+
+.artist {
+/* Forcing all artists to be shown, without filter */
+  display: block !important;
 }
 
 .artist-list.image-display {
