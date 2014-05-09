@@ -109,7 +109,7 @@ body.home footer, body.home .push {
 }
 
 footer {
-  z-index: 5;
+  z-index: 0;
 }
 
 /* Text meant only for screen readers */
@@ -167,6 +167,10 @@ h3 {
   color: #ddd;
 }
 
+#news h3 {
+  margin-bottom: 30px;
+}
+
 h4 {
 	font:900 1em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	margin-bottom:30px;
@@ -201,7 +205,7 @@ header .section-inner {
   transition: all 0.2s ease-in-out;
 }
 
-.no-touch header.scrolled {
+header.scrolled {
   padding-top: 20px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -209,7 +213,7 @@ header .section-inner {
   transition: all 0.2s ease-in-out;
 }
 
-.no-touch header.scrolled .section-inner {
+header.scrolled .section-inner {
   height: 43px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -217,7 +221,7 @@ header .section-inner {
   transition: all 0.2s ease-in-out;
 }
 
-.no-touch header.scrolled .section-inner.nav-expanded {
+header.scrolled .section-inner.nav-expanded {
   height: 75px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -246,16 +250,16 @@ header .section-inner {
   transition: all 0.2s ease-in-out;
 }
 
-header.scrolled #logo a {
+.no-svg #logo a {
+  background: url('../images/images-icons-sprite.png') no-repeat left top;
+}
+
+.no-touch header.scrolled #logo a {
   width: 265px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out; 
   transition: all 0.2s ease-in-out;
-}
-
-.no-svg #logo a {
-  background: url('../images/images-icons-sprite.png') no-repeat left top;
 }
 
 /* Nav
@@ -278,7 +282,7 @@ nav {
   transition: height 0.1s linear;
 }
 
-.no-touch nav.nav-expanded {
+nav.nav-expanded {
   height: 80px;
 }
 
@@ -319,6 +323,10 @@ body.single-artist nav li.menu-item-has-children > a {
   background-position: right -303px;
 }
 
+.no-svg nav li.menu-item-has-children > a {
+  background: url('../images/images-icons-sprite.png') no-repeat right -243px;
+}
+
 .sub-menu {
   left: 77px;
   padding: 10px 0;
@@ -337,7 +345,9 @@ body.single-artist nav li.menu-item-has-children > a {
 /* Structure
 -------------------------------------------------------------- */
 #main {
+  position: relative;
   margin-top: 215px;
+  z-index: 1;
 }
 
 .col-2 {
@@ -445,6 +455,10 @@ ul#filters li a.active, ul#filters li a.active:hover {
 	color:#333;
 }
 
+.no-svg ul#filters li a.active, ul#filters li a.active:hover {
+  background: url('../images/images-icons-sprite.png') no-repeat center -372px;
+}
+
 ul#filters li a:hover {
   background: transparent;
 	color:#333;
@@ -463,6 +477,10 @@ ul#filters li a:hover {
   margin-left: 6px;
   overflow: hidden;
 	width: 14px;
+}
+
+.no-svg #toggle-display a {
+  background: url('../images/images-icons-sprite.png') no-repeat center -676px;
 }
 
 #toggle-display a:hover {
@@ -526,9 +544,6 @@ body.home .primary {
 
 .artist-list .artist p, .releases .release p {
   background: rgba(38, 38, 38, 0.85);	
-  rgbbackground:transparent;
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#d8262626,endColorstr=#d8262626);
-  zoom: 1;
 	bottom:0;
 	font:900 1.05em/1 'Maven Pro', Helvetica, Arial, sans-serif;
 	letter-spacing: -1px;
@@ -541,6 +556,13 @@ body.home .primary {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out; 
   transition: all 0.1s ease-in-out;
+}
+
+.lt-ie9 .artist-list .artist p, .lt-ie9 .releases .release p {
+  background:transparent; /* set bg to url('#') ONLY if you're setting cursor:pointer on this element! */
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#d9262626,endColorstr=#d9262626);
+  /* Note: the first two digits are the HEX value for opacity, the the rest is the HEX value for the color */
+  zoom: 1;
 }
 
 .artist-list .artist a, .releases .release a {
@@ -615,6 +637,7 @@ body.home .primary {
 /* News
 -------------------- */
 #news {
+  background: rgba(46, 46, 46, 0.98);
   bottom: 0;
   color: #fff;
 	font:900 1.2em/1.2 'Maven Pro', Helvetica, Arial, sans-serif;
@@ -625,7 +648,6 @@ body.home .primary {
   text-align: center;
   text-transform: uppercase;
   width: 100%;
-  background: rgba(46, 46, 46, 0.98);
   z-index: 99;
   -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
@@ -676,8 +698,15 @@ body.home .primary {
   width: 62px;
 }
 
+.lt-ie9 #news, .lt-ie9 .news-trigger-bg > span {
+  background:transparent; /* set bg to url('#') ONLY if you're setting cursor:pointer on this element! */
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#fa2e2e2e,endColorstr=#fa2e2e2e);
+  /* Note: the first two digits are the HEX value for opacity, the the rest is the HEX value for the color */
+  zoom: 1;
+}
+
 .news-wrapper {
-  padding: 45px 0 50px;	
+  padding: 40px 0 45px;	
 }
 
 .news-content-wrapper {
@@ -751,6 +780,10 @@ body.single-artist h2 {
   margin: 0 auto 35px;
   overflow: hidden;
   width: 265px;
+}
+
+.no-svg .dropdown {
+  background: #e5e5e5 url('../images/images-icons-sprite.png') no-repeat 125% -463px;
 }
 
 .dropdown:hover {
@@ -827,8 +860,16 @@ body.single-artist h2 {
 	float:left;
 }
 
+.no-svg .social-icon {
+  background: #2e2e2e url('../images/images-icons-sprite.png')  center center;
+}
+
 .social-icon:hover {
   background: #252525 url('../images/images-icons-sprite.svg')  center center;
+}
+
+.no-svg .social-icon:hover {
+  background: #252525 url('../images/images-icons-sprite.png')  center center;
 }
 
 .social-icon.facebook {
@@ -1062,8 +1103,16 @@ body.about .social-icon {
 	float:left;
 }
 
+.no-svg body.about .social-icon {
+  background: #d9d9d9 url('../images/images-icons-sprite.png')  center center;
+}
+
 body.about .social-icon:hover {
   background: #d0d0d0 url('../images/images-icons-sprite.svg')  center center;
+}
+
+.no-svg body.about .social-icon:hover {
+  background: #d0d0d0 url('../images/images-icons-sprite.png')  center center;
 }
 
 body.about .social-icon.facebook {
@@ -1126,6 +1175,10 @@ footer .section-inner {
 	margin-bottom: 50px;
   padding-top: 42px;
   text-transform: uppercase;
+}
+
+.no-svg .copyright {
+  background: url('../images/images-icons-sprite.png') no-repeat center -98px;
 }
 
 .copyright p {
@@ -1360,12 +1413,16 @@ header .section-inner {
   right: 34px;
   top: -80px;
   width: 18px;
-  z-index: 99;
+  z-index: 1000;
   -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
   transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+}
+
+.no-svg #nav-close {
+  background: url('../images/images-icons-sprite.png') no-repeat center -1892px;
 }
 
 #nav-close.menu-expanded {
@@ -1389,11 +1446,12 @@ header .section-inner {
 nav {
   /*background: rgba(215, 62, 139, 0.97);*/
   background: rgba(243, 243, 243, 0.97);
-  border-top: 2px solid #cf3783;
+  border-top: 5px solid #cf3783;
+  border-bottom: 1px solid #dadada;
   font-size: 16px;
   position: absolute;
   width: 100%;
-  height: 188px;
+  height: 178px;
   top: -210px;
   left: 0;
   text-align: right;
@@ -1402,6 +1460,7 @@ nav {
   -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
   transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  z-index: 999;
   /*-moz-box-shadow:    0 -6px 20px 0 #000;
   -webkit-box-shadow: 0 -6px 20px 0 #000;
   box-shadow:         0 -6px 20px 0 #000;*/
@@ -1411,7 +1470,7 @@ nav {
   height: 188px;
 }
 
-nav.scrolled {
+.no-touch nav.scrolled {
   height: 123px;
 }
 
@@ -1477,7 +1536,7 @@ nav li {
 
 /* FOR GRAY */
 nav li a:link, nav li a:visited, nav li a:active {
-  color: #aaa;
+  color: #9e9e9e;
 }
 
 nav li a:hover, nav li.current-menu-item > a, nav li.current-menu-parent > a, body.artists nav li.menu-item-has-children > a, body.single-artist nav li.menu-item-has-children > a {
@@ -1609,6 +1668,15 @@ h2, h3, h4, h5 {
   margin-bottom: 25px;
 }
 
+.artist-info .contacts h3, .artist-info .website h3 {
+  margin-bottom: 10px;
+}
+
+body.about h2,
+body.contact h2 {
+  margin-bottom: 20px;
+}
+
 #main {
   margin-top: 25px;
 }
@@ -1629,12 +1697,12 @@ header .section-inner {
   width: 220px;
 }
 
-#nav-trigger span {
-  height: 3px;
+nav {
+  font-size: 18px;
 }
 
-nav {
-  border-top: 3px solid #cf3783;
+#nav-trigger span {
+  height: 3px;
 }
 
 /* Home, Artist Landing(s)
@@ -1647,17 +1715,20 @@ ul#filters {
   float: none;
   margin: 0 auto 12px;
   text-align: center;
-  width: 200px;
+  width: 99%;
 }
 
 ul#filters li {
-  display: block;
   font-size: 1em;
-  margin: 0 0 7px;
+  margin-right: 10px;
+}
+
+ul#filters li a {
+  padding-bottom: 10px;
 }
 
 ul#filters li a.active, ul#filters li a.active:hover {
-  background-image: none;
+  background-position: center -377px;
 }
 
 ul#filters li a:hover {
@@ -1676,6 +1747,10 @@ ul#filters li a:hover {
   height: auto !important;
   min-height: 350px;
   position: relative;
+}
+
+.news-wrapper {
+  padding: 35px 0;
 }
 
 .news-trigger-container {
@@ -1716,9 +1791,9 @@ ul#filters li a:hover {
 }
 
 nav {
-  height: 360px;
+  height: 1000px;
   text-align: center;
-  top: -375px;
+  top: -1005px;
 }
 
 .no-touch nav.nav-expanded {
@@ -1756,6 +1831,10 @@ body.about .primary h3 {
 
 /* Artist Detail, About
 --------------------------- */
+.dropdown {
+  margin-bottom: 30px;
+}
+
 .artist-info {
   padding: 20px 20px 0;
 }
@@ -1846,7 +1925,31 @@ footer .section-inner {
 }
 
 ul#filters {
-  margin-bottom: 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 9px 0 4px;
+  width: 70%;
+}
+
+ul#filters::after {
+  content: "";
+  background: url('../images/images-icons-sprite.png') no-repeat center -400px;
+  position: absolute;
+  top: 99px;
+  height: 15px;
+  width: 15px;
+  left: 50%;
+  margin-left: -7px;
+}
+
+ul#filters li {
+  display: block;
+  margin: 0 0 7px;  
+}
+
+ul#filters li a, ul#filters li a.active, ul#filters li a.active:hover {
+  background: none;
 }
 
 #toggle-display {
@@ -1862,7 +1965,7 @@ ul#filters {
 .artist-list.image-display .artist {
   background: transparent;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   width: 100%;
 }
 
