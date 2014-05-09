@@ -1747,6 +1747,20 @@ ul#filters li a:hover {
   width: 42px;
 }
 
+.artist-list .artist {
+  padding-bottom: 50%;
+  width: 50%;  
+}
+
+.artist-list.text-display .artist {
+  margin-bottom: 20px;
+  width: 100%;  
+}
+
+.artist-list.text-display {
+  margin-bottom: 15px;
+}
+
 #news {
   font-size: 1.1em;
   height: auto !important;
@@ -1785,20 +1799,6 @@ ul#filters li a:hover {
 
 .artist-info .social-media {
   width: 100%;
-}
-
-.artist-list .artist {
-  padding-bottom: 50%;
-  width: 50%;  
-}
-
-.artist-list.text-display .artist {
-  margin-bottom: 20px;
-  width: 100%;  
-}
-
-.artist-list.text-display {
-  margin-bottom: 15px;
 }
 
 /* Nav
@@ -1984,8 +1984,9 @@ ul#filters li a.active, ul#filters li a.active:hover {
   display: none;
 }
 
-.artist {
-/* Forcing all artists to be shown, without filter */
+.artist[data-filter="washington-square"],
+.artist[data-filter="razor-tie-kids"] {
+/* Forcing artists to be shown, without filter */
   display: block !important;
 }
 
