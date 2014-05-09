@@ -134,13 +134,13 @@ jQuery(function($) {
 
         var newsHeight = function() {
             // Get maximum height of drawer (all news items visible, pagination visible)
-            var maxht = $(".news-wrapper h3").outerHeight(true) + $("#pagination").height() + 45 + 50;
+            var maxht = $(".news-wrapper h3").outerHeight(true) + $("#pagination").height() + 40 + 45;
             for (var i = 1; i <= $(".news-post").length; i++) {
                 maxht += $(".news-post:nth-child("+i+")").height() + 30;
             }
             
             // Get mim height of drawer (only first news item visible)
-            var minht = $(".news-post:nth-child(1)").height() + $(".news-wrapper h3").outerHeight(true) + 45 + 50;
+            var minht = $(".news-post:nth-child(1)").height() + $(".news-wrapper h3").outerHeight(true) + 40 + 45;
 
             // Check which height applies 
             if ($('#news').hasClass("news-expanded")) {
