@@ -17,7 +17,7 @@
         
         <div class="dropdown">
           <select id="artist-detail-nav">
-              <option value="all-artists" selected="selected">All Artists</option>
+              <option value="all-artists" selected="selected">ALL ARTISTS</option>
               <?php
                   // Define global args for artist_query
                   $args = array(
@@ -421,7 +421,7 @@
     ?>
         <!-- Videos -->
         <div class="videos">
-            <h3>Videos</h3>
+            <h3>Video</h3>
     <?php
                 $i = 1;
                 
