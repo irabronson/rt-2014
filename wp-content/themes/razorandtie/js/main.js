@@ -139,7 +139,7 @@ jQuery(function($) {
                 maxht += $(".news-post:nth-child("+i+")").height() + 30;
             }
             
-            // Get mim height of drawer (only first news item visible)
+            // Get min height of drawer (only first news item visible)
             var minht = $(".news-post:nth-child(1)").height() + $(".news-wrapper h3").outerHeight(true) + 40 + 45;
 
             // Check which height applies 
@@ -165,6 +165,19 @@ jQuery(function($) {
             $('#news,.news-trigger,.news-post').toggleClass('news-expanded');
             newsHeight();
         });
+        
+        
+        // Homepage Footer slide
+        
+        $("body.home #page").waypoint(function() {
+           $("footer, #news").toggleClass('footerup');
+        }, { offset: 'bottom-in-view' });
+
+
+        $(window).resize(function() {
+            homeFooter();
+        });
+        
 
         // Toggle Nav/menu for iPad/mobile
         // ***********************************

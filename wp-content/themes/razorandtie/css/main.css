@@ -98,8 +98,32 @@ footer, .push {
   position: relative;
 }
 
-body.home footer, body.home .push {
-  height: 616px; /* .push must be the same height as footer */
+
+@media (min-width: 767px) {
+  body.home footer {
+    position: fixed;
+    bottom: 0;
+    height: 0;
+    z-index: 100;
+    -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+    -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+    -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+    -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+    transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  }
+  
+  footer.footerup {
+    height: 436px !important;
+  }
+
+  body.home .push {
+    height: 596px !important; /* .push must be the same height as footer */
+  }
+
+  #news.footerup {
+    bottom: 436px !important;
+  }
+
 }
 
 .push {
@@ -1914,6 +1938,10 @@ footer, .push {
   margin-bottom: -372px;
 }
 
+body.home #page {
+  margin-bottom: -372px !important;  
+}
+
 footer .section-inner {
   padding-top: 45px;
 }
@@ -2042,7 +2070,7 @@ ul#filters li a.active, ul#filters li a.active:hover {
 
 /* Footer/page height */
 body.home #page {
-  margin-bottom: -372px; /* the bottom margin is the negative value of the footer's height */;
+  margin-bottom: -372px !important; /* the bottom margin is the negative value of the footer's height */;
 }
 
 body.home footer, body.home .push {
