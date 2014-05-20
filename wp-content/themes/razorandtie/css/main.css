@@ -673,7 +673,7 @@ body.home .primary {
 #news-wrapper {
   position: relative;
   clear: both;
-  overflow: hidden;
+  /*overflow: hidden*/;
   padding-top: 40px;
   margin-top: -40px;
 }
