@@ -7,7 +7,6 @@ jQuery(function($) {
         
         if ($("#page").height() < $(window).height() - $("footer").height()) {
             var diff = $(window).height() - $("footer").height() - $("#page").height() - 40;
-            console.log(diff);
             $("footer, #news, #news-wrapper").addClass('footerup');
             $("#news-wrapper").css({ "margin-top" : diff+"px" });
         }
