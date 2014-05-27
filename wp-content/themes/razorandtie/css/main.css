@@ -1007,6 +1007,11 @@ body.single-artist h2 {
   margin-bottom: -2px;
 }
 
+.maxlist-more {
+  clear: left;
+  margin-bottom: 20px;  
+}
+
 .audio {
   margin-bottom: 55px;
 }
