@@ -357,6 +357,7 @@
         <!-- Cover Art -->
         <div class="albums col-3">
             <h3>Cover Art</h3>
+            <div class="albums-container">
     <?php
             $i = 1;
             foreach( $albums as $album ) :
@@ -374,6 +375,7 @@
                 $i++;
             endforeach;
     ?>
+        </div>
         </div>
     <?php
         endif;
