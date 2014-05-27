@@ -1,5 +1,37 @@
 jQuery(function($) {
+
+    // Calculate home footer state
     
+    var homeFooter = function() {
+        $('body.home #page').waypoint('destroy');
+        
+        if ($("#page").height() < $(window).height() - $("footer").height()) {
+            var diff = $(window).height() - $("footer").height() - $("#page").height() - 40;
+            $("footer, #news, #news-wrapper").addClass('footerup');
+            $("#news-wrapper").css({ "margin-top" : diff+"px" });
+        }
+
+        if ($("#page").height() == $(window).height() - $("footer").height()) {
+            $("footer, #news, #news-wrapper").addClass('footerup');
+        }
+
+        else if ($("#page").height() > $(window).height()) {
+            $("footer, #news, #news-wrapper").removeClass('footerup').removeClass('footerdown');      
+            $("body.home #page").waypoint(function() {
+               $("footer, #news").toggleClass('footerup');
+            }, { offset: 'bottom-in-view' });
+        }
+        
+        else {
+            $("footer, #news, #news-wrapper").addClass('footerup');                
+            $("#news-wrapper").css({ "margin-top" : "-40px" });
+        }
+    }
+
+	$('#toggle-display a, ul#filters a').click(function() {
+        setTimeout(function(){ homeFooter(); }, 100);
+	});
+
     // Toggle Artist List
     // ******************
     // Between image and text
@@ -20,7 +52,7 @@ jQuery(function($) {
         
         $('#toggle-display a').bind('click', toggleDisplay);
     };
-    
+
     // Artist Category Filtering
     // *************************
     // Currently only appears on the homepage
@@ -139,7 +171,7 @@ jQuery(function($) {
                 maxht += $(".news-post:nth-child("+i+")").height() + 30;
             }
             
-            // Get mim height of drawer (only first news item visible)
+            // Get min height of drawer (only first news item visible)
             var minht = $(".news-post:nth-child(1)").height() + $(".news-wrapper h3").outerHeight(true) + 40 + 45;
 
             // Check which height applies 
@@ -147,7 +179,7 @@ jQuery(function($) {
                 $('#news').css({"height" : maxht + "px"});
             }
             else {
-                $('#news').css({"height" : minht + "px"});
+                $('#news, #news-wrapper').css({"height" : minht + "px"});
             }
         }
         
@@ -162,9 +194,17 @@ jQuery(function($) {
         // Toggle Latest News expanding drawer
         // ***********************************
         $('.news-trigger-bg,.news-trigger').click(function() {
-            $('#news,.news-trigger,.news-post').toggleClass('news-expanded');
+            $('#news-wrapper,#news,.news-trigger,.news-post').toggleClass('news-expanded');
             newsHeight();
         });
+        
+        
+        // Homepage Footer slide
+
+        $(window).resize(function() {
+            setTimeout(function(){ homeFooter(); }, 100);
+        });
+        
 
         // Toggle Nav/menu for iPad/mobile
         // ***********************************
@@ -193,6 +233,16 @@ jQuery(function($) {
 
         $('#news').on('click', '#pagination a', getNewsPage);
         
+        
+
+        // Max-Hide-List for Press Assets 
+        // **************************
+        $('ul.press-assets-list').hideMaxListItems({
+        'max':5,
+        'speed':200,
+        'moreText':'See more ([COUNT])',
+        'lessText':'See less'
+        });
         
         // Fire FitVids
         // ************

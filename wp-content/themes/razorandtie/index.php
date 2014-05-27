@@ -66,15 +66,17 @@
       
 </section> <!-- /.primary -->
 
-<section id="news">
-  <div class="news-trigger-container">
-    <div class="news-trigger"></div>
-    <div class="news-trigger-bg"><span></span></div>
-  </div>
-  <?php
-      // Get news posts
-      include('content-news.php');
-  ?>
-</section>
+<div id="news-wrapper">
+  <section id="news">
+    <div class="news-trigger-container">
+      <div class="news-trigger"></div>
+      <div class="news-trigger-bg"><span></span></div>
+    </div>
+    <?php
+        // Get news posts
+        include('content-news.php');
+    ?>
+  </section>
+</div>
 
 <?php get_footer(); ?>

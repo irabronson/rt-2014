@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
    Black Day Creative / NYC / Ira Bronson
    www.blackdaycreative.com
-   May 7, 2014
+   May 26, 2014
 -------------------------------------------------------------- */
 
 /*Clearfixing main elements*/
@@ -85,7 +85,7 @@ p {
 }
 
 body.home #page {
-  margin-bottom: -616px; /* the bottom margin is the negative value of the footer's height */;
+  margin-bottom: 0px;
 }
 
 /*
@@ -98,8 +98,41 @@ footer, .push {
   position: relative;
 }
 
-body.home footer, body.home .push {
-  height: 616px; /* .push must be the same height as footer */
+
+@media (min-width: 767px) {
+
+  body.home footer {
+    position: relative;
+    z-index: 100;
+    -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+    -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+    -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
+    -o-transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+    transition: all 300ms cubic-bezier(.4,.04,.93,.1);
+  }
+  
+
+  body.home #page {
+    min-height: 0 !important;
+  }
+
+  body.home .push {
+    height: 0px !important; /* .push must be the same height as footer */
+  }
+
+  #news-wrapper.news-expanded {
+    overflow: visible;
+  }
+
+  #news.footerup {
+    position: absolute;
+    bottom: 0 !important;
+  }
+
+  #news-wrapper.footerup {
+    overflow: visible;
+  }
+
 }
 
 .push {
@@ -254,7 +287,7 @@ header.scrolled .section-inner.nav-expanded {
   background: url('../images/images-icons-sprite.png') no-repeat left top;
 }
 
-.no-touch header.scrolled #logo a {
+header.scrolled #logo a {
   width: 265px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -636,6 +669,15 @@ body.home .primary {
 
 /* News
 -------------------- */
+
+#news-wrapper {
+  position: relative;
+  clear: both;
+  /*overflow: hidden*/;
+  padding-top: 40px;
+  margin-top: -40px;
+}
+
 #news {
   background: rgba(46, 46, 46, 0.98);
   bottom: 0;
@@ -720,7 +762,6 @@ body.home .primary {
 
 .news-post {
   color: #ddd;
-	margin-bottom:100px;
   -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
@@ -728,8 +769,12 @@ body.home .primary {
   transition: all 300ms cubic-bezier(.4,.04,.93,.1);
 }
 
+.news-content .news-post:first-child {
+  margin-bottom:70px;
+}
+
 .news-expanded .news-post {
-	margin-bottom:30px;
+	margin-bottom:30px !important;
 }
 
 .news-post a {
@@ -779,7 +824,9 @@ body.single-artist h2 {
   background: #e5e5e5 url('../images/images-icons-sprite.svg') no-repeat 125% -463px;
   margin: 0 auto 35px;
   overflow: hidden;
+  position: relative;
   width: 265px;
+  z-index: 2;
 }
 
 .no-svg .dropdown {
@@ -1267,11 +1314,37 @@ footer .section-inner {
   width: 980px;
 }
 
+/* Top of content */
+.touch #main {
+  margin-top: 40px;
+}
+
+/* Header
+-------------------- */
+.touch header {
+  padding-top: 30px;
+  position: relative;
+}
+
+.touch header .section-inner,
+.touch header.scrolled .section-inner {
+  height: 55px;
+}
+
+.touch header.scrolled #logo a {
+  width: 300px;
+}
+
 /* Grid of artists
 -------------------- */
 .artist-list .artist {
 	padding-bottom: 20%;
 	width: 20%;
+}
+
+.artist-list.text-display .artist {
+  margin-bottom: 30px;
+	width: 25%;
 }
 
 /* Artist detail page
@@ -1371,19 +1444,24 @@ body.about .secondary .section-inner .col-3:last-child {
 }
 
 /* Top of content */
-#main {
+.no-touch #main {
   margin-top: 40px;
 }
 
 /* Header
 -------------------- */
-header {
+.no-touch header {
   padding-top: 30px;
   position: relative;
 }
 
-header .section-inner {
+.no-touch header .section-inner,
+.no-touch header.scrolled .section-inner {
   height: 55px;
+}
+
+.no-touch header.scrolled #logo a {
+  width: 300px;
 }
 
 /* Nav
@@ -1426,7 +1504,7 @@ header .section-inner {
 }
 
 #nav-close.menu-expanded {
-  top: 39px;
+  top: 35px;
   -webkit-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -moz-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
   -ms-transition: all 300ms cubic-bezier(.4,.04,.93,.1); 
@@ -1488,7 +1566,7 @@ nav li {
 }
 
 .menu-primary-container {
-  padding-top: 34px;
+  padding-top: 29px;
   position: relative;
   margin: 0 auto;
   width: 538px;
@@ -1543,7 +1621,6 @@ nav li a:hover, nav li.current-menu-item > a, nav li.current-menu-parent > a, bo
   color: #333;
 }
 
-
 /* FOR PINK
 nav li a:link, nav li a:visited, nav li a:active {
   color: #222;
@@ -1552,8 +1629,6 @@ nav li a:link, nav li a:visited, nav li a:active {
 nav li a:hover, nav li.current-menu-item > a, nav li.current-menu-parent > a, body.artists nav li.menu-item-has-children > a, body.single-artist nav li.menu-item-has-children > a {
   color: #fff;
 } */
-
-
 
 nav li.menu-item-has-children > a {
   background: none;
@@ -1678,17 +1753,17 @@ body.contact h2 {
 }
 
 #main {
-  margin-top: 25px;
+  margin-top: 25px !important;
 }
 
 /* Logo, Nav
 --------------------------- */
 header {
-  padding-top: 20px;
+  padding-top: 20px !important;
 }
 
 header .section-inner {
-  height: 40px;
+  height: 40px !important;
   margin-bottom: 12px;
 }
 
@@ -1699,7 +1774,7 @@ header .section-inner {
 
 #logo a {
   padding-top: 36px;
-  width: 220px;
+  width: 220px !important;
 }
 
 nav {
@@ -1708,6 +1783,10 @@ nav {
 
 #nav-trigger span {
   height: 3px;
+}
+
+#nav-close.menu-expanded {
+  top: 23px;
 }
 
 /* Home, Artist Landing(s)
@@ -1768,6 +1847,10 @@ ul#filters li a:hover {
   position: relative;
 }
 
+#news-wrapper {
+  height: auto !important;
+}
+
 .news-wrapper {
   padding: 35px 0;
 }
@@ -1776,7 +1859,8 @@ ul#filters li a:hover {
   display: none;
 }
 
-.news-post {
+.news-post,
+.news-content .news-post:first-child {
   margin-bottom: 25px;
 }
 
@@ -1914,6 +1998,10 @@ footer, .push {
   margin-bottom: -372px;
 }
 
+body.home #page {
+  margin-bottom: -372px !important;  
+}
+
 footer .section-inner {
   padding-top: 45px;
 }
@@ -1939,7 +2027,7 @@ footer .section-inner {
 @media screen and (max-width:505px) {
 
 #nav-close {
-  right: 17px;
+  right: 20px;
 }
 
 body.home .primary .section-inner {
@@ -2042,7 +2130,7 @@ ul#filters li a.active, ul#filters li a.active:hover {
 
 /* Footer/page height */
 body.home #page {
-  margin-bottom: -372px; /* the bottom margin is the negative value of the footer's height */;
+  margin-bottom: -372px !important; /* the bottom margin is the negative value of the footer's height */;
 }
 
 body.home footer, body.home .push {
