@@ -201,7 +201,6 @@ jQuery(function($) {
         
         // Homepage Footer slide
 
-
         $(window).resize(function() {
             setTimeout(function(){ homeFooter(); }, 100);
         });
@@ -234,6 +233,16 @@ jQuery(function($) {
 
         $('#news').on('click', '#pagination a', getNewsPage);
         
+        
+
+        // Max-Hide-List for Press Assets 
+        // **************************
+        $('ul.press-assets-list').hideMaxListItems({
+        'max':5,
+        'speed':200,
+        'moreText':'See more ([COUNT])',
+        'lessText':'See less'
+        });
         
         // Fire FitVids
         // ************
