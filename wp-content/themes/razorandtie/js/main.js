@@ -235,14 +235,24 @@ jQuery(function($) {
         
         
 
-        // Max-Hide-List for Press Assets 
+        // Max-Hide-List 
         // **************************
+        // li list 
         $('ul.press-assets-list').hideMaxListItems({
         'max':5,
         'speed':200,
         'moreText':'See more ([COUNT])',
         'lessText':'See less'
         });
+
+        // div list 
+        $('div.albums-container').hideMaxListItems({
+        'max':4,
+        'speed':200,
+        'moreText':'See more ([COUNT])',
+        'lessText':'See less'
+        });
+
         
         // Fire FitVids
         // ************
