@@ -1661,6 +1661,12 @@ ul#filters li {
   width: 33.333%;
 }
 
+/* Latest News
+-------------------- */
+#news {
+  font-size: 1.1em;
+}
+
 /* Artist detail page
 -------------------- */
 .artist-info {
