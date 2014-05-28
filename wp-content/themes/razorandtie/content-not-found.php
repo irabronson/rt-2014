@@ -10,6 +10,6 @@
 <!-- Content-Not-Found Template -->
 <section class="primary">
     <div class="section-inner">
-        <p class="not-found">Sorry, we can't find what you're looking for.</p>
+        <p class="not-found">Sorry, we can't find what you're looking for. Visit the <a href="/">Razor &amp; Tie home page</a> or <a href="/contact">Contact us</a> with your inquiry.</p>
     </div>
 </section>
