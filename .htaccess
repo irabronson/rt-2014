@@ -9,3 +9,6 @@ RewriteRule . /index.php [L]
 
 # This allows you to redirect old urls to the homepage.
 Redirect 301 /artistpage.php /
+Redirect 301 /releaseschedule /
+Redirect 301 /tour /
+Redirect 301 /help /
