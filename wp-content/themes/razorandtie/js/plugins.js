@@ -21,11 +21,21 @@ jQuery(function($) {
     var m_names = new Array("January", "February", "March", 
         "April", "May", "June", "July", "August", "September", 
         "October", "November", "December");
+    
+    // Use this fucntion to format for Safari < 6.0, IE and Android 2.3
+    var dateFromISO = function(str) {
+        var d = null;
+        d = str.split('T');
+        d[0].replace(/^(\d\d\d\d)-(\d\d)-(\d\d)$/, function(_, y, m, d) {
+        date = new Date(parseInt(y, 10), parseInt(m, 10) - 1, parseInt(d, 10));
+        });
         
+        return date;
+    };
+    
     // Format dates from json data
     var formatDate = function(date) {
-    
-      var d = new Date(date);
+      var d = new Date(dateFromISO(date));
       var day = d.getDate();
       var month = d.getMonth();
       var year = d.getFullYear();
