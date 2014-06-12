@@ -1,5 +1,3 @@
-<section class="primary">
-  <section class="section-inner">
     <?php
         // Get current date for New York
         // Previously used _log(date('Y-m-d',strtotime("today")));
@@ -21,6 +19,8 @@
         
         if( $upcomingRows ) :
     ?>
+    <section class="primary">
+      <section class="section-inner">
         <div class="upcoming-releases">
             <h2>Upcoming Releases</h2>
             <div class="releases">
@@ -65,15 +65,13 @@
     ?>
             </div>
         </div>
+      </section><!-- .section-inner -->
+    </section>
     <?php
         endif;
     ?>
-  </section><!-- .section-inner -->
-</section>
 
 
-<section class="secondary">
-  <section class="section-inner">
     <?php
         // get all rows from the postmeta table where the sub_field (type) equals 'type_3'
         // - http://codex.wordpress.org/Class_Reference/wpdb#SELECT_Generic_Results
@@ -91,6 +89,8 @@
         
         if( $recentRows ) :
     ?>
+    <section class="secondary">
+      <section class="section-inner">
         <div class="new-releases">
             <h2>New Releases</h2>
             <div class="releases">
@@ -134,8 +134,8 @@
     ?>
             </div>
         </div>
+      </section><!-- .section-inner -->
+    </section>
     <?php
         endif;
     ?>
-  </section><!-- .section-inner -->
-</section>
