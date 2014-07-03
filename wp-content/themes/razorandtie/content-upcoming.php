@@ -1,4 +1,5 @@
     <?php
+        $artists_page = get_page_by_title('artists');
         // Get current date for New York
         // Previously used _log(date('Y-m-d',strtotime("today")));
         $getToday = new DateTime('now', new DateTimeZone('America/New_York'));
@@ -17,7 +18,6 @@
              $today // meta_value: 'type_3' for example
         ));
         
-        if( $upcomingRows ) :
     ?>
     <section class="primary">
       <section class="section-inner">
@@ -25,6 +25,8 @@
             <h2>Upcoming Releases</h2>
             <div class="releases">
     <?php
+        
+        if( $upcomingRows ) :
             foreach( $upcomingRows as $upcomingRow ) :
                 
                 $post = get_post($upcomingRow->post_id);
@@ -58,18 +60,20 @@
                             </p>
                         </a>
                     </div>
-    <?php
+    // <?php
                 endif;
                 
             endforeach;
+        else :
+    ?>
+        <p>There are no upcoming releases at the moment. Check again soon or browse our <a href="<?php echo $artists_page->guid; ?>">artists</a> for press assets, tour dates, audio, and video.</p>
+    <?php
+        endif;
     ?>
             </div>
         </div>
       </section><!-- .section-inner -->
     </section>
-    <?php
-        endif;
-    ?>
 
 
     <?php
@@ -87,14 +91,14 @@
              $today
         ));
         
+        ?>
+        <section class="secondary">
+          <section class="section-inner">
+            <div class="new-releases">
+                <h2>New Releases</h2>
+                <div class="releases">
+        <?php
         if( $recentRows ) :
-    ?>
-    <section class="secondary">
-      <section class="section-inner">
-        <div class="new-releases">
-            <h2>New Releases</h2>
-            <div class="releases">
-    <?php
             foreach( $recentRows as $recentRow ) :
                 
                 $post = get_post($recentRow->post_id);
@@ -131,11 +135,14 @@
     <?php
                 endif;
             endforeach;
+        else :
+    ?>
+        <p>There are no new releases at the moment. Check again soon or browse our <a href="<?php echo $artists_page->guid; ?>">artists</a> for press assets, tour dates, audio, and video.</p>
+    <?php
+        endif;
     ?>
             </div>
         </div>
       </section><!-- .section-inner -->
     </section>
-    <?php
-        endif;
-    ?>
+    
