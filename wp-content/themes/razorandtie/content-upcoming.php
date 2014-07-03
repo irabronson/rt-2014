@@ -60,7 +60,7 @@
                             </p>
                         </a>
                     </div>
-    // <?php
+    <?php
                 endif;
                 
             endforeach;
